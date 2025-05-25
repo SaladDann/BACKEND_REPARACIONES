@@ -9,15 +9,15 @@ datasource db {
 }
 
 model tb_cliente {
-  ID_Cliente Int           @id @default(autoincrement())
-  Cedula     String        @db.VarChar(20)
-  Nombres    String        @db.VarChar(100)
-  Apellidos  String        @db.VarChar(100)
-  Telefono   String        @db.VarChar(20)
-  Email      String        @db.VarChar(100)
-  Direccion  String        @db.VarChar(150)
+  ID_Cliente   Int           @id @default(autoincrement())
+  Cedula       String        @db.VarChar(20)
+  Nombres      String        @db.VarChar(100)
+  Apellidos    String        @db.VarChar(100)
+  Telefono     String        @db.VarChar(20)
+  Email        String        @db.VarChar(100)
+  Direccion    String        @db.VarChar(150)
 
-  equipos     tb_equipo[]
+  equipos      tb_equipo[]
   reparaciones tb_reparacion[]
   usuarios     tb_usuario[]
 }
@@ -44,71 +44,107 @@ model tb_usuario {
   ID_Cliente       Int?
   ID_Tecnico       Int?
 
-  cliente tb_cliente? @relation(fields: [ID_Cliente], references: [ID_Cliente])
-  tecnico tb_tecnico? @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
+  cliente          tb_cliente?               @relation(fields: [ID_Cliente], references: [ID_Cliente])
+  tecnico          tb_tecnico?               @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
+  notificaciones   tb_notificacion[]
+  estados_aprobados tb_estado_reparacion[]   @relation("UsuarioAprobador")
 }
 
 model tb_equipo {
-  ID_Equipo            Int      @id @default(autoincrement())
+  ID_Equipo            Int           @id @default(autoincrement())
   ID_Cliente           Int
-  Nombre               String   @db.VarChar(100)
-  Marca                String?  @db.VarChar(100)
-  Modelo               String?  @db.VarChar(100)
-  Descripcion_problema String?  @db.Text
-  Estado               String?  @db.VarChar(50)
+  Nombre               String        @db.VarChar(100)
+  Marca                String?       @db.VarChar(100)
+  Modelo               String?       @db.VarChar(100)
+  Descripcion_problema String?       @db.Text
+  Estado               String?       @db.VarChar(50)
 
   cliente     tb_cliente    @relation(fields: [ID_Cliente], references: [ID_Cliente])
   reparaciones tb_reparacion[]
 }
 
 model tb_repuesto {
-  ID_Repuesto Int     @id @default(autoincrement())
-  Nombre      String  @db.VarChar(100)
-  Precio      Decimal @db.Decimal(10, 2)
+  ID_Repuesto Int           @id @default(autoincrement())
+  Nombre      String        @db.VarChar(100)
+  Precio      Decimal       @db.Decimal(10, 2)
 
-  detalles tb_detalle_reparacion_repuesto[]
+  detalles    tb_detalle_reparacion_repuesto[]
 }
 
 model tb_reparacion {
-  ID_Reparacion Int      @id @default(autoincrement())
+  ID_Reparacion Int            @id @default(autoincrement())
   ID_Cliente    Int
   ID_Tecnico    Int
   ID_Equipo     Int
-  Fecha_Ingreso DateTime @db.DateTime(0)
-  Fecha_Entrega DateTime @db.DateTime(0)
-  CostoServicio Decimal  @db.Decimal(10, 2)
-  IVA           Decimal  @db.Decimal(10, 2)
-  Total         Decimal  @db.Decimal(10, 2)
+  Fecha_Ingreso DateTime       @db.DateTime(0)
+  Fecha_Entrega DateTime       @db.DateTime(0)
+  CostoServicio Decimal        @db.Decimal(10, 2)
+  IVA           Decimal        @db.Decimal(10, 2)
+  Total         Decimal        @db.Decimal(10, 2)
 
-  cliente  tb_cliente  @relation(fields: [ID_Cliente], references: [ID_Cliente])
-  tecnico  tb_tecnico  @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
-  equipo   tb_equipo   @relation(fields: [ID_Equipo], references: [ID_Equipo])
-
-  estados  tb_estado_reparacion[]
-  detalles tb_detalle_reparacion_repuesto[]
+  cliente      tb_cliente         @relation(fields: [ID_Cliente], references: [ID_Cliente])
+  tecnico      tb_tecnico         @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
+  equipo       tb_equipo          @relation(fields: [ID_Equipo], references: [ID_Equipo])
+  estados      tb_estado_reparacion[]
+  detalles     tb_detalle_reparacion_repuesto[]
+  factura      tb_factura?        // RELACIÓN SIN ARGUMENTOS AQUÍ
 }
 
 model tb_detalle_reparacion_repuesto {
-  ID_Detalle    Int     @id @default(autoincrement())
+  ID_Detalle    Int      @id @default(autoincrement())
   ID_Reparacion Int
   ID_Repuesto   Int
   Cantidad      Int
-  Subtotal      Decimal @db.Decimal(10, 2)
+  Subtotal      Decimal  @db.Decimal(10, 2)
 
-  reparacion tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
-  repuesto   tb_repuesto   @relation(fields: [ID_Repuesto], references: [ID_Repuesto])
+  reparacion   tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+  repuesto     tb_repuesto   @relation(fields: [ID_Repuesto], references: [ID_Repuesto])
 }
 
 model tb_estado_reparacion {
-  ID_Estado           Int      @id @default(autoincrement())
+  ID_Estado           Int       @id @default(autoincrement())
   ID_Reparacion       Int
-  FechaHora           DateTime @default(now()) @db.DateTime(0)
-  Estado              String   @db.VarChar(100)
-  Descripcion         String?  @db.Text
-  Requiere_Aprobacion Boolean? @default(false)
+  FechaHora           DateTime  @default(now()) @db.DateTime(0)
+  Estado              String    @db.VarChar(100)
+  Descripcion         String?   @db.Text
+  Requiere_Aprobacion Boolean?  @default(false)
   Aprobado            Boolean?
+  ID_Usuario_Aprobado Int?      
+  Fecha_Aprobacion    DateTime? @db.DateTime(0)
 
-  reparacion tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+  reparacion          tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+  usuario_aprobador   tb_usuario?   @relation("UsuarioAprobador", fields: [ID_Usuario_Aprobado], references: [ID_Usuario])
+
+  @@index([ID_Reparacion])
+  @@index([ID_Usuario_Aprobado])
+}
+
+model tb_factura {
+  ID_Factura      Int        @id @default(autoincrement())
+  ID_Reparacion   Int        @unique
+  Fecha_Emision   DateTime   @default(now()) @db.DateTime(0)
+  Subtotal        Decimal    @db.Decimal(10, 2)
+  IVA             Decimal    @db.Decimal(10, 2)
+  Total           Decimal    @db.Decimal(10, 2)
+  Metodo_Pago     String?    @db.VarChar(50)
+  Estado          String     @db.VarChar(50)
+
+  reparacion      tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+
+  @@index([ID_Reparacion])
+}
+
+model tb_notificacion {
+  ID_Notificacion Int        @id @default(autoincrement())
+  ID_Usuario      Int
+  Tipo            String     @db.VarChar(50)
+  Mensaje         String     @db.Text
+  Estado_Leido    Boolean    @default(false)
+  Fecha           DateTime   @default(now()) @db.DateTime(0)
+
+  usuario         tb_usuario @relation(fields: [ID_Usuario], references: [ID_Usuario])
+
+  @@index([ID_Usuario])
 }
 
 enum tb_usuario_Usuario_nivel {

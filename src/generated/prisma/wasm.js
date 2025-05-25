@@ -193,7 +193,29 @@ exports.Prisma.Tb_estado_reparacionScalarFieldEnum = {
   Estado: 'Estado',
   Descripcion: 'Descripcion',
   Requiere_Aprobacion: 'Requiere_Aprobacion',
-  Aprobado: 'Aprobado'
+  Aprobado: 'Aprobado',
+  ID_Usuario_Aprobado: 'ID_Usuario_Aprobado',
+  Fecha_Aprobacion: 'Fecha_Aprobacion'
+};
+
+exports.Prisma.Tb_facturaScalarFieldEnum = {
+  ID_Factura: 'ID_Factura',
+  ID_Reparacion: 'ID_Reparacion',
+  Fecha_Emision: 'Fecha_Emision',
+  Subtotal: 'Subtotal',
+  IVA: 'IVA',
+  Total: 'Total',
+  Metodo_Pago: 'Metodo_Pago',
+  Estado: 'Estado'
+};
+
+exports.Prisma.Tb_notificacionScalarFieldEnum = {
+  ID_Notificacion: 'ID_Notificacion',
+  ID_Usuario: 'ID_Usuario',
+  Tipo: 'Tipo',
+  Mensaje: 'Mensaje',
+  Estado_Leido: 'Estado_Leido',
+  Fecha: 'Fecha'
 };
 
 exports.Prisma.SortOrder = {
@@ -245,6 +267,16 @@ exports.Prisma.tb_estado_reparacionOrderByRelevanceFieldEnum = {
   Estado: 'Estado',
   Descripcion: 'Descripcion'
 };
+
+exports.Prisma.tb_facturaOrderByRelevanceFieldEnum = {
+  Metodo_Pago: 'Metodo_Pago',
+  Estado: 'Estado'
+};
+
+exports.Prisma.tb_notificacionOrderByRelevanceFieldEnum = {
+  Tipo: 'Tipo',
+  Mensaje: 'Mensaje'
+};
 exports.tb_usuario_Usuario_nivel = exports.$Enums.tb_usuario_Usuario_nivel = {
   Cliente: 'Cliente',
   Tecnico: 'Tecnico',
@@ -259,7 +291,9 @@ exports.Prisma.ModelName = {
   tb_repuesto: 'tb_repuesto',
   tb_reparacion: 'tb_reparacion',
   tb_detalle_reparacion_repuesto: 'tb_detalle_reparacion_repuesto',
-  tb_estado_reparacion: 'tb_estado_reparacion'
+  tb_estado_reparacion: 'tb_estado_reparacion',
+  tb_factura: 'tb_factura',
+  tb_notificacion: 'tb_notificacion'
 };
 
 /**

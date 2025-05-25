@@ -53,6 +53,16 @@ export type tb_detalle_reparacion_repuesto = $Result.DefaultSelection<Prisma.$tb
  * 
  */
 export type tb_estado_reparacion = $Result.DefaultSelection<Prisma.$tb_estado_reparacionPayload>
+/**
+ * Model tb_factura
+ * 
+ */
+export type tb_factura = $Result.DefaultSelection<Prisma.$tb_facturaPayload>
+/**
+ * Model tb_notificacion
+ * 
+ */
+export type tb_notificacion = $Result.DefaultSelection<Prisma.$tb_notificacionPayload>
 
 /**
  * Enums
@@ -276,6 +286,26 @@ export class PrismaClient<
     * ```
     */
   get tb_estado_reparacion(): Prisma.tb_estado_reparacionDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tb_factura`: Exposes CRUD operations for the **tb_factura** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tb_facturas
+    * const tb_facturas = await prisma.tb_factura.findMany()
+    * ```
+    */
+  get tb_factura(): Prisma.tb_facturaDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.tb_notificacion`: Exposes CRUD operations for the **tb_notificacion** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Tb_notificacions
+    * const tb_notificacions = await prisma.tb_notificacion.findMany()
+    * ```
+    */
+  get tb_notificacion(): Prisma.tb_notificacionDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -723,7 +753,9 @@ export namespace Prisma {
     tb_repuesto: 'tb_repuesto',
     tb_reparacion: 'tb_reparacion',
     tb_detalle_reparacion_repuesto: 'tb_detalle_reparacion_repuesto',
-    tb_estado_reparacion: 'tb_estado_reparacion'
+    tb_estado_reparacion: 'tb_estado_reparacion',
+    tb_factura: 'tb_factura',
+    tb_notificacion: 'tb_notificacion'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -742,7 +774,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "tb_cliente" | "tb_tecnico" | "tb_usuario" | "tb_equipo" | "tb_repuesto" | "tb_reparacion" | "tb_detalle_reparacion_repuesto" | "tb_estado_reparacion"
+      modelProps: "tb_cliente" | "tb_tecnico" | "tb_usuario" | "tb_equipo" | "tb_repuesto" | "tb_reparacion" | "tb_detalle_reparacion_repuesto" | "tb_estado_reparacion" | "tb_factura" | "tb_notificacion"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1274,6 +1306,138 @@ export namespace Prisma {
           }
         }
       }
+      tb_factura: {
+        payload: Prisma.$tb_facturaPayload<ExtArgs>
+        fields: Prisma.tb_facturaFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.tb_facturaFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.tb_facturaFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload>
+          }
+          findFirst: {
+            args: Prisma.tb_facturaFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.tb_facturaFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload>
+          }
+          findMany: {
+            args: Prisma.tb_facturaFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload>[]
+          }
+          create: {
+            args: Prisma.tb_facturaCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload>
+          }
+          createMany: {
+            args: Prisma.tb_facturaCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.tb_facturaDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload>
+          }
+          update: {
+            args: Prisma.tb_facturaUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload>
+          }
+          deleteMany: {
+            args: Prisma.tb_facturaDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.tb_facturaUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.tb_facturaUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_facturaPayload>
+          }
+          aggregate: {
+            args: Prisma.Tb_facturaAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTb_factura>
+          }
+          groupBy: {
+            args: Prisma.tb_facturaGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Tb_facturaGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.tb_facturaCountArgs<ExtArgs>
+            result: $Utils.Optional<Tb_facturaCountAggregateOutputType> | number
+          }
+        }
+      }
+      tb_notificacion: {
+        payload: Prisma.$tb_notificacionPayload<ExtArgs>
+        fields: Prisma.tb_notificacionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.tb_notificacionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.tb_notificacionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload>
+          }
+          findFirst: {
+            args: Prisma.tb_notificacionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.tb_notificacionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload>
+          }
+          findMany: {
+            args: Prisma.tb_notificacionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload>[]
+          }
+          create: {
+            args: Prisma.tb_notificacionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload>
+          }
+          createMany: {
+            args: Prisma.tb_notificacionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          delete: {
+            args: Prisma.tb_notificacionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload>
+          }
+          update: {
+            args: Prisma.tb_notificacionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload>
+          }
+          deleteMany: {
+            args: Prisma.tb_notificacionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.tb_notificacionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.tb_notificacionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$tb_notificacionPayload>
+          }
+          aggregate: {
+            args: Prisma.Tb_notificacionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTb_notificacion>
+          }
+          groupBy: {
+            args: Prisma.tb_notificacionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Tb_notificacionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.tb_notificacionCountArgs<ExtArgs>
+            result: $Utils.Optional<Tb_notificacionCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1366,6 +1530,8 @@ export namespace Prisma {
     tb_reparacion?: tb_reparacionOmit
     tb_detalle_reparacion_repuesto?: tb_detalle_reparacion_repuestoOmit
     tb_estado_reparacion?: tb_estado_reparacionOmit
+    tb_factura?: tb_facturaOmit
+    tb_notificacion?: tb_notificacionOmit
   }
 
   /* Types for Logging */
@@ -1541,6 +1707,46 @@ export namespace Prisma {
    */
   export type Tb_tecnicoCountOutputTypeCountUsuariosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: tb_usuarioWhereInput
+  }
+
+
+  /**
+   * Count Type Tb_usuarioCountOutputType
+   */
+
+  export type Tb_usuarioCountOutputType = {
+    notificaciones: number
+    estados_aprobados: number
+  }
+
+  export type Tb_usuarioCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    notificaciones?: boolean | Tb_usuarioCountOutputTypeCountNotificacionesArgs
+    estados_aprobados?: boolean | Tb_usuarioCountOutputTypeCountEstados_aprobadosArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Tb_usuarioCountOutputType without action
+   */
+  export type Tb_usuarioCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Tb_usuarioCountOutputType
+     */
+    select?: Tb_usuarioCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Tb_usuarioCountOutputType without action
+   */
+  export type Tb_usuarioCountOutputTypeCountNotificacionesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tb_notificacionWhereInput
+  }
+
+  /**
+   * Tb_usuarioCountOutputType without action
+   */
+  export type Tb_usuarioCountOutputTypeCountEstados_aprobadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tb_estado_reparacionWhereInput
   }
 
 
@@ -3980,6 +4186,9 @@ export namespace Prisma {
     ID_Tecnico?: boolean
     cliente?: boolean | tb_usuario$clienteArgs<ExtArgs>
     tecnico?: boolean | tb_usuario$tecnicoArgs<ExtArgs>
+    notificaciones?: boolean | tb_usuario$notificacionesArgs<ExtArgs>
+    estados_aprobados?: boolean | tb_usuario$estados_aprobadosArgs<ExtArgs>
+    _count?: boolean | Tb_usuarioCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tb_usuario"]>
 
 
@@ -3998,6 +4207,9 @@ export namespace Prisma {
   export type tb_usuarioInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     cliente?: boolean | tb_usuario$clienteArgs<ExtArgs>
     tecnico?: boolean | tb_usuario$tecnicoArgs<ExtArgs>
+    notificaciones?: boolean | tb_usuario$notificacionesArgs<ExtArgs>
+    estados_aprobados?: boolean | tb_usuario$estados_aprobadosArgs<ExtArgs>
+    _count?: boolean | Tb_usuarioCountOutputTypeDefaultArgs<ExtArgs>
   }
 
   export type $tb_usuarioPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4005,6 +4217,8 @@ export namespace Prisma {
     objects: {
       cliente: Prisma.$tb_clientePayload<ExtArgs> | null
       tecnico: Prisma.$tb_tecnicoPayload<ExtArgs> | null
+      notificaciones: Prisma.$tb_notificacionPayload<ExtArgs>[]
+      estados_aprobados: Prisma.$tb_estado_reparacionPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       ID_Usuario: number
@@ -4356,6 +4570,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     cliente<T extends tb_usuario$clienteArgs<ExtArgs> = {}>(args?: Subset<T, tb_usuario$clienteArgs<ExtArgs>>): Prisma__tb_clienteClient<$Result.GetResult<Prisma.$tb_clientePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     tecnico<T extends tb_usuario$tecnicoArgs<ExtArgs> = {}>(args?: Subset<T, tb_usuario$tecnicoArgs<ExtArgs>>): Prisma__tb_tecnicoClient<$Result.GetResult<Prisma.$tb_tecnicoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    notificaciones<T extends tb_usuario$notificacionesArgs<ExtArgs> = {}>(args?: Subset<T, tb_usuario$notificacionesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    estados_aprobados<T extends tb_usuario$estados_aprobadosArgs<ExtArgs> = {}>(args?: Subset<T, tb_usuario$estados_aprobadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tb_estado_reparacionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4770,6 +4986,54 @@ export namespace Prisma {
      */
     include?: tb_tecnicoInclude<ExtArgs> | null
     where?: tb_tecnicoWhereInput
+  }
+
+  /**
+   * tb_usuario.notificaciones
+   */
+  export type tb_usuario$notificacionesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    where?: tb_notificacionWhereInput
+    orderBy?: tb_notificacionOrderByWithRelationInput | tb_notificacionOrderByWithRelationInput[]
+    cursor?: tb_notificacionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tb_notificacionScalarFieldEnum | Tb_notificacionScalarFieldEnum[]
+  }
+
+  /**
+   * tb_usuario.estados_aprobados
+   */
+  export type tb_usuario$estados_aprobadosArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_estado_reparacion
+     */
+    select?: tb_estado_reparacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_estado_reparacion
+     */
+    omit?: tb_estado_reparacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_estado_reparacionInclude<ExtArgs> | null
+    where?: tb_estado_reparacionWhereInput
+    orderBy?: tb_estado_reparacionOrderByWithRelationInput | tb_estado_reparacionOrderByWithRelationInput[]
+    cursor?: tb_estado_reparacionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Tb_estado_reparacionScalarFieldEnum | Tb_estado_reparacionScalarFieldEnum[]
   }
 
   /**
@@ -7040,6 +7304,7 @@ export namespace Prisma {
     equipo?: boolean | tb_equipoDefaultArgs<ExtArgs>
     estados?: boolean | tb_reparacion$estadosArgs<ExtArgs>
     detalles?: boolean | tb_reparacion$detallesArgs<ExtArgs>
+    factura?: boolean | tb_reparacion$facturaArgs<ExtArgs>
     _count?: boolean | Tb_reparacionCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["tb_reparacion"]>
 
@@ -7064,6 +7329,7 @@ export namespace Prisma {
     equipo?: boolean | tb_equipoDefaultArgs<ExtArgs>
     estados?: boolean | tb_reparacion$estadosArgs<ExtArgs>
     detalles?: boolean | tb_reparacion$detallesArgs<ExtArgs>
+    factura?: boolean | tb_reparacion$facturaArgs<ExtArgs>
     _count?: boolean | Tb_reparacionCountOutputTypeDefaultArgs<ExtArgs>
   }
 
@@ -7075,6 +7341,7 @@ export namespace Prisma {
       equipo: Prisma.$tb_equipoPayload<ExtArgs>
       estados: Prisma.$tb_estado_reparacionPayload<ExtArgs>[]
       detalles: Prisma.$tb_detalle_reparacion_repuestoPayload<ExtArgs>[]
+      factura: Prisma.$tb_facturaPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       ID_Reparacion: number
@@ -7431,6 +7698,7 @@ export namespace Prisma {
     equipo<T extends tb_equipoDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tb_equipoDefaultArgs<ExtArgs>>): Prisma__tb_equipoClient<$Result.GetResult<Prisma.$tb_equipoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     estados<T extends tb_reparacion$estadosArgs<ExtArgs> = {}>(args?: Subset<T, tb_reparacion$estadosArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tb_estado_reparacionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     detalles<T extends tb_reparacion$detallesArgs<ExtArgs> = {}>(args?: Subset<T, tb_reparacion$detallesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tb_detalle_reparacion_repuestoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    factura<T extends tb_reparacion$facturaArgs<ExtArgs> = {}>(args?: Subset<T, tb_reparacion$facturaArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7857,6 +8125,25 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: Tb_detalle_reparacion_repuestoScalarFieldEnum | Tb_detalle_reparacion_repuestoScalarFieldEnum[]
+  }
+
+  /**
+   * tb_reparacion.factura
+   */
+  export type tb_reparacion$facturaArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    where?: tb_facturaWhereInput
   }
 
   /**
@@ -8876,11 +9163,13 @@ export namespace Prisma {
   export type Tb_estado_reparacionAvgAggregateOutputType = {
     ID_Estado: number | null
     ID_Reparacion: number | null
+    ID_Usuario_Aprobado: number | null
   }
 
   export type Tb_estado_reparacionSumAggregateOutputType = {
     ID_Estado: number | null
     ID_Reparacion: number | null
+    ID_Usuario_Aprobado: number | null
   }
 
   export type Tb_estado_reparacionMinAggregateOutputType = {
@@ -8891,6 +9180,8 @@ export namespace Prisma {
     Descripcion: string | null
     Requiere_Aprobacion: boolean | null
     Aprobado: boolean | null
+    ID_Usuario_Aprobado: number | null
+    Fecha_Aprobacion: Date | null
   }
 
   export type Tb_estado_reparacionMaxAggregateOutputType = {
@@ -8901,6 +9192,8 @@ export namespace Prisma {
     Descripcion: string | null
     Requiere_Aprobacion: boolean | null
     Aprobado: boolean | null
+    ID_Usuario_Aprobado: number | null
+    Fecha_Aprobacion: Date | null
   }
 
   export type Tb_estado_reparacionCountAggregateOutputType = {
@@ -8911,6 +9204,8 @@ export namespace Prisma {
     Descripcion: number
     Requiere_Aprobacion: number
     Aprobado: number
+    ID_Usuario_Aprobado: number
+    Fecha_Aprobacion: number
     _all: number
   }
 
@@ -8918,11 +9213,13 @@ export namespace Prisma {
   export type Tb_estado_reparacionAvgAggregateInputType = {
     ID_Estado?: true
     ID_Reparacion?: true
+    ID_Usuario_Aprobado?: true
   }
 
   export type Tb_estado_reparacionSumAggregateInputType = {
     ID_Estado?: true
     ID_Reparacion?: true
+    ID_Usuario_Aprobado?: true
   }
 
   export type Tb_estado_reparacionMinAggregateInputType = {
@@ -8933,6 +9230,8 @@ export namespace Prisma {
     Descripcion?: true
     Requiere_Aprobacion?: true
     Aprobado?: true
+    ID_Usuario_Aprobado?: true
+    Fecha_Aprobacion?: true
   }
 
   export type Tb_estado_reparacionMaxAggregateInputType = {
@@ -8943,6 +9242,8 @@ export namespace Prisma {
     Descripcion?: true
     Requiere_Aprobacion?: true
     Aprobado?: true
+    ID_Usuario_Aprobado?: true
+    Fecha_Aprobacion?: true
   }
 
   export type Tb_estado_reparacionCountAggregateInputType = {
@@ -8953,6 +9254,8 @@ export namespace Prisma {
     Descripcion?: true
     Requiere_Aprobacion?: true
     Aprobado?: true
+    ID_Usuario_Aprobado?: true
+    Fecha_Aprobacion?: true
     _all?: true
   }
 
@@ -9050,6 +9353,8 @@ export namespace Prisma {
     Descripcion: string | null
     Requiere_Aprobacion: boolean | null
     Aprobado: boolean | null
+    ID_Usuario_Aprobado: number | null
+    Fecha_Aprobacion: Date | null
     _count: Tb_estado_reparacionCountAggregateOutputType | null
     _avg: Tb_estado_reparacionAvgAggregateOutputType | null
     _sum: Tb_estado_reparacionSumAggregateOutputType | null
@@ -9079,7 +9384,10 @@ export namespace Prisma {
     Descripcion?: boolean
     Requiere_Aprobacion?: boolean
     Aprobado?: boolean
+    ID_Usuario_Aprobado?: boolean
+    Fecha_Aprobacion?: boolean
     reparacion?: boolean | tb_reparacionDefaultArgs<ExtArgs>
+    usuario_aprobador?: boolean | tb_estado_reparacion$usuario_aprobadorArgs<ExtArgs>
   }, ExtArgs["result"]["tb_estado_reparacion"]>
 
 
@@ -9092,17 +9400,21 @@ export namespace Prisma {
     Descripcion?: boolean
     Requiere_Aprobacion?: boolean
     Aprobado?: boolean
+    ID_Usuario_Aprobado?: boolean
+    Fecha_Aprobacion?: boolean
   }
 
-  export type tb_estado_reparacionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"ID_Estado" | "ID_Reparacion" | "FechaHora" | "Estado" | "Descripcion" | "Requiere_Aprobacion" | "Aprobado", ExtArgs["result"]["tb_estado_reparacion"]>
+  export type tb_estado_reparacionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"ID_Estado" | "ID_Reparacion" | "FechaHora" | "Estado" | "Descripcion" | "Requiere_Aprobacion" | "Aprobado" | "ID_Usuario_Aprobado" | "Fecha_Aprobacion", ExtArgs["result"]["tb_estado_reparacion"]>
   export type tb_estado_reparacionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     reparacion?: boolean | tb_reparacionDefaultArgs<ExtArgs>
+    usuario_aprobador?: boolean | tb_estado_reparacion$usuario_aprobadorArgs<ExtArgs>
   }
 
   export type $tb_estado_reparacionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "tb_estado_reparacion"
     objects: {
       reparacion: Prisma.$tb_reparacionPayload<ExtArgs>
+      usuario_aprobador: Prisma.$tb_usuarioPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       ID_Estado: number
@@ -9112,6 +9424,8 @@ export namespace Prisma {
       Descripcion: string | null
       Requiere_Aprobacion: boolean | null
       Aprobado: boolean | null
+      ID_Usuario_Aprobado: number | null
+      Fecha_Aprobacion: Date | null
     }, ExtArgs["result"]["tb_estado_reparacion"]>
     composites: {}
   }
@@ -9453,6 +9767,7 @@ export namespace Prisma {
   export interface Prisma__tb_estado_reparacionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     reparacion<T extends tb_reparacionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tb_reparacionDefaultArgs<ExtArgs>>): Prisma__tb_reparacionClient<$Result.GetResult<Prisma.$tb_reparacionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    usuario_aprobador<T extends tb_estado_reparacion$usuario_aprobadorArgs<ExtArgs> = {}>(args?: Subset<T, tb_estado_reparacion$usuario_aprobadorArgs<ExtArgs>>): Prisma__tb_usuarioClient<$Result.GetResult<Prisma.$tb_usuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -9489,6 +9804,8 @@ export namespace Prisma {
     readonly Descripcion: FieldRef<"tb_estado_reparacion", 'String'>
     readonly Requiere_Aprobacion: FieldRef<"tb_estado_reparacion", 'Boolean'>
     readonly Aprobado: FieldRef<"tb_estado_reparacion", 'Boolean'>
+    readonly ID_Usuario_Aprobado: FieldRef<"tb_estado_reparacion", 'Int'>
+    readonly Fecha_Aprobacion: FieldRef<"tb_estado_reparacion", 'DateTime'>
   }
     
 
@@ -9832,6 +10149,25 @@ export namespace Prisma {
   }
 
   /**
+   * tb_estado_reparacion.usuario_aprobador
+   */
+  export type tb_estado_reparacion$usuario_aprobadorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_usuario
+     */
+    select?: tb_usuarioSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_usuario
+     */
+    omit?: tb_usuarioOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_usuarioInclude<ExtArgs> | null
+    where?: tb_usuarioWhereInput
+  }
+
+  /**
    * tb_estado_reparacion without action
    */
   export type tb_estado_reparacionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9847,6 +10183,1996 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: tb_estado_reparacionInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model tb_factura
+   */
+
+  export type AggregateTb_factura = {
+    _count: Tb_facturaCountAggregateOutputType | null
+    _avg: Tb_facturaAvgAggregateOutputType | null
+    _sum: Tb_facturaSumAggregateOutputType | null
+    _min: Tb_facturaMinAggregateOutputType | null
+    _max: Tb_facturaMaxAggregateOutputType | null
+  }
+
+  export type Tb_facturaAvgAggregateOutputType = {
+    ID_Factura: number | null
+    ID_Reparacion: number | null
+    Subtotal: Decimal | null
+    IVA: Decimal | null
+    Total: Decimal | null
+  }
+
+  export type Tb_facturaSumAggregateOutputType = {
+    ID_Factura: number | null
+    ID_Reparacion: number | null
+    Subtotal: Decimal | null
+    IVA: Decimal | null
+    Total: Decimal | null
+  }
+
+  export type Tb_facturaMinAggregateOutputType = {
+    ID_Factura: number | null
+    ID_Reparacion: number | null
+    Fecha_Emision: Date | null
+    Subtotal: Decimal | null
+    IVA: Decimal | null
+    Total: Decimal | null
+    Metodo_Pago: string | null
+    Estado: string | null
+  }
+
+  export type Tb_facturaMaxAggregateOutputType = {
+    ID_Factura: number | null
+    ID_Reparacion: number | null
+    Fecha_Emision: Date | null
+    Subtotal: Decimal | null
+    IVA: Decimal | null
+    Total: Decimal | null
+    Metodo_Pago: string | null
+    Estado: string | null
+  }
+
+  export type Tb_facturaCountAggregateOutputType = {
+    ID_Factura: number
+    ID_Reparacion: number
+    Fecha_Emision: number
+    Subtotal: number
+    IVA: number
+    Total: number
+    Metodo_Pago: number
+    Estado: number
+    _all: number
+  }
+
+
+  export type Tb_facturaAvgAggregateInputType = {
+    ID_Factura?: true
+    ID_Reparacion?: true
+    Subtotal?: true
+    IVA?: true
+    Total?: true
+  }
+
+  export type Tb_facturaSumAggregateInputType = {
+    ID_Factura?: true
+    ID_Reparacion?: true
+    Subtotal?: true
+    IVA?: true
+    Total?: true
+  }
+
+  export type Tb_facturaMinAggregateInputType = {
+    ID_Factura?: true
+    ID_Reparacion?: true
+    Fecha_Emision?: true
+    Subtotal?: true
+    IVA?: true
+    Total?: true
+    Metodo_Pago?: true
+    Estado?: true
+  }
+
+  export type Tb_facturaMaxAggregateInputType = {
+    ID_Factura?: true
+    ID_Reparacion?: true
+    Fecha_Emision?: true
+    Subtotal?: true
+    IVA?: true
+    Total?: true
+    Metodo_Pago?: true
+    Estado?: true
+  }
+
+  export type Tb_facturaCountAggregateInputType = {
+    ID_Factura?: true
+    ID_Reparacion?: true
+    Fecha_Emision?: true
+    Subtotal?: true
+    IVA?: true
+    Total?: true
+    Metodo_Pago?: true
+    Estado?: true
+    _all?: true
+  }
+
+  export type Tb_facturaAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tb_factura to aggregate.
+     */
+    where?: tb_facturaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tb_facturas to fetch.
+     */
+    orderBy?: tb_facturaOrderByWithRelationInput | tb_facturaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: tb_facturaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tb_facturas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tb_facturas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned tb_facturas
+    **/
+    _count?: true | Tb_facturaCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Tb_facturaAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Tb_facturaSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Tb_facturaMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Tb_facturaMaxAggregateInputType
+  }
+
+  export type GetTb_facturaAggregateType<T extends Tb_facturaAggregateArgs> = {
+        [P in keyof T & keyof AggregateTb_factura]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTb_factura[P]>
+      : GetScalarType<T[P], AggregateTb_factura[P]>
+  }
+
+
+
+
+  export type tb_facturaGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tb_facturaWhereInput
+    orderBy?: tb_facturaOrderByWithAggregationInput | tb_facturaOrderByWithAggregationInput[]
+    by: Tb_facturaScalarFieldEnum[] | Tb_facturaScalarFieldEnum
+    having?: tb_facturaScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Tb_facturaCountAggregateInputType | true
+    _avg?: Tb_facturaAvgAggregateInputType
+    _sum?: Tb_facturaSumAggregateInputType
+    _min?: Tb_facturaMinAggregateInputType
+    _max?: Tb_facturaMaxAggregateInputType
+  }
+
+  export type Tb_facturaGroupByOutputType = {
+    ID_Factura: number
+    ID_Reparacion: number
+    Fecha_Emision: Date
+    Subtotal: Decimal
+    IVA: Decimal
+    Total: Decimal
+    Metodo_Pago: string | null
+    Estado: string
+    _count: Tb_facturaCountAggregateOutputType | null
+    _avg: Tb_facturaAvgAggregateOutputType | null
+    _sum: Tb_facturaSumAggregateOutputType | null
+    _min: Tb_facturaMinAggregateOutputType | null
+    _max: Tb_facturaMaxAggregateOutputType | null
+  }
+
+  type GetTb_facturaGroupByPayload<T extends tb_facturaGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Tb_facturaGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Tb_facturaGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Tb_facturaGroupByOutputType[P]>
+            : GetScalarType<T[P], Tb_facturaGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type tb_facturaSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ID_Factura?: boolean
+    ID_Reparacion?: boolean
+    Fecha_Emision?: boolean
+    Subtotal?: boolean
+    IVA?: boolean
+    Total?: boolean
+    Metodo_Pago?: boolean
+    Estado?: boolean
+    reparacion?: boolean | tb_reparacionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tb_factura"]>
+
+
+
+  export type tb_facturaSelectScalar = {
+    ID_Factura?: boolean
+    ID_Reparacion?: boolean
+    Fecha_Emision?: boolean
+    Subtotal?: boolean
+    IVA?: boolean
+    Total?: boolean
+    Metodo_Pago?: boolean
+    Estado?: boolean
+  }
+
+  export type tb_facturaOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"ID_Factura" | "ID_Reparacion" | "Fecha_Emision" | "Subtotal" | "IVA" | "Total" | "Metodo_Pago" | "Estado", ExtArgs["result"]["tb_factura"]>
+  export type tb_facturaInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    reparacion?: boolean | tb_reparacionDefaultArgs<ExtArgs>
+  }
+
+  export type $tb_facturaPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tb_factura"
+    objects: {
+      reparacion: Prisma.$tb_reparacionPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      ID_Factura: number
+      ID_Reparacion: number
+      Fecha_Emision: Date
+      Subtotal: Prisma.Decimal
+      IVA: Prisma.Decimal
+      Total: Prisma.Decimal
+      Metodo_Pago: string | null
+      Estado: string
+    }, ExtArgs["result"]["tb_factura"]>
+    composites: {}
+  }
+
+  type tb_facturaGetPayload<S extends boolean | null | undefined | tb_facturaDefaultArgs> = $Result.GetResult<Prisma.$tb_facturaPayload, S>
+
+  type tb_facturaCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<tb_facturaFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Tb_facturaCountAggregateInputType | true
+    }
+
+  export interface tb_facturaDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tb_factura'], meta: { name: 'tb_factura' } }
+    /**
+     * Find zero or one Tb_factura that matches the filter.
+     * @param {tb_facturaFindUniqueArgs} args - Arguments to find a Tb_factura
+     * @example
+     * // Get one Tb_factura
+     * const tb_factura = await prisma.tb_factura.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends tb_facturaFindUniqueArgs>(args: SelectSubset<T, tb_facturaFindUniqueArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Tb_factura that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {tb_facturaFindUniqueOrThrowArgs} args - Arguments to find a Tb_factura
+     * @example
+     * // Get one Tb_factura
+     * const tb_factura = await prisma.tb_factura.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends tb_facturaFindUniqueOrThrowArgs>(args: SelectSubset<T, tb_facturaFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tb_factura that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_facturaFindFirstArgs} args - Arguments to find a Tb_factura
+     * @example
+     * // Get one Tb_factura
+     * const tb_factura = await prisma.tb_factura.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends tb_facturaFindFirstArgs>(args?: SelectSubset<T, tb_facturaFindFirstArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tb_factura that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_facturaFindFirstOrThrowArgs} args - Arguments to find a Tb_factura
+     * @example
+     * // Get one Tb_factura
+     * const tb_factura = await prisma.tb_factura.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends tb_facturaFindFirstOrThrowArgs>(args?: SelectSubset<T, tb_facturaFindFirstOrThrowArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Tb_facturas that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_facturaFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tb_facturas
+     * const tb_facturas = await prisma.tb_factura.findMany()
+     * 
+     * // Get first 10 Tb_facturas
+     * const tb_facturas = await prisma.tb_factura.findMany({ take: 10 })
+     * 
+     * // Only select the `ID_Factura`
+     * const tb_facturaWithID_FacturaOnly = await prisma.tb_factura.findMany({ select: { ID_Factura: true } })
+     * 
+     */
+    findMany<T extends tb_facturaFindManyArgs>(args?: SelectSubset<T, tb_facturaFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Tb_factura.
+     * @param {tb_facturaCreateArgs} args - Arguments to create a Tb_factura.
+     * @example
+     * // Create one Tb_factura
+     * const Tb_factura = await prisma.tb_factura.create({
+     *   data: {
+     *     // ... data to create a Tb_factura
+     *   }
+     * })
+     * 
+     */
+    create<T extends tb_facturaCreateArgs>(args: SelectSubset<T, tb_facturaCreateArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Tb_facturas.
+     * @param {tb_facturaCreateManyArgs} args - Arguments to create many Tb_facturas.
+     * @example
+     * // Create many Tb_facturas
+     * const tb_factura = await prisma.tb_factura.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends tb_facturaCreateManyArgs>(args?: SelectSubset<T, tb_facturaCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Tb_factura.
+     * @param {tb_facturaDeleteArgs} args - Arguments to delete one Tb_factura.
+     * @example
+     * // Delete one Tb_factura
+     * const Tb_factura = await prisma.tb_factura.delete({
+     *   where: {
+     *     // ... filter to delete one Tb_factura
+     *   }
+     * })
+     * 
+     */
+    delete<T extends tb_facturaDeleteArgs>(args: SelectSubset<T, tb_facturaDeleteArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Tb_factura.
+     * @param {tb_facturaUpdateArgs} args - Arguments to update one Tb_factura.
+     * @example
+     * // Update one Tb_factura
+     * const tb_factura = await prisma.tb_factura.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends tb_facturaUpdateArgs>(args: SelectSubset<T, tb_facturaUpdateArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Tb_facturas.
+     * @param {tb_facturaDeleteManyArgs} args - Arguments to filter Tb_facturas to delete.
+     * @example
+     * // Delete a few Tb_facturas
+     * const { count } = await prisma.tb_factura.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends tb_facturaDeleteManyArgs>(args?: SelectSubset<T, tb_facturaDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tb_facturas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_facturaUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tb_facturas
+     * const tb_factura = await prisma.tb_factura.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends tb_facturaUpdateManyArgs>(args: SelectSubset<T, tb_facturaUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Tb_factura.
+     * @param {tb_facturaUpsertArgs} args - Arguments to update or create a Tb_factura.
+     * @example
+     * // Update or create a Tb_factura
+     * const tb_factura = await prisma.tb_factura.upsert({
+     *   create: {
+     *     // ... data to create a Tb_factura
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tb_factura we want to update
+     *   }
+     * })
+     */
+    upsert<T extends tb_facturaUpsertArgs>(args: SelectSubset<T, tb_facturaUpsertArgs<ExtArgs>>): Prisma__tb_facturaClient<$Result.GetResult<Prisma.$tb_facturaPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Tb_facturas.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_facturaCountArgs} args - Arguments to filter Tb_facturas to count.
+     * @example
+     * // Count the number of Tb_facturas
+     * const count = await prisma.tb_factura.count({
+     *   where: {
+     *     // ... the filter for the Tb_facturas we want to count
+     *   }
+     * })
+    **/
+    count<T extends tb_facturaCountArgs>(
+      args?: Subset<T, tb_facturaCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Tb_facturaCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tb_factura.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Tb_facturaAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Tb_facturaAggregateArgs>(args: Subset<T, Tb_facturaAggregateArgs>): Prisma.PrismaPromise<GetTb_facturaAggregateType<T>>
+
+    /**
+     * Group by Tb_factura.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_facturaGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends tb_facturaGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: tb_facturaGroupByArgs['orderBy'] }
+        : { orderBy?: tb_facturaGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, tb_facturaGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTb_facturaGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the tb_factura model
+   */
+  readonly fields: tb_facturaFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for tb_factura.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__tb_facturaClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    reparacion<T extends tb_reparacionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tb_reparacionDefaultArgs<ExtArgs>>): Prisma__tb_reparacionClient<$Result.GetResult<Prisma.$tb_reparacionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the tb_factura model
+   */
+  interface tb_facturaFieldRefs {
+    readonly ID_Factura: FieldRef<"tb_factura", 'Int'>
+    readonly ID_Reparacion: FieldRef<"tb_factura", 'Int'>
+    readonly Fecha_Emision: FieldRef<"tb_factura", 'DateTime'>
+    readonly Subtotal: FieldRef<"tb_factura", 'Decimal'>
+    readonly IVA: FieldRef<"tb_factura", 'Decimal'>
+    readonly Total: FieldRef<"tb_factura", 'Decimal'>
+    readonly Metodo_Pago: FieldRef<"tb_factura", 'String'>
+    readonly Estado: FieldRef<"tb_factura", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * tb_factura findUnique
+   */
+  export type tb_facturaFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_factura to fetch.
+     */
+    where: tb_facturaWhereUniqueInput
+  }
+
+  /**
+   * tb_factura findUniqueOrThrow
+   */
+  export type tb_facturaFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_factura to fetch.
+     */
+    where: tb_facturaWhereUniqueInput
+  }
+
+  /**
+   * tb_factura findFirst
+   */
+  export type tb_facturaFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_factura to fetch.
+     */
+    where?: tb_facturaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tb_facturas to fetch.
+     */
+    orderBy?: tb_facturaOrderByWithRelationInput | tb_facturaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tb_facturas.
+     */
+    cursor?: tb_facturaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tb_facturas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tb_facturas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tb_facturas.
+     */
+    distinct?: Tb_facturaScalarFieldEnum | Tb_facturaScalarFieldEnum[]
+  }
+
+  /**
+   * tb_factura findFirstOrThrow
+   */
+  export type tb_facturaFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_factura to fetch.
+     */
+    where?: tb_facturaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tb_facturas to fetch.
+     */
+    orderBy?: tb_facturaOrderByWithRelationInput | tb_facturaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tb_facturas.
+     */
+    cursor?: tb_facturaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tb_facturas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tb_facturas.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tb_facturas.
+     */
+    distinct?: Tb_facturaScalarFieldEnum | Tb_facturaScalarFieldEnum[]
+  }
+
+  /**
+   * tb_factura findMany
+   */
+  export type tb_facturaFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_facturas to fetch.
+     */
+    where?: tb_facturaWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tb_facturas to fetch.
+     */
+    orderBy?: tb_facturaOrderByWithRelationInput | tb_facturaOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing tb_facturas.
+     */
+    cursor?: tb_facturaWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tb_facturas from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tb_facturas.
+     */
+    skip?: number
+    distinct?: Tb_facturaScalarFieldEnum | Tb_facturaScalarFieldEnum[]
+  }
+
+  /**
+   * tb_factura create
+   */
+  export type tb_facturaCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tb_factura.
+     */
+    data: XOR<tb_facturaCreateInput, tb_facturaUncheckedCreateInput>
+  }
+
+  /**
+   * tb_factura createMany
+   */
+  export type tb_facturaCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many tb_facturas.
+     */
+    data: tb_facturaCreateManyInput | tb_facturaCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * tb_factura update
+   */
+  export type tb_facturaUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * The data needed to update a tb_factura.
+     */
+    data: XOR<tb_facturaUpdateInput, tb_facturaUncheckedUpdateInput>
+    /**
+     * Choose, which tb_factura to update.
+     */
+    where: tb_facturaWhereUniqueInput
+  }
+
+  /**
+   * tb_factura updateMany
+   */
+  export type tb_facturaUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update tb_facturas.
+     */
+    data: XOR<tb_facturaUpdateManyMutationInput, tb_facturaUncheckedUpdateManyInput>
+    /**
+     * Filter which tb_facturas to update
+     */
+    where?: tb_facturaWhereInput
+    /**
+     * Limit how many tb_facturas to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * tb_factura upsert
+   */
+  export type tb_facturaUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * The filter to search for the tb_factura to update in case it exists.
+     */
+    where: tb_facturaWhereUniqueInput
+    /**
+     * In case the tb_factura found by the `where` argument doesn't exist, create a new tb_factura with this data.
+     */
+    create: XOR<tb_facturaCreateInput, tb_facturaUncheckedCreateInput>
+    /**
+     * In case the tb_factura was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tb_facturaUpdateInput, tb_facturaUncheckedUpdateInput>
+  }
+
+  /**
+   * tb_factura delete
+   */
+  export type tb_facturaDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+    /**
+     * Filter which tb_factura to delete.
+     */
+    where: tb_facturaWhereUniqueInput
+  }
+
+  /**
+   * tb_factura deleteMany
+   */
+  export type tb_facturaDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tb_facturas to delete
+     */
+    where?: tb_facturaWhereInput
+    /**
+     * Limit how many tb_facturas to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * tb_factura without action
+   */
+  export type tb_facturaDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_factura
+     */
+    select?: tb_facturaSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_factura
+     */
+    omit?: tb_facturaOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_facturaInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model tb_notificacion
+   */
+
+  export type AggregateTb_notificacion = {
+    _count: Tb_notificacionCountAggregateOutputType | null
+    _avg: Tb_notificacionAvgAggregateOutputType | null
+    _sum: Tb_notificacionSumAggregateOutputType | null
+    _min: Tb_notificacionMinAggregateOutputType | null
+    _max: Tb_notificacionMaxAggregateOutputType | null
+  }
+
+  export type Tb_notificacionAvgAggregateOutputType = {
+    ID_Notificacion: number | null
+    ID_Usuario: number | null
+  }
+
+  export type Tb_notificacionSumAggregateOutputType = {
+    ID_Notificacion: number | null
+    ID_Usuario: number | null
+  }
+
+  export type Tb_notificacionMinAggregateOutputType = {
+    ID_Notificacion: number | null
+    ID_Usuario: number | null
+    Tipo: string | null
+    Mensaje: string | null
+    Estado_Leido: boolean | null
+    Fecha: Date | null
+  }
+
+  export type Tb_notificacionMaxAggregateOutputType = {
+    ID_Notificacion: number | null
+    ID_Usuario: number | null
+    Tipo: string | null
+    Mensaje: string | null
+    Estado_Leido: boolean | null
+    Fecha: Date | null
+  }
+
+  export type Tb_notificacionCountAggregateOutputType = {
+    ID_Notificacion: number
+    ID_Usuario: number
+    Tipo: number
+    Mensaje: number
+    Estado_Leido: number
+    Fecha: number
+    _all: number
+  }
+
+
+  export type Tb_notificacionAvgAggregateInputType = {
+    ID_Notificacion?: true
+    ID_Usuario?: true
+  }
+
+  export type Tb_notificacionSumAggregateInputType = {
+    ID_Notificacion?: true
+    ID_Usuario?: true
+  }
+
+  export type Tb_notificacionMinAggregateInputType = {
+    ID_Notificacion?: true
+    ID_Usuario?: true
+    Tipo?: true
+    Mensaje?: true
+    Estado_Leido?: true
+    Fecha?: true
+  }
+
+  export type Tb_notificacionMaxAggregateInputType = {
+    ID_Notificacion?: true
+    ID_Usuario?: true
+    Tipo?: true
+    Mensaje?: true
+    Estado_Leido?: true
+    Fecha?: true
+  }
+
+  export type Tb_notificacionCountAggregateInputType = {
+    ID_Notificacion?: true
+    ID_Usuario?: true
+    Tipo?: true
+    Mensaje?: true
+    Estado_Leido?: true
+    Fecha?: true
+    _all?: true
+  }
+
+  export type Tb_notificacionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tb_notificacion to aggregate.
+     */
+    where?: tb_notificacionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tb_notificacions to fetch.
+     */
+    orderBy?: tb_notificacionOrderByWithRelationInput | tb_notificacionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: tb_notificacionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tb_notificacions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tb_notificacions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned tb_notificacions
+    **/
+    _count?: true | Tb_notificacionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Tb_notificacionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Tb_notificacionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Tb_notificacionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Tb_notificacionMaxAggregateInputType
+  }
+
+  export type GetTb_notificacionAggregateType<T extends Tb_notificacionAggregateArgs> = {
+        [P in keyof T & keyof AggregateTb_notificacion]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTb_notificacion[P]>
+      : GetScalarType<T[P], AggregateTb_notificacion[P]>
+  }
+
+
+
+
+  export type tb_notificacionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: tb_notificacionWhereInput
+    orderBy?: tb_notificacionOrderByWithAggregationInput | tb_notificacionOrderByWithAggregationInput[]
+    by: Tb_notificacionScalarFieldEnum[] | Tb_notificacionScalarFieldEnum
+    having?: tb_notificacionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Tb_notificacionCountAggregateInputType | true
+    _avg?: Tb_notificacionAvgAggregateInputType
+    _sum?: Tb_notificacionSumAggregateInputType
+    _min?: Tb_notificacionMinAggregateInputType
+    _max?: Tb_notificacionMaxAggregateInputType
+  }
+
+  export type Tb_notificacionGroupByOutputType = {
+    ID_Notificacion: number
+    ID_Usuario: number
+    Tipo: string
+    Mensaje: string
+    Estado_Leido: boolean
+    Fecha: Date
+    _count: Tb_notificacionCountAggregateOutputType | null
+    _avg: Tb_notificacionAvgAggregateOutputType | null
+    _sum: Tb_notificacionSumAggregateOutputType | null
+    _min: Tb_notificacionMinAggregateOutputType | null
+    _max: Tb_notificacionMaxAggregateOutputType | null
+  }
+
+  type GetTb_notificacionGroupByPayload<T extends tb_notificacionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Tb_notificacionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Tb_notificacionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Tb_notificacionGroupByOutputType[P]>
+            : GetScalarType<T[P], Tb_notificacionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type tb_notificacionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    ID_Notificacion?: boolean
+    ID_Usuario?: boolean
+    Tipo?: boolean
+    Mensaje?: boolean
+    Estado_Leido?: boolean
+    Fecha?: boolean
+    usuario?: boolean | tb_usuarioDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["tb_notificacion"]>
+
+
+
+  export type tb_notificacionSelectScalar = {
+    ID_Notificacion?: boolean
+    ID_Usuario?: boolean
+    Tipo?: boolean
+    Mensaje?: boolean
+    Estado_Leido?: boolean
+    Fecha?: boolean
+  }
+
+  export type tb_notificacionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"ID_Notificacion" | "ID_Usuario" | "Tipo" | "Mensaje" | "Estado_Leido" | "Fecha", ExtArgs["result"]["tb_notificacion"]>
+  export type tb_notificacionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    usuario?: boolean | tb_usuarioDefaultArgs<ExtArgs>
+  }
+
+  export type $tb_notificacionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "tb_notificacion"
+    objects: {
+      usuario: Prisma.$tb_usuarioPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      ID_Notificacion: number
+      ID_Usuario: number
+      Tipo: string
+      Mensaje: string
+      Estado_Leido: boolean
+      Fecha: Date
+    }, ExtArgs["result"]["tb_notificacion"]>
+    composites: {}
+  }
+
+  type tb_notificacionGetPayload<S extends boolean | null | undefined | tb_notificacionDefaultArgs> = $Result.GetResult<Prisma.$tb_notificacionPayload, S>
+
+  type tb_notificacionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<tb_notificacionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Tb_notificacionCountAggregateInputType | true
+    }
+
+  export interface tb_notificacionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['tb_notificacion'], meta: { name: 'tb_notificacion' } }
+    /**
+     * Find zero or one Tb_notificacion that matches the filter.
+     * @param {tb_notificacionFindUniqueArgs} args - Arguments to find a Tb_notificacion
+     * @example
+     * // Get one Tb_notificacion
+     * const tb_notificacion = await prisma.tb_notificacion.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends tb_notificacionFindUniqueArgs>(args: SelectSubset<T, tb_notificacionFindUniqueArgs<ExtArgs>>): Prisma__tb_notificacionClient<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Tb_notificacion that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {tb_notificacionFindUniqueOrThrowArgs} args - Arguments to find a Tb_notificacion
+     * @example
+     * // Get one Tb_notificacion
+     * const tb_notificacion = await prisma.tb_notificacion.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends tb_notificacionFindUniqueOrThrowArgs>(args: SelectSubset<T, tb_notificacionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__tb_notificacionClient<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tb_notificacion that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_notificacionFindFirstArgs} args - Arguments to find a Tb_notificacion
+     * @example
+     * // Get one Tb_notificacion
+     * const tb_notificacion = await prisma.tb_notificacion.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends tb_notificacionFindFirstArgs>(args?: SelectSubset<T, tb_notificacionFindFirstArgs<ExtArgs>>): Prisma__tb_notificacionClient<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Tb_notificacion that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_notificacionFindFirstOrThrowArgs} args - Arguments to find a Tb_notificacion
+     * @example
+     * // Get one Tb_notificacion
+     * const tb_notificacion = await prisma.tb_notificacion.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends tb_notificacionFindFirstOrThrowArgs>(args?: SelectSubset<T, tb_notificacionFindFirstOrThrowArgs<ExtArgs>>): Prisma__tb_notificacionClient<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Tb_notificacions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_notificacionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Tb_notificacions
+     * const tb_notificacions = await prisma.tb_notificacion.findMany()
+     * 
+     * // Get first 10 Tb_notificacions
+     * const tb_notificacions = await prisma.tb_notificacion.findMany({ take: 10 })
+     * 
+     * // Only select the `ID_Notificacion`
+     * const tb_notificacionWithID_NotificacionOnly = await prisma.tb_notificacion.findMany({ select: { ID_Notificacion: true } })
+     * 
+     */
+    findMany<T extends tb_notificacionFindManyArgs>(args?: SelectSubset<T, tb_notificacionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Tb_notificacion.
+     * @param {tb_notificacionCreateArgs} args - Arguments to create a Tb_notificacion.
+     * @example
+     * // Create one Tb_notificacion
+     * const Tb_notificacion = await prisma.tb_notificacion.create({
+     *   data: {
+     *     // ... data to create a Tb_notificacion
+     *   }
+     * })
+     * 
+     */
+    create<T extends tb_notificacionCreateArgs>(args: SelectSubset<T, tb_notificacionCreateArgs<ExtArgs>>): Prisma__tb_notificacionClient<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Tb_notificacions.
+     * @param {tb_notificacionCreateManyArgs} args - Arguments to create many Tb_notificacions.
+     * @example
+     * // Create many Tb_notificacions
+     * const tb_notificacion = await prisma.tb_notificacion.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends tb_notificacionCreateManyArgs>(args?: SelectSubset<T, tb_notificacionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Delete a Tb_notificacion.
+     * @param {tb_notificacionDeleteArgs} args - Arguments to delete one Tb_notificacion.
+     * @example
+     * // Delete one Tb_notificacion
+     * const Tb_notificacion = await prisma.tb_notificacion.delete({
+     *   where: {
+     *     // ... filter to delete one Tb_notificacion
+     *   }
+     * })
+     * 
+     */
+    delete<T extends tb_notificacionDeleteArgs>(args: SelectSubset<T, tb_notificacionDeleteArgs<ExtArgs>>): Prisma__tb_notificacionClient<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Tb_notificacion.
+     * @param {tb_notificacionUpdateArgs} args - Arguments to update one Tb_notificacion.
+     * @example
+     * // Update one Tb_notificacion
+     * const tb_notificacion = await prisma.tb_notificacion.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends tb_notificacionUpdateArgs>(args: SelectSubset<T, tb_notificacionUpdateArgs<ExtArgs>>): Prisma__tb_notificacionClient<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Tb_notificacions.
+     * @param {tb_notificacionDeleteManyArgs} args - Arguments to filter Tb_notificacions to delete.
+     * @example
+     * // Delete a few Tb_notificacions
+     * const { count } = await prisma.tb_notificacion.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends tb_notificacionDeleteManyArgs>(args?: SelectSubset<T, tb_notificacionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Tb_notificacions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_notificacionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Tb_notificacions
+     * const tb_notificacion = await prisma.tb_notificacion.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends tb_notificacionUpdateManyArgs>(args: SelectSubset<T, tb_notificacionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Tb_notificacion.
+     * @param {tb_notificacionUpsertArgs} args - Arguments to update or create a Tb_notificacion.
+     * @example
+     * // Update or create a Tb_notificacion
+     * const tb_notificacion = await prisma.tb_notificacion.upsert({
+     *   create: {
+     *     // ... data to create a Tb_notificacion
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Tb_notificacion we want to update
+     *   }
+     * })
+     */
+    upsert<T extends tb_notificacionUpsertArgs>(args: SelectSubset<T, tb_notificacionUpsertArgs<ExtArgs>>): Prisma__tb_notificacionClient<$Result.GetResult<Prisma.$tb_notificacionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Tb_notificacions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_notificacionCountArgs} args - Arguments to filter Tb_notificacions to count.
+     * @example
+     * // Count the number of Tb_notificacions
+     * const count = await prisma.tb_notificacion.count({
+     *   where: {
+     *     // ... the filter for the Tb_notificacions we want to count
+     *   }
+     * })
+    **/
+    count<T extends tb_notificacionCountArgs>(
+      args?: Subset<T, tb_notificacionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Tb_notificacionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Tb_notificacion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Tb_notificacionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Tb_notificacionAggregateArgs>(args: Subset<T, Tb_notificacionAggregateArgs>): Prisma.PrismaPromise<GetTb_notificacionAggregateType<T>>
+
+    /**
+     * Group by Tb_notificacion.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {tb_notificacionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends tb_notificacionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: tb_notificacionGroupByArgs['orderBy'] }
+        : { orderBy?: tb_notificacionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, tb_notificacionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTb_notificacionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the tb_notificacion model
+   */
+  readonly fields: tb_notificacionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for tb_notificacion.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__tb_notificacionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    usuario<T extends tb_usuarioDefaultArgs<ExtArgs> = {}>(args?: Subset<T, tb_usuarioDefaultArgs<ExtArgs>>): Prisma__tb_usuarioClient<$Result.GetResult<Prisma.$tb_usuarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the tb_notificacion model
+   */
+  interface tb_notificacionFieldRefs {
+    readonly ID_Notificacion: FieldRef<"tb_notificacion", 'Int'>
+    readonly ID_Usuario: FieldRef<"tb_notificacion", 'Int'>
+    readonly Tipo: FieldRef<"tb_notificacion", 'String'>
+    readonly Mensaje: FieldRef<"tb_notificacion", 'String'>
+    readonly Estado_Leido: FieldRef<"tb_notificacion", 'Boolean'>
+    readonly Fecha: FieldRef<"tb_notificacion", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * tb_notificacion findUnique
+   */
+  export type tb_notificacionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_notificacion to fetch.
+     */
+    where: tb_notificacionWhereUniqueInput
+  }
+
+  /**
+   * tb_notificacion findUniqueOrThrow
+   */
+  export type tb_notificacionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_notificacion to fetch.
+     */
+    where: tb_notificacionWhereUniqueInput
+  }
+
+  /**
+   * tb_notificacion findFirst
+   */
+  export type tb_notificacionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_notificacion to fetch.
+     */
+    where?: tb_notificacionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tb_notificacions to fetch.
+     */
+    orderBy?: tb_notificacionOrderByWithRelationInput | tb_notificacionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tb_notificacions.
+     */
+    cursor?: tb_notificacionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tb_notificacions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tb_notificacions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tb_notificacions.
+     */
+    distinct?: Tb_notificacionScalarFieldEnum | Tb_notificacionScalarFieldEnum[]
+  }
+
+  /**
+   * tb_notificacion findFirstOrThrow
+   */
+  export type tb_notificacionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_notificacion to fetch.
+     */
+    where?: tb_notificacionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tb_notificacions to fetch.
+     */
+    orderBy?: tb_notificacionOrderByWithRelationInput | tb_notificacionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for tb_notificacions.
+     */
+    cursor?: tb_notificacionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tb_notificacions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tb_notificacions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of tb_notificacions.
+     */
+    distinct?: Tb_notificacionScalarFieldEnum | Tb_notificacionScalarFieldEnum[]
+  }
+
+  /**
+   * tb_notificacion findMany
+   */
+  export type tb_notificacionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * Filter, which tb_notificacions to fetch.
+     */
+    where?: tb_notificacionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of tb_notificacions to fetch.
+     */
+    orderBy?: tb_notificacionOrderByWithRelationInput | tb_notificacionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing tb_notificacions.
+     */
+    cursor?: tb_notificacionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` tb_notificacions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` tb_notificacions.
+     */
+    skip?: number
+    distinct?: Tb_notificacionScalarFieldEnum | Tb_notificacionScalarFieldEnum[]
+  }
+
+  /**
+   * tb_notificacion create
+   */
+  export type tb_notificacionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a tb_notificacion.
+     */
+    data: XOR<tb_notificacionCreateInput, tb_notificacionUncheckedCreateInput>
+  }
+
+  /**
+   * tb_notificacion createMany
+   */
+  export type tb_notificacionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many tb_notificacions.
+     */
+    data: tb_notificacionCreateManyInput | tb_notificacionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * tb_notificacion update
+   */
+  export type tb_notificacionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a tb_notificacion.
+     */
+    data: XOR<tb_notificacionUpdateInput, tb_notificacionUncheckedUpdateInput>
+    /**
+     * Choose, which tb_notificacion to update.
+     */
+    where: tb_notificacionWhereUniqueInput
+  }
+
+  /**
+   * tb_notificacion updateMany
+   */
+  export type tb_notificacionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update tb_notificacions.
+     */
+    data: XOR<tb_notificacionUpdateManyMutationInput, tb_notificacionUncheckedUpdateManyInput>
+    /**
+     * Filter which tb_notificacions to update
+     */
+    where?: tb_notificacionWhereInput
+    /**
+     * Limit how many tb_notificacions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * tb_notificacion upsert
+   */
+  export type tb_notificacionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the tb_notificacion to update in case it exists.
+     */
+    where: tb_notificacionWhereUniqueInput
+    /**
+     * In case the tb_notificacion found by the `where` argument doesn't exist, create a new tb_notificacion with this data.
+     */
+    create: XOR<tb_notificacionCreateInput, tb_notificacionUncheckedCreateInput>
+    /**
+     * In case the tb_notificacion was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<tb_notificacionUpdateInput, tb_notificacionUncheckedUpdateInput>
+  }
+
+  /**
+   * tb_notificacion delete
+   */
+  export type tb_notificacionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
+    /**
+     * Filter which tb_notificacion to delete.
+     */
+    where: tb_notificacionWhereUniqueInput
+  }
+
+  /**
+   * tb_notificacion deleteMany
+   */
+  export type tb_notificacionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which tb_notificacions to delete
+     */
+    where?: tb_notificacionWhereInput
+    /**
+     * Limit how many tb_notificacions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * tb_notificacion without action
+   */
+  export type tb_notificacionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the tb_notificacion
+     */
+    select?: tb_notificacionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the tb_notificacion
+     */
+    omit?: tb_notificacionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: tb_notificacionInclude<ExtArgs> | null
   }
 
 
@@ -9958,10 +12284,38 @@ export namespace Prisma {
     Estado: 'Estado',
     Descripcion: 'Descripcion',
     Requiere_Aprobacion: 'Requiere_Aprobacion',
-    Aprobado: 'Aprobado'
+    Aprobado: 'Aprobado',
+    ID_Usuario_Aprobado: 'ID_Usuario_Aprobado',
+    Fecha_Aprobacion: 'Fecha_Aprobacion'
   };
 
   export type Tb_estado_reparacionScalarFieldEnum = (typeof Tb_estado_reparacionScalarFieldEnum)[keyof typeof Tb_estado_reparacionScalarFieldEnum]
+
+
+  export const Tb_facturaScalarFieldEnum: {
+    ID_Factura: 'ID_Factura',
+    ID_Reparacion: 'ID_Reparacion',
+    Fecha_Emision: 'Fecha_Emision',
+    Subtotal: 'Subtotal',
+    IVA: 'IVA',
+    Total: 'Total',
+    Metodo_Pago: 'Metodo_Pago',
+    Estado: 'Estado'
+  };
+
+  export type Tb_facturaScalarFieldEnum = (typeof Tb_facturaScalarFieldEnum)[keyof typeof Tb_facturaScalarFieldEnum]
+
+
+  export const Tb_notificacionScalarFieldEnum: {
+    ID_Notificacion: 'ID_Notificacion',
+    ID_Usuario: 'ID_Usuario',
+    Tipo: 'Tipo',
+    Mensaje: 'Mensaje',
+    Estado_Leido: 'Estado_Leido',
+    Fecha: 'Fecha'
+  };
+
+  export type Tb_notificacionScalarFieldEnum = (typeof Tb_notificacionScalarFieldEnum)[keyof typeof Tb_notificacionScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -10036,6 +12390,22 @@ export namespace Prisma {
   };
 
   export type tb_estado_reparacionOrderByRelevanceFieldEnum = (typeof tb_estado_reparacionOrderByRelevanceFieldEnum)[keyof typeof tb_estado_reparacionOrderByRelevanceFieldEnum]
+
+
+  export const tb_facturaOrderByRelevanceFieldEnum: {
+    Metodo_Pago: 'Metodo_Pago',
+    Estado: 'Estado'
+  };
+
+  export type tb_facturaOrderByRelevanceFieldEnum = (typeof tb_facturaOrderByRelevanceFieldEnum)[keyof typeof tb_facturaOrderByRelevanceFieldEnum]
+
+
+  export const tb_notificacionOrderByRelevanceFieldEnum: {
+    Tipo: 'Tipo',
+    Mensaje: 'Mensaje'
+  };
+
+  export type tb_notificacionOrderByRelevanceFieldEnum = (typeof tb_notificacionOrderByRelevanceFieldEnum)[keyof typeof tb_notificacionOrderByRelevanceFieldEnum]
 
 
   /**
@@ -10253,6 +12623,8 @@ export namespace Prisma {
     ID_Tecnico?: IntNullableFilter<"tb_usuario"> | number | null
     cliente?: XOR<Tb_clienteNullableScalarRelationFilter, tb_clienteWhereInput> | null
     tecnico?: XOR<Tb_tecnicoNullableScalarRelationFilter, tb_tecnicoWhereInput> | null
+    notificaciones?: Tb_notificacionListRelationFilter
+    estados_aprobados?: Tb_estado_reparacionListRelationFilter
   }
 
   export type tb_usuarioOrderByWithRelationInput = {
@@ -10265,6 +12637,8 @@ export namespace Prisma {
     ID_Tecnico?: SortOrderInput | SortOrder
     cliente?: tb_clienteOrderByWithRelationInput
     tecnico?: tb_tecnicoOrderByWithRelationInput
+    notificaciones?: tb_notificacionOrderByRelationAggregateInput
+    estados_aprobados?: tb_estado_reparacionOrderByRelationAggregateInput
     _relevance?: tb_usuarioOrderByRelevanceInput
   }
 
@@ -10281,6 +12655,8 @@ export namespace Prisma {
     ID_Tecnico?: IntNullableFilter<"tb_usuario"> | number | null
     cliente?: XOR<Tb_clienteNullableScalarRelationFilter, tb_clienteWhereInput> | null
     tecnico?: XOR<Tb_tecnicoNullableScalarRelationFilter, tb_tecnicoWhereInput> | null
+    notificaciones?: Tb_notificacionListRelationFilter
+    estados_aprobados?: Tb_estado_reparacionListRelationFilter
   }, "ID_Usuario" | "Usuario_Name">
 
   export type tb_usuarioOrderByWithAggregationInput = {
@@ -10448,6 +12824,7 @@ export namespace Prisma {
     equipo?: XOR<Tb_equipoScalarRelationFilter, tb_equipoWhereInput>
     estados?: Tb_estado_reparacionListRelationFilter
     detalles?: Tb_detalle_reparacion_repuestoListRelationFilter
+    factura?: XOR<Tb_facturaNullableScalarRelationFilter, tb_facturaWhereInput> | null
   }
 
   export type tb_reparacionOrderByWithRelationInput = {
@@ -10465,6 +12842,7 @@ export namespace Prisma {
     equipo?: tb_equipoOrderByWithRelationInput
     estados?: tb_estado_reparacionOrderByRelationAggregateInput
     detalles?: tb_detalle_reparacion_repuestoOrderByRelationAggregateInput
+    factura?: tb_facturaOrderByWithRelationInput
   }
 
   export type tb_reparacionWhereUniqueInput = Prisma.AtLeast<{
@@ -10485,6 +12863,7 @@ export namespace Prisma {
     equipo?: XOR<Tb_equipoScalarRelationFilter, tb_equipoWhereInput>
     estados?: Tb_estado_reparacionListRelationFilter
     detalles?: Tb_detalle_reparacion_repuestoListRelationFilter
+    factura?: XOR<Tb_facturaNullableScalarRelationFilter, tb_facturaWhereInput> | null
   }, "ID_Reparacion">
 
   export type tb_reparacionOrderByWithAggregationInput = {
@@ -10590,7 +12969,10 @@ export namespace Prisma {
     Descripcion?: StringNullableFilter<"tb_estado_reparacion"> | string | null
     Requiere_Aprobacion?: BoolNullableFilter<"tb_estado_reparacion"> | boolean | null
     Aprobado?: BoolNullableFilter<"tb_estado_reparacion"> | boolean | null
+    ID_Usuario_Aprobado?: IntNullableFilter<"tb_estado_reparacion"> | number | null
+    Fecha_Aprobacion?: DateTimeNullableFilter<"tb_estado_reparacion"> | Date | string | null
     reparacion?: XOR<Tb_reparacionScalarRelationFilter, tb_reparacionWhereInput>
+    usuario_aprobador?: XOR<Tb_usuarioNullableScalarRelationFilter, tb_usuarioWhereInput> | null
   }
 
   export type tb_estado_reparacionOrderByWithRelationInput = {
@@ -10601,7 +12983,10 @@ export namespace Prisma {
     Descripcion?: SortOrderInput | SortOrder
     Requiere_Aprobacion?: SortOrderInput | SortOrder
     Aprobado?: SortOrderInput | SortOrder
+    ID_Usuario_Aprobado?: SortOrderInput | SortOrder
+    Fecha_Aprobacion?: SortOrderInput | SortOrder
     reparacion?: tb_reparacionOrderByWithRelationInput
+    usuario_aprobador?: tb_usuarioOrderByWithRelationInput
     _relevance?: tb_estado_reparacionOrderByRelevanceInput
   }
 
@@ -10616,7 +13001,10 @@ export namespace Prisma {
     Descripcion?: StringNullableFilter<"tb_estado_reparacion"> | string | null
     Requiere_Aprobacion?: BoolNullableFilter<"tb_estado_reparacion"> | boolean | null
     Aprobado?: BoolNullableFilter<"tb_estado_reparacion"> | boolean | null
+    ID_Usuario_Aprobado?: IntNullableFilter<"tb_estado_reparacion"> | number | null
+    Fecha_Aprobacion?: DateTimeNullableFilter<"tb_estado_reparacion"> | Date | string | null
     reparacion?: XOR<Tb_reparacionScalarRelationFilter, tb_reparacionWhereInput>
+    usuario_aprobador?: XOR<Tb_usuarioNullableScalarRelationFilter, tb_usuarioWhereInput> | null
   }, "ID_Estado">
 
   export type tb_estado_reparacionOrderByWithAggregationInput = {
@@ -10627,6 +13015,8 @@ export namespace Prisma {
     Descripcion?: SortOrderInput | SortOrder
     Requiere_Aprobacion?: SortOrderInput | SortOrder
     Aprobado?: SortOrderInput | SortOrder
+    ID_Usuario_Aprobado?: SortOrderInput | SortOrder
+    Fecha_Aprobacion?: SortOrderInput | SortOrder
     _count?: tb_estado_reparacionCountOrderByAggregateInput
     _avg?: tb_estado_reparacionAvgOrderByAggregateInput
     _max?: tb_estado_reparacionMaxOrderByAggregateInput
@@ -10645,6 +13035,144 @@ export namespace Prisma {
     Descripcion?: StringNullableWithAggregatesFilter<"tb_estado_reparacion"> | string | null
     Requiere_Aprobacion?: BoolNullableWithAggregatesFilter<"tb_estado_reparacion"> | boolean | null
     Aprobado?: BoolNullableWithAggregatesFilter<"tb_estado_reparacion"> | boolean | null
+    ID_Usuario_Aprobado?: IntNullableWithAggregatesFilter<"tb_estado_reparacion"> | number | null
+    Fecha_Aprobacion?: DateTimeNullableWithAggregatesFilter<"tb_estado_reparacion"> | Date | string | null
+  }
+
+  export type tb_facturaWhereInput = {
+    AND?: tb_facturaWhereInput | tb_facturaWhereInput[]
+    OR?: tb_facturaWhereInput[]
+    NOT?: tb_facturaWhereInput | tb_facturaWhereInput[]
+    ID_Factura?: IntFilter<"tb_factura"> | number
+    ID_Reparacion?: IntFilter<"tb_factura"> | number
+    Fecha_Emision?: DateTimeFilter<"tb_factura"> | Date | string
+    Subtotal?: DecimalFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: StringNullableFilter<"tb_factura"> | string | null
+    Estado?: StringFilter<"tb_factura"> | string
+    reparacion?: XOR<Tb_reparacionScalarRelationFilter, tb_reparacionWhereInput>
+  }
+
+  export type tb_facturaOrderByWithRelationInput = {
+    ID_Factura?: SortOrder
+    ID_Reparacion?: SortOrder
+    Fecha_Emision?: SortOrder
+    Subtotal?: SortOrder
+    IVA?: SortOrder
+    Total?: SortOrder
+    Metodo_Pago?: SortOrderInput | SortOrder
+    Estado?: SortOrder
+    reparacion?: tb_reparacionOrderByWithRelationInput
+    _relevance?: tb_facturaOrderByRelevanceInput
+  }
+
+  export type tb_facturaWhereUniqueInput = Prisma.AtLeast<{
+    ID_Factura?: number
+    ID_Reparacion?: number
+    AND?: tb_facturaWhereInput | tb_facturaWhereInput[]
+    OR?: tb_facturaWhereInput[]
+    NOT?: tb_facturaWhereInput | tb_facturaWhereInput[]
+    Fecha_Emision?: DateTimeFilter<"tb_factura"> | Date | string
+    Subtotal?: DecimalFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: StringNullableFilter<"tb_factura"> | string | null
+    Estado?: StringFilter<"tb_factura"> | string
+    reparacion?: XOR<Tb_reparacionScalarRelationFilter, tb_reparacionWhereInput>
+  }, "ID_Factura" | "ID_Reparacion">
+
+  export type tb_facturaOrderByWithAggregationInput = {
+    ID_Factura?: SortOrder
+    ID_Reparacion?: SortOrder
+    Fecha_Emision?: SortOrder
+    Subtotal?: SortOrder
+    IVA?: SortOrder
+    Total?: SortOrder
+    Metodo_Pago?: SortOrderInput | SortOrder
+    Estado?: SortOrder
+    _count?: tb_facturaCountOrderByAggregateInput
+    _avg?: tb_facturaAvgOrderByAggregateInput
+    _max?: tb_facturaMaxOrderByAggregateInput
+    _min?: tb_facturaMinOrderByAggregateInput
+    _sum?: tb_facturaSumOrderByAggregateInput
+  }
+
+  export type tb_facturaScalarWhereWithAggregatesInput = {
+    AND?: tb_facturaScalarWhereWithAggregatesInput | tb_facturaScalarWhereWithAggregatesInput[]
+    OR?: tb_facturaScalarWhereWithAggregatesInput[]
+    NOT?: tb_facturaScalarWhereWithAggregatesInput | tb_facturaScalarWhereWithAggregatesInput[]
+    ID_Factura?: IntWithAggregatesFilter<"tb_factura"> | number
+    ID_Reparacion?: IntWithAggregatesFilter<"tb_factura"> | number
+    Fecha_Emision?: DateTimeWithAggregatesFilter<"tb_factura"> | Date | string
+    Subtotal?: DecimalWithAggregatesFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalWithAggregatesFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    Total?: DecimalWithAggregatesFilter<"tb_factura"> | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: StringNullableWithAggregatesFilter<"tb_factura"> | string | null
+    Estado?: StringWithAggregatesFilter<"tb_factura"> | string
+  }
+
+  export type tb_notificacionWhereInput = {
+    AND?: tb_notificacionWhereInput | tb_notificacionWhereInput[]
+    OR?: tb_notificacionWhereInput[]
+    NOT?: tb_notificacionWhereInput | tb_notificacionWhereInput[]
+    ID_Notificacion?: IntFilter<"tb_notificacion"> | number
+    ID_Usuario?: IntFilter<"tb_notificacion"> | number
+    Tipo?: StringFilter<"tb_notificacion"> | string
+    Mensaje?: StringFilter<"tb_notificacion"> | string
+    Estado_Leido?: BoolFilter<"tb_notificacion"> | boolean
+    Fecha?: DateTimeFilter<"tb_notificacion"> | Date | string
+    usuario?: XOR<Tb_usuarioScalarRelationFilter, tb_usuarioWhereInput>
+  }
+
+  export type tb_notificacionOrderByWithRelationInput = {
+    ID_Notificacion?: SortOrder
+    ID_Usuario?: SortOrder
+    Tipo?: SortOrder
+    Mensaje?: SortOrder
+    Estado_Leido?: SortOrder
+    Fecha?: SortOrder
+    usuario?: tb_usuarioOrderByWithRelationInput
+    _relevance?: tb_notificacionOrderByRelevanceInput
+  }
+
+  export type tb_notificacionWhereUniqueInput = Prisma.AtLeast<{
+    ID_Notificacion?: number
+    AND?: tb_notificacionWhereInput | tb_notificacionWhereInput[]
+    OR?: tb_notificacionWhereInput[]
+    NOT?: tb_notificacionWhereInput | tb_notificacionWhereInput[]
+    ID_Usuario?: IntFilter<"tb_notificacion"> | number
+    Tipo?: StringFilter<"tb_notificacion"> | string
+    Mensaje?: StringFilter<"tb_notificacion"> | string
+    Estado_Leido?: BoolFilter<"tb_notificacion"> | boolean
+    Fecha?: DateTimeFilter<"tb_notificacion"> | Date | string
+    usuario?: XOR<Tb_usuarioScalarRelationFilter, tb_usuarioWhereInput>
+  }, "ID_Notificacion">
+
+  export type tb_notificacionOrderByWithAggregationInput = {
+    ID_Notificacion?: SortOrder
+    ID_Usuario?: SortOrder
+    Tipo?: SortOrder
+    Mensaje?: SortOrder
+    Estado_Leido?: SortOrder
+    Fecha?: SortOrder
+    _count?: tb_notificacionCountOrderByAggregateInput
+    _avg?: tb_notificacionAvgOrderByAggregateInput
+    _max?: tb_notificacionMaxOrderByAggregateInput
+    _min?: tb_notificacionMinOrderByAggregateInput
+    _sum?: tb_notificacionSumOrderByAggregateInput
+  }
+
+  export type tb_notificacionScalarWhereWithAggregatesInput = {
+    AND?: tb_notificacionScalarWhereWithAggregatesInput | tb_notificacionScalarWhereWithAggregatesInput[]
+    OR?: tb_notificacionScalarWhereWithAggregatesInput[]
+    NOT?: tb_notificacionScalarWhereWithAggregatesInput | tb_notificacionScalarWhereWithAggregatesInput[]
+    ID_Notificacion?: IntWithAggregatesFilter<"tb_notificacion"> | number
+    ID_Usuario?: IntWithAggregatesFilter<"tb_notificacion"> | number
+    Tipo?: StringWithAggregatesFilter<"tb_notificacion"> | string
+    Mensaje?: StringWithAggregatesFilter<"tb_notificacion"> | string
+    Estado_Leido?: BoolWithAggregatesFilter<"tb_notificacion"> | boolean
+    Fecha?: DateTimeWithAggregatesFilter<"tb_notificacion"> | Date | string
   }
 
   export type tb_clienteCreateInput = {
@@ -10808,6 +13336,8 @@ export namespace Prisma {
     Usuario_activo?: boolean
     cliente?: tb_clienteCreateNestedOneWithoutUsuariosInput
     tecnico?: tb_tecnicoCreateNestedOneWithoutUsuariosInput
+    notificaciones?: tb_notificacionCreateNestedManyWithoutUsuarioInput
+    estados_aprobados?: tb_estado_reparacionCreateNestedManyWithoutUsuario_aprobadorInput
   }
 
   export type tb_usuarioUncheckedCreateInput = {
@@ -10818,6 +13348,8 @@ export namespace Prisma {
     Usuario_activo?: boolean
     ID_Cliente?: number | null
     ID_Tecnico?: number | null
+    notificaciones?: tb_notificacionUncheckedCreateNestedManyWithoutUsuarioInput
+    estados_aprobados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutUsuario_aprobadorInput
   }
 
   export type tb_usuarioUpdateInput = {
@@ -10827,6 +13359,8 @@ export namespace Prisma {
     Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
     cliente?: tb_clienteUpdateOneWithoutUsuariosNestedInput
     tecnico?: tb_tecnicoUpdateOneWithoutUsuariosNestedInput
+    notificaciones?: tb_notificacionUpdateManyWithoutUsuarioNestedInput
+    estados_aprobados?: tb_estado_reparacionUpdateManyWithoutUsuario_aprobadorNestedInput
   }
 
   export type tb_usuarioUncheckedUpdateInput = {
@@ -10837,6 +13371,8 @@ export namespace Prisma {
     Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
     ID_Cliente?: NullableIntFieldUpdateOperationsInput | number | null
     ID_Tecnico?: NullableIntFieldUpdateOperationsInput | number | null
+    notificaciones?: tb_notificacionUncheckedUpdateManyWithoutUsuarioNestedInput
+    estados_aprobados?: tb_estado_reparacionUncheckedUpdateManyWithoutUsuario_aprobadorNestedInput
   }
 
   export type tb_usuarioCreateManyInput = {
@@ -10990,6 +13526,7 @@ export namespace Prisma {
     equipo: tb_equipoCreateNestedOneWithoutReparacionesInput
     estados?: tb_estado_reparacionCreateNestedManyWithoutReparacionInput
     detalles?: tb_detalle_reparacion_repuestoCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionUncheckedCreateInput = {
@@ -11004,6 +13541,7 @@ export namespace Prisma {
     Total: Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutReparacionInput
     detalles?: tb_detalle_reparacion_repuestoUncheckedCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaUncheckedCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionUpdateInput = {
@@ -11017,6 +13555,7 @@ export namespace Prisma {
     equipo?: tb_equipoUpdateOneRequiredWithoutReparacionesNestedInput
     estados?: tb_estado_reparacionUpdateManyWithoutReparacionNestedInput
     detalles?: tb_detalle_reparacion_repuestoUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateInput = {
@@ -11031,6 +13570,7 @@ export namespace Prisma {
     Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedUpdateManyWithoutReparacionNestedInput
     detalles?: tb_detalle_reparacion_repuestoUncheckedUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUncheckedUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionCreateManyInput = {
@@ -11122,7 +13662,9 @@ export namespace Prisma {
     Descripcion?: string | null
     Requiere_Aprobacion?: boolean | null
     Aprobado?: boolean | null
+    Fecha_Aprobacion?: Date | string | null
     reparacion: tb_reparacionCreateNestedOneWithoutEstadosInput
+    usuario_aprobador?: tb_usuarioCreateNestedOneWithoutEstados_aprobadosInput
   }
 
   export type tb_estado_reparacionUncheckedCreateInput = {
@@ -11133,6 +13675,8 @@ export namespace Prisma {
     Descripcion?: string | null
     Requiere_Aprobacion?: boolean | null
     Aprobado?: boolean | null
+    ID_Usuario_Aprobado?: number | null
+    Fecha_Aprobacion?: Date | string | null
   }
 
   export type tb_estado_reparacionUpdateInput = {
@@ -11141,7 +13685,9 @@ export namespace Prisma {
     Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
     Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     reparacion?: tb_reparacionUpdateOneRequiredWithoutEstadosNestedInput
+    usuario_aprobador?: tb_usuarioUpdateOneWithoutEstados_aprobadosNestedInput
   }
 
   export type tb_estado_reparacionUncheckedUpdateInput = {
@@ -11152,6 +13698,8 @@ export namespace Prisma {
     Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
     Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    ID_Usuario_Aprobado?: NullableIntFieldUpdateOperationsInput | number | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type tb_estado_reparacionCreateManyInput = {
@@ -11162,6 +13710,8 @@ export namespace Prisma {
     Descripcion?: string | null
     Requiere_Aprobacion?: boolean | null
     Aprobado?: boolean | null
+    ID_Usuario_Aprobado?: number | null
+    Fecha_Aprobacion?: Date | string | null
   }
 
   export type tb_estado_reparacionUpdateManyMutationInput = {
@@ -11170,6 +13720,7 @@ export namespace Prisma {
     Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
     Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type tb_estado_reparacionUncheckedUpdateManyInput = {
@@ -11180,6 +13731,140 @@ export namespace Prisma {
     Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
     Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    ID_Usuario_Aprobado?: NullableIntFieldUpdateOperationsInput | number | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type tb_facturaCreateInput = {
+    Fecha_Emision?: Date | string
+    Subtotal: Decimal | DecimalJsLike | number | string
+    IVA: Decimal | DecimalJsLike | number | string
+    Total: Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: string | null
+    Estado: string
+    reparacion: tb_reparacionCreateNestedOneWithoutFacturaInput
+  }
+
+  export type tb_facturaUncheckedCreateInput = {
+    ID_Factura?: number
+    ID_Reparacion: number
+    Fecha_Emision?: Date | string
+    Subtotal: Decimal | DecimalJsLike | number | string
+    IVA: Decimal | DecimalJsLike | number | string
+    Total: Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: string | null
+    Estado: string
+  }
+
+  export type tb_facturaUpdateInput = {
+    Fecha_Emision?: DateTimeFieldUpdateOperationsInput | Date | string
+    Subtotal?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: NullableStringFieldUpdateOperationsInput | string | null
+    Estado?: StringFieldUpdateOperationsInput | string
+    reparacion?: tb_reparacionUpdateOneRequiredWithoutFacturaNestedInput
+  }
+
+  export type tb_facturaUncheckedUpdateInput = {
+    ID_Factura?: IntFieldUpdateOperationsInput | number
+    ID_Reparacion?: IntFieldUpdateOperationsInput | number
+    Fecha_Emision?: DateTimeFieldUpdateOperationsInput | Date | string
+    Subtotal?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: NullableStringFieldUpdateOperationsInput | string | null
+    Estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type tb_facturaCreateManyInput = {
+    ID_Factura?: number
+    ID_Reparacion: number
+    Fecha_Emision?: Date | string
+    Subtotal: Decimal | DecimalJsLike | number | string
+    IVA: Decimal | DecimalJsLike | number | string
+    Total: Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: string | null
+    Estado: string
+  }
+
+  export type tb_facturaUpdateManyMutationInput = {
+    Fecha_Emision?: DateTimeFieldUpdateOperationsInput | Date | string
+    Subtotal?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: NullableStringFieldUpdateOperationsInput | string | null
+    Estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type tb_facturaUncheckedUpdateManyInput = {
+    ID_Factura?: IntFieldUpdateOperationsInput | number
+    ID_Reparacion?: IntFieldUpdateOperationsInput | number
+    Fecha_Emision?: DateTimeFieldUpdateOperationsInput | Date | string
+    Subtotal?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: NullableStringFieldUpdateOperationsInput | string | null
+    Estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type tb_notificacionCreateInput = {
+    Tipo: string
+    Mensaje: string
+    Estado_Leido?: boolean
+    Fecha?: Date | string
+    usuario: tb_usuarioCreateNestedOneWithoutNotificacionesInput
+  }
+
+  export type tb_notificacionUncheckedCreateInput = {
+    ID_Notificacion?: number
+    ID_Usuario: number
+    Tipo: string
+    Mensaje: string
+    Estado_Leido?: boolean
+    Fecha?: Date | string
+  }
+
+  export type tb_notificacionUpdateInput = {
+    Tipo?: StringFieldUpdateOperationsInput | string
+    Mensaje?: StringFieldUpdateOperationsInput | string
+    Estado_Leido?: BoolFieldUpdateOperationsInput | boolean
+    Fecha?: DateTimeFieldUpdateOperationsInput | Date | string
+    usuario?: tb_usuarioUpdateOneRequiredWithoutNotificacionesNestedInput
+  }
+
+  export type tb_notificacionUncheckedUpdateInput = {
+    ID_Notificacion?: IntFieldUpdateOperationsInput | number
+    ID_Usuario?: IntFieldUpdateOperationsInput | number
+    Tipo?: StringFieldUpdateOperationsInput | string
+    Mensaje?: StringFieldUpdateOperationsInput | string
+    Estado_Leido?: BoolFieldUpdateOperationsInput | boolean
+    Fecha?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tb_notificacionCreateManyInput = {
+    ID_Notificacion?: number
+    ID_Usuario: number
+    Tipo: string
+    Mensaje: string
+    Estado_Leido?: boolean
+    Fecha?: Date | string
+  }
+
+  export type tb_notificacionUpdateManyMutationInput = {
+    Tipo?: StringFieldUpdateOperationsInput | string
+    Mensaje?: StringFieldUpdateOperationsInput | string
+    Estado_Leido?: BoolFieldUpdateOperationsInput | boolean
+    Fecha?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tb_notificacionUncheckedUpdateManyInput = {
+    ID_Notificacion?: IntFieldUpdateOperationsInput | number
+    ID_Usuario?: IntFieldUpdateOperationsInput | number
+    Tipo?: StringFieldUpdateOperationsInput | string
+    Mensaje?: StringFieldUpdateOperationsInput | string
+    Estado_Leido?: BoolFieldUpdateOperationsInput | boolean
+    Fecha?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -11393,9 +14078,29 @@ export namespace Prisma {
     isNot?: tb_tecnicoWhereInput | null
   }
 
+  export type Tb_notificacionListRelationFilter = {
+    every?: tb_notificacionWhereInput
+    some?: tb_notificacionWhereInput
+    none?: tb_notificacionWhereInput
+  }
+
+  export type Tb_estado_reparacionListRelationFilter = {
+    every?: tb_estado_reparacionWhereInput
+    some?: tb_estado_reparacionWhereInput
+    none?: tb_estado_reparacionWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type tb_notificacionOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type tb_estado_reparacionOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type tb_usuarioOrderByRelevanceInput = {
@@ -11656,14 +14361,9 @@ export namespace Prisma {
     isNot?: tb_equipoWhereInput
   }
 
-  export type Tb_estado_reparacionListRelationFilter = {
-    every?: tb_estado_reparacionWhereInput
-    some?: tb_estado_reparacionWhereInput
-    none?: tb_estado_reparacionWhereInput
-  }
-
-  export type tb_estado_reparacionOrderByRelationAggregateInput = {
-    _count?: SortOrder
+  export type Tb_facturaNullableScalarRelationFilter = {
+    is?: tb_facturaWhereInput | null
+    isNot?: tb_facturaWhereInput | null
   }
 
   export type tb_reparacionCountOrderByAggregateInput = {
@@ -11791,6 +14491,22 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type Tb_usuarioNullableScalarRelationFilter = {
+    is?: tb_usuarioWhereInput | null
+    isNot?: tb_usuarioWhereInput | null
+  }
+
   export type tb_estado_reparacionOrderByRelevanceInput = {
     fields: tb_estado_reparacionOrderByRelevanceFieldEnum | tb_estado_reparacionOrderByRelevanceFieldEnum[]
     sort: SortOrder
@@ -11805,11 +14521,14 @@ export namespace Prisma {
     Descripcion?: SortOrder
     Requiere_Aprobacion?: SortOrder
     Aprobado?: SortOrder
+    ID_Usuario_Aprobado?: SortOrder
+    Fecha_Aprobacion?: SortOrder
   }
 
   export type tb_estado_reparacionAvgOrderByAggregateInput = {
     ID_Estado?: SortOrder
     ID_Reparacion?: SortOrder
+    ID_Usuario_Aprobado?: SortOrder
   }
 
   export type tb_estado_reparacionMaxOrderByAggregateInput = {
@@ -11820,6 +14539,8 @@ export namespace Prisma {
     Descripcion?: SortOrder
     Requiere_Aprobacion?: SortOrder
     Aprobado?: SortOrder
+    ID_Usuario_Aprobado?: SortOrder
+    Fecha_Aprobacion?: SortOrder
   }
 
   export type tb_estado_reparacionMinOrderByAggregateInput = {
@@ -11830,11 +14551,14 @@ export namespace Prisma {
     Descripcion?: SortOrder
     Requiere_Aprobacion?: SortOrder
     Aprobado?: SortOrder
+    ID_Usuario_Aprobado?: SortOrder
+    Fecha_Aprobacion?: SortOrder
   }
 
   export type tb_estado_reparacionSumOrderByAggregateInput = {
     ID_Estado?: SortOrder
     ID_Reparacion?: SortOrder
+    ID_Usuario_Aprobado?: SortOrder
   }
 
   export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -11843,6 +14567,123 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
+  export type tb_facturaOrderByRelevanceInput = {
+    fields: tb_facturaOrderByRelevanceFieldEnum | tb_facturaOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type tb_facturaCountOrderByAggregateInput = {
+    ID_Factura?: SortOrder
+    ID_Reparacion?: SortOrder
+    Fecha_Emision?: SortOrder
+    Subtotal?: SortOrder
+    IVA?: SortOrder
+    Total?: SortOrder
+    Metodo_Pago?: SortOrder
+    Estado?: SortOrder
+  }
+
+  export type tb_facturaAvgOrderByAggregateInput = {
+    ID_Factura?: SortOrder
+    ID_Reparacion?: SortOrder
+    Subtotal?: SortOrder
+    IVA?: SortOrder
+    Total?: SortOrder
+  }
+
+  export type tb_facturaMaxOrderByAggregateInput = {
+    ID_Factura?: SortOrder
+    ID_Reparacion?: SortOrder
+    Fecha_Emision?: SortOrder
+    Subtotal?: SortOrder
+    IVA?: SortOrder
+    Total?: SortOrder
+    Metodo_Pago?: SortOrder
+    Estado?: SortOrder
+  }
+
+  export type tb_facturaMinOrderByAggregateInput = {
+    ID_Factura?: SortOrder
+    ID_Reparacion?: SortOrder
+    Fecha_Emision?: SortOrder
+    Subtotal?: SortOrder
+    IVA?: SortOrder
+    Total?: SortOrder
+    Metodo_Pago?: SortOrder
+    Estado?: SortOrder
+  }
+
+  export type tb_facturaSumOrderByAggregateInput = {
+    ID_Factura?: SortOrder
+    ID_Reparacion?: SortOrder
+    Subtotal?: SortOrder
+    IVA?: SortOrder
+    Total?: SortOrder
+  }
+
+  export type Tb_usuarioScalarRelationFilter = {
+    is?: tb_usuarioWhereInput
+    isNot?: tb_usuarioWhereInput
+  }
+
+  export type tb_notificacionOrderByRelevanceInput = {
+    fields: tb_notificacionOrderByRelevanceFieldEnum | tb_notificacionOrderByRelevanceFieldEnum[]
+    sort: SortOrder
+    search: string
+  }
+
+  export type tb_notificacionCountOrderByAggregateInput = {
+    ID_Notificacion?: SortOrder
+    ID_Usuario?: SortOrder
+    Tipo?: SortOrder
+    Mensaje?: SortOrder
+    Estado_Leido?: SortOrder
+    Fecha?: SortOrder
+  }
+
+  export type tb_notificacionAvgOrderByAggregateInput = {
+    ID_Notificacion?: SortOrder
+    ID_Usuario?: SortOrder
+  }
+
+  export type tb_notificacionMaxOrderByAggregateInput = {
+    ID_Notificacion?: SortOrder
+    ID_Usuario?: SortOrder
+    Tipo?: SortOrder
+    Mensaje?: SortOrder
+    Estado_Leido?: SortOrder
+    Fecha?: SortOrder
+  }
+
+  export type tb_notificacionMinOrderByAggregateInput = {
+    ID_Notificacion?: SortOrder
+    ID_Usuario?: SortOrder
+    Tipo?: SortOrder
+    Mensaje?: SortOrder
+    Estado_Leido?: SortOrder
+    Fecha?: SortOrder
+  }
+
+  export type tb_notificacionSumOrderByAggregateInput = {
+    ID_Notificacion?: SortOrder
+    ID_Usuario?: SortOrder
   }
 
   export type tb_equipoCreateNestedManyWithoutClienteInput = {
@@ -12079,6 +14920,34 @@ export namespace Prisma {
     connect?: tb_tecnicoWhereUniqueInput
   }
 
+  export type tb_notificacionCreateNestedManyWithoutUsuarioInput = {
+    create?: XOR<tb_notificacionCreateWithoutUsuarioInput, tb_notificacionUncheckedCreateWithoutUsuarioInput> | tb_notificacionCreateWithoutUsuarioInput[] | tb_notificacionUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: tb_notificacionCreateOrConnectWithoutUsuarioInput | tb_notificacionCreateOrConnectWithoutUsuarioInput[]
+    createMany?: tb_notificacionCreateManyUsuarioInputEnvelope
+    connect?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+  }
+
+  export type tb_estado_reparacionCreateNestedManyWithoutUsuario_aprobadorInput = {
+    create?: XOR<tb_estado_reparacionCreateWithoutUsuario_aprobadorInput, tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput> | tb_estado_reparacionCreateWithoutUsuario_aprobadorInput[] | tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput[]
+    connectOrCreate?: tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput | tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput[]
+    createMany?: tb_estado_reparacionCreateManyUsuario_aprobadorInputEnvelope
+    connect?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+  }
+
+  export type tb_notificacionUncheckedCreateNestedManyWithoutUsuarioInput = {
+    create?: XOR<tb_notificacionCreateWithoutUsuarioInput, tb_notificacionUncheckedCreateWithoutUsuarioInput> | tb_notificacionCreateWithoutUsuarioInput[] | tb_notificacionUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: tb_notificacionCreateOrConnectWithoutUsuarioInput | tb_notificacionCreateOrConnectWithoutUsuarioInput[]
+    createMany?: tb_notificacionCreateManyUsuarioInputEnvelope
+    connect?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+  }
+
+  export type tb_estado_reparacionUncheckedCreateNestedManyWithoutUsuario_aprobadorInput = {
+    create?: XOR<tb_estado_reparacionCreateWithoutUsuario_aprobadorInput, tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput> | tb_estado_reparacionCreateWithoutUsuario_aprobadorInput[] | tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput[]
+    connectOrCreate?: tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput | tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput[]
+    createMany?: tb_estado_reparacionCreateManyUsuario_aprobadorInputEnvelope
+    connect?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+  }
+
   export type Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput = {
     set?: $Enums.tb_usuario_Usuario_nivel
   }
@@ -12107,12 +14976,68 @@ export namespace Prisma {
     update?: XOR<XOR<tb_tecnicoUpdateToOneWithWhereWithoutUsuariosInput, tb_tecnicoUpdateWithoutUsuariosInput>, tb_tecnicoUncheckedUpdateWithoutUsuariosInput>
   }
 
+  export type tb_notificacionUpdateManyWithoutUsuarioNestedInput = {
+    create?: XOR<tb_notificacionCreateWithoutUsuarioInput, tb_notificacionUncheckedCreateWithoutUsuarioInput> | tb_notificacionCreateWithoutUsuarioInput[] | tb_notificacionUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: tb_notificacionCreateOrConnectWithoutUsuarioInput | tb_notificacionCreateOrConnectWithoutUsuarioInput[]
+    upsert?: tb_notificacionUpsertWithWhereUniqueWithoutUsuarioInput | tb_notificacionUpsertWithWhereUniqueWithoutUsuarioInput[]
+    createMany?: tb_notificacionCreateManyUsuarioInputEnvelope
+    set?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+    disconnect?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+    delete?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+    connect?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+    update?: tb_notificacionUpdateWithWhereUniqueWithoutUsuarioInput | tb_notificacionUpdateWithWhereUniqueWithoutUsuarioInput[]
+    updateMany?: tb_notificacionUpdateManyWithWhereWithoutUsuarioInput | tb_notificacionUpdateManyWithWhereWithoutUsuarioInput[]
+    deleteMany?: tb_notificacionScalarWhereInput | tb_notificacionScalarWhereInput[]
+  }
+
+  export type tb_estado_reparacionUpdateManyWithoutUsuario_aprobadorNestedInput = {
+    create?: XOR<tb_estado_reparacionCreateWithoutUsuario_aprobadorInput, tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput> | tb_estado_reparacionCreateWithoutUsuario_aprobadorInput[] | tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput[]
+    connectOrCreate?: tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput | tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput[]
+    upsert?: tb_estado_reparacionUpsertWithWhereUniqueWithoutUsuario_aprobadorInput | tb_estado_reparacionUpsertWithWhereUniqueWithoutUsuario_aprobadorInput[]
+    createMany?: tb_estado_reparacionCreateManyUsuario_aprobadorInputEnvelope
+    set?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+    disconnect?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+    delete?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+    connect?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+    update?: tb_estado_reparacionUpdateWithWhereUniqueWithoutUsuario_aprobadorInput | tb_estado_reparacionUpdateWithWhereUniqueWithoutUsuario_aprobadorInput[]
+    updateMany?: tb_estado_reparacionUpdateManyWithWhereWithoutUsuario_aprobadorInput | tb_estado_reparacionUpdateManyWithWhereWithoutUsuario_aprobadorInput[]
+    deleteMany?: tb_estado_reparacionScalarWhereInput | tb_estado_reparacionScalarWhereInput[]
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type tb_notificacionUncheckedUpdateManyWithoutUsuarioNestedInput = {
+    create?: XOR<tb_notificacionCreateWithoutUsuarioInput, tb_notificacionUncheckedCreateWithoutUsuarioInput> | tb_notificacionCreateWithoutUsuarioInput[] | tb_notificacionUncheckedCreateWithoutUsuarioInput[]
+    connectOrCreate?: tb_notificacionCreateOrConnectWithoutUsuarioInput | tb_notificacionCreateOrConnectWithoutUsuarioInput[]
+    upsert?: tb_notificacionUpsertWithWhereUniqueWithoutUsuarioInput | tb_notificacionUpsertWithWhereUniqueWithoutUsuarioInput[]
+    createMany?: tb_notificacionCreateManyUsuarioInputEnvelope
+    set?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+    disconnect?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+    delete?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+    connect?: tb_notificacionWhereUniqueInput | tb_notificacionWhereUniqueInput[]
+    update?: tb_notificacionUpdateWithWhereUniqueWithoutUsuarioInput | tb_notificacionUpdateWithWhereUniqueWithoutUsuarioInput[]
+    updateMany?: tb_notificacionUpdateManyWithWhereWithoutUsuarioInput | tb_notificacionUpdateManyWithWhereWithoutUsuarioInput[]
+    deleteMany?: tb_notificacionScalarWhereInput | tb_notificacionScalarWhereInput[]
+  }
+
+  export type tb_estado_reparacionUncheckedUpdateManyWithoutUsuario_aprobadorNestedInput = {
+    create?: XOR<tb_estado_reparacionCreateWithoutUsuario_aprobadorInput, tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput> | tb_estado_reparacionCreateWithoutUsuario_aprobadorInput[] | tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput[]
+    connectOrCreate?: tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput | tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput[]
+    upsert?: tb_estado_reparacionUpsertWithWhereUniqueWithoutUsuario_aprobadorInput | tb_estado_reparacionUpsertWithWhereUniqueWithoutUsuario_aprobadorInput[]
+    createMany?: tb_estado_reparacionCreateManyUsuario_aprobadorInputEnvelope
+    set?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+    disconnect?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+    delete?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+    connect?: tb_estado_reparacionWhereUniqueInput | tb_estado_reparacionWhereUniqueInput[]
+    update?: tb_estado_reparacionUpdateWithWhereUniqueWithoutUsuario_aprobadorInput | tb_estado_reparacionUpdateWithWhereUniqueWithoutUsuario_aprobadorInput[]
+    updateMany?: tb_estado_reparacionUpdateManyWithWhereWithoutUsuario_aprobadorInput | tb_estado_reparacionUpdateManyWithWhereWithoutUsuario_aprobadorInput[]
+    deleteMany?: tb_estado_reparacionScalarWhereInput | tb_estado_reparacionScalarWhereInput[]
   }
 
   export type tb_clienteCreateNestedOneWithoutEquiposInput = {
@@ -12257,6 +15182,12 @@ export namespace Prisma {
     connect?: tb_detalle_reparacion_repuestoWhereUniqueInput | tb_detalle_reparacion_repuestoWhereUniqueInput[]
   }
 
+  export type tb_facturaCreateNestedOneWithoutReparacionInput = {
+    create?: XOR<tb_facturaCreateWithoutReparacionInput, tb_facturaUncheckedCreateWithoutReparacionInput>
+    connectOrCreate?: tb_facturaCreateOrConnectWithoutReparacionInput
+    connect?: tb_facturaWhereUniqueInput
+  }
+
   export type tb_estado_reparacionUncheckedCreateNestedManyWithoutReparacionInput = {
     create?: XOR<tb_estado_reparacionCreateWithoutReparacionInput, tb_estado_reparacionUncheckedCreateWithoutReparacionInput> | tb_estado_reparacionCreateWithoutReparacionInput[] | tb_estado_reparacionUncheckedCreateWithoutReparacionInput[]
     connectOrCreate?: tb_estado_reparacionCreateOrConnectWithoutReparacionInput | tb_estado_reparacionCreateOrConnectWithoutReparacionInput[]
@@ -12269,6 +15200,12 @@ export namespace Prisma {
     connectOrCreate?: tb_detalle_reparacion_repuestoCreateOrConnectWithoutReparacionInput | tb_detalle_reparacion_repuestoCreateOrConnectWithoutReparacionInput[]
     createMany?: tb_detalle_reparacion_repuestoCreateManyReparacionInputEnvelope
     connect?: tb_detalle_reparacion_repuestoWhereUniqueInput | tb_detalle_reparacion_repuestoWhereUniqueInput[]
+  }
+
+  export type tb_facturaUncheckedCreateNestedOneWithoutReparacionInput = {
+    create?: XOR<tb_facturaCreateWithoutReparacionInput, tb_facturaUncheckedCreateWithoutReparacionInput>
+    connectOrCreate?: tb_facturaCreateOrConnectWithoutReparacionInput
+    connect?: tb_facturaWhereUniqueInput
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -12327,6 +15264,16 @@ export namespace Prisma {
     deleteMany?: tb_detalle_reparacion_repuestoScalarWhereInput | tb_detalle_reparacion_repuestoScalarWhereInput[]
   }
 
+  export type tb_facturaUpdateOneWithoutReparacionNestedInput = {
+    create?: XOR<tb_facturaCreateWithoutReparacionInput, tb_facturaUncheckedCreateWithoutReparacionInput>
+    connectOrCreate?: tb_facturaCreateOrConnectWithoutReparacionInput
+    upsert?: tb_facturaUpsertWithoutReparacionInput
+    disconnect?: tb_facturaWhereInput | boolean
+    delete?: tb_facturaWhereInput | boolean
+    connect?: tb_facturaWhereUniqueInput
+    update?: XOR<XOR<tb_facturaUpdateToOneWithWhereWithoutReparacionInput, tb_facturaUpdateWithoutReparacionInput>, tb_facturaUncheckedUpdateWithoutReparacionInput>
+  }
+
   export type tb_estado_reparacionUncheckedUpdateManyWithoutReparacionNestedInput = {
     create?: XOR<tb_estado_reparacionCreateWithoutReparacionInput, tb_estado_reparacionUncheckedCreateWithoutReparacionInput> | tb_estado_reparacionCreateWithoutReparacionInput[] | tb_estado_reparacionUncheckedCreateWithoutReparacionInput[]
     connectOrCreate?: tb_estado_reparacionCreateOrConnectWithoutReparacionInput | tb_estado_reparacionCreateOrConnectWithoutReparacionInput[]
@@ -12353,6 +15300,16 @@ export namespace Prisma {
     update?: tb_detalle_reparacion_repuestoUpdateWithWhereUniqueWithoutReparacionInput | tb_detalle_reparacion_repuestoUpdateWithWhereUniqueWithoutReparacionInput[]
     updateMany?: tb_detalle_reparacion_repuestoUpdateManyWithWhereWithoutReparacionInput | tb_detalle_reparacion_repuestoUpdateManyWithWhereWithoutReparacionInput[]
     deleteMany?: tb_detalle_reparacion_repuestoScalarWhereInput | tb_detalle_reparacion_repuestoScalarWhereInput[]
+  }
+
+  export type tb_facturaUncheckedUpdateOneWithoutReparacionNestedInput = {
+    create?: XOR<tb_facturaCreateWithoutReparacionInput, tb_facturaUncheckedCreateWithoutReparacionInput>
+    connectOrCreate?: tb_facturaCreateOrConnectWithoutReparacionInput
+    upsert?: tb_facturaUpsertWithoutReparacionInput
+    disconnect?: tb_facturaWhereInput | boolean
+    delete?: tb_facturaWhereInput | boolean
+    connect?: tb_facturaWhereUniqueInput
+    update?: XOR<XOR<tb_facturaUpdateToOneWithWhereWithoutReparacionInput, tb_facturaUpdateWithoutReparacionInput>, tb_facturaUncheckedUpdateWithoutReparacionInput>
   }
 
   export type tb_reparacionCreateNestedOneWithoutDetallesInput = {
@@ -12389,8 +15346,18 @@ export namespace Prisma {
     connect?: tb_reparacionWhereUniqueInput
   }
 
+  export type tb_usuarioCreateNestedOneWithoutEstados_aprobadosInput = {
+    create?: XOR<tb_usuarioCreateWithoutEstados_aprobadosInput, tb_usuarioUncheckedCreateWithoutEstados_aprobadosInput>
+    connectOrCreate?: tb_usuarioCreateOrConnectWithoutEstados_aprobadosInput
+    connect?: tb_usuarioWhereUniqueInput
+  }
+
   export type NullableBoolFieldUpdateOperationsInput = {
     set?: boolean | null
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type tb_reparacionUpdateOneRequiredWithoutEstadosNestedInput = {
@@ -12399,6 +15366,44 @@ export namespace Prisma {
     upsert?: tb_reparacionUpsertWithoutEstadosInput
     connect?: tb_reparacionWhereUniqueInput
     update?: XOR<XOR<tb_reparacionUpdateToOneWithWhereWithoutEstadosInput, tb_reparacionUpdateWithoutEstadosInput>, tb_reparacionUncheckedUpdateWithoutEstadosInput>
+  }
+
+  export type tb_usuarioUpdateOneWithoutEstados_aprobadosNestedInput = {
+    create?: XOR<tb_usuarioCreateWithoutEstados_aprobadosInput, tb_usuarioUncheckedCreateWithoutEstados_aprobadosInput>
+    connectOrCreate?: tb_usuarioCreateOrConnectWithoutEstados_aprobadosInput
+    upsert?: tb_usuarioUpsertWithoutEstados_aprobadosInput
+    disconnect?: tb_usuarioWhereInput | boolean
+    delete?: tb_usuarioWhereInput | boolean
+    connect?: tb_usuarioWhereUniqueInput
+    update?: XOR<XOR<tb_usuarioUpdateToOneWithWhereWithoutEstados_aprobadosInput, tb_usuarioUpdateWithoutEstados_aprobadosInput>, tb_usuarioUncheckedUpdateWithoutEstados_aprobadosInput>
+  }
+
+  export type tb_reparacionCreateNestedOneWithoutFacturaInput = {
+    create?: XOR<tb_reparacionCreateWithoutFacturaInput, tb_reparacionUncheckedCreateWithoutFacturaInput>
+    connectOrCreate?: tb_reparacionCreateOrConnectWithoutFacturaInput
+    connect?: tb_reparacionWhereUniqueInput
+  }
+
+  export type tb_reparacionUpdateOneRequiredWithoutFacturaNestedInput = {
+    create?: XOR<tb_reparacionCreateWithoutFacturaInput, tb_reparacionUncheckedCreateWithoutFacturaInput>
+    connectOrCreate?: tb_reparacionCreateOrConnectWithoutFacturaInput
+    upsert?: tb_reparacionUpsertWithoutFacturaInput
+    connect?: tb_reparacionWhereUniqueInput
+    update?: XOR<XOR<tb_reparacionUpdateToOneWithWhereWithoutFacturaInput, tb_reparacionUpdateWithoutFacturaInput>, tb_reparacionUncheckedUpdateWithoutFacturaInput>
+  }
+
+  export type tb_usuarioCreateNestedOneWithoutNotificacionesInput = {
+    create?: XOR<tb_usuarioCreateWithoutNotificacionesInput, tb_usuarioUncheckedCreateWithoutNotificacionesInput>
+    connectOrCreate?: tb_usuarioCreateOrConnectWithoutNotificacionesInput
+    connect?: tb_usuarioWhereUniqueInput
+  }
+
+  export type tb_usuarioUpdateOneRequiredWithoutNotificacionesNestedInput = {
+    create?: XOR<tb_usuarioCreateWithoutNotificacionesInput, tb_usuarioUncheckedCreateWithoutNotificacionesInput>
+    connectOrCreate?: tb_usuarioCreateOrConnectWithoutNotificacionesInput
+    upsert?: tb_usuarioUpsertWithoutNotificacionesInput
+    connect?: tb_usuarioWhereUniqueInput
+    update?: XOR<XOR<tb_usuarioUpdateToOneWithWhereWithoutNotificacionesInput, tb_usuarioUpdateWithoutNotificacionesInput>, tb_usuarioUncheckedUpdateWithoutNotificacionesInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -12630,12 +15635,37 @@ export namespace Prisma {
     not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
     not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedBoolNullableFilter<$PrismaModel>
     _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type tb_equipoCreateWithoutClienteInput = {
@@ -12677,6 +15707,7 @@ export namespace Prisma {
     equipo: tb_equipoCreateNestedOneWithoutReparacionesInput
     estados?: tb_estado_reparacionCreateNestedManyWithoutReparacionInput
     detalles?: tb_detalle_reparacion_repuestoCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionUncheckedCreateWithoutClienteInput = {
@@ -12690,6 +15721,7 @@ export namespace Prisma {
     Total: Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutReparacionInput
     detalles?: tb_detalle_reparacion_repuestoUncheckedCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaUncheckedCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionCreateOrConnectWithoutClienteInput = {
@@ -12708,6 +15740,8 @@ export namespace Prisma {
     Usuario_nivel: $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: boolean
     tecnico?: tb_tecnicoCreateNestedOneWithoutUsuariosInput
+    notificaciones?: tb_notificacionCreateNestedManyWithoutUsuarioInput
+    estados_aprobados?: tb_estado_reparacionCreateNestedManyWithoutUsuario_aprobadorInput
   }
 
   export type tb_usuarioUncheckedCreateWithoutClienteInput = {
@@ -12717,6 +15751,8 @@ export namespace Prisma {
     Usuario_nivel: $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: boolean
     ID_Tecnico?: number | null
+    notificaciones?: tb_notificacionUncheckedCreateNestedManyWithoutUsuarioInput
+    estados_aprobados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutUsuario_aprobadorInput
   }
 
   export type tb_usuarioCreateOrConnectWithoutClienteInput = {
@@ -12828,6 +15864,7 @@ export namespace Prisma {
     equipo: tb_equipoCreateNestedOneWithoutReparacionesInput
     estados?: tb_estado_reparacionCreateNestedManyWithoutReparacionInput
     detalles?: tb_detalle_reparacion_repuestoCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionUncheckedCreateWithoutTecnicoInput = {
@@ -12841,6 +15878,7 @@ export namespace Prisma {
     Total: Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutReparacionInput
     detalles?: tb_detalle_reparacion_repuestoUncheckedCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaUncheckedCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionCreateOrConnectWithoutTecnicoInput = {
@@ -12859,6 +15897,8 @@ export namespace Prisma {
     Usuario_nivel: $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: boolean
     cliente?: tb_clienteCreateNestedOneWithoutUsuariosInput
+    notificaciones?: tb_notificacionCreateNestedManyWithoutUsuarioInput
+    estados_aprobados?: tb_estado_reparacionCreateNestedManyWithoutUsuario_aprobadorInput
   }
 
   export type tb_usuarioUncheckedCreateWithoutTecnicoInput = {
@@ -12868,6 +15908,8 @@ export namespace Prisma {
     Usuario_nivel: $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: boolean
     ID_Cliente?: number | null
+    notificaciones?: tb_notificacionUncheckedCreateNestedManyWithoutUsuarioInput
+    estados_aprobados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutUsuario_aprobadorInput
   }
 
   export type tb_usuarioCreateOrConnectWithoutTecnicoInput = {
@@ -12966,6 +16008,62 @@ export namespace Prisma {
     create: XOR<tb_tecnicoCreateWithoutUsuariosInput, tb_tecnicoUncheckedCreateWithoutUsuariosInput>
   }
 
+  export type tb_notificacionCreateWithoutUsuarioInput = {
+    Tipo: string
+    Mensaje: string
+    Estado_Leido?: boolean
+    Fecha?: Date | string
+  }
+
+  export type tb_notificacionUncheckedCreateWithoutUsuarioInput = {
+    ID_Notificacion?: number
+    Tipo: string
+    Mensaje: string
+    Estado_Leido?: boolean
+    Fecha?: Date | string
+  }
+
+  export type tb_notificacionCreateOrConnectWithoutUsuarioInput = {
+    where: tb_notificacionWhereUniqueInput
+    create: XOR<tb_notificacionCreateWithoutUsuarioInput, tb_notificacionUncheckedCreateWithoutUsuarioInput>
+  }
+
+  export type tb_notificacionCreateManyUsuarioInputEnvelope = {
+    data: tb_notificacionCreateManyUsuarioInput | tb_notificacionCreateManyUsuarioInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type tb_estado_reparacionCreateWithoutUsuario_aprobadorInput = {
+    FechaHora?: Date | string
+    Estado: string
+    Descripcion?: string | null
+    Requiere_Aprobacion?: boolean | null
+    Aprobado?: boolean | null
+    Fecha_Aprobacion?: Date | string | null
+    reparacion: tb_reparacionCreateNestedOneWithoutEstadosInput
+  }
+
+  export type tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput = {
+    ID_Estado?: number
+    ID_Reparacion: number
+    FechaHora?: Date | string
+    Estado: string
+    Descripcion?: string | null
+    Requiere_Aprobacion?: boolean | null
+    Aprobado?: boolean | null
+    Fecha_Aprobacion?: Date | string | null
+  }
+
+  export type tb_estado_reparacionCreateOrConnectWithoutUsuario_aprobadorInput = {
+    where: tb_estado_reparacionWhereUniqueInput
+    create: XOR<tb_estado_reparacionCreateWithoutUsuario_aprobadorInput, tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput>
+  }
+
+  export type tb_estado_reparacionCreateManyUsuario_aprobadorInputEnvelope = {
+    data: tb_estado_reparacionCreateManyUsuario_aprobadorInput | tb_estado_reparacionCreateManyUsuario_aprobadorInput[]
+    skipDuplicates?: boolean
+  }
+
   export type tb_clienteUpsertWithoutUsuariosInput = {
     update: XOR<tb_clienteUpdateWithoutUsuariosInput, tb_clienteUncheckedUpdateWithoutUsuariosInput>
     create: XOR<tb_clienteCreateWithoutUsuariosInput, tb_clienteUncheckedCreateWithoutUsuariosInput>
@@ -13032,6 +16130,65 @@ export namespace Prisma {
     reparaciones?: tb_reparacionUncheckedUpdateManyWithoutTecnicoNestedInput
   }
 
+  export type tb_notificacionUpsertWithWhereUniqueWithoutUsuarioInput = {
+    where: tb_notificacionWhereUniqueInput
+    update: XOR<tb_notificacionUpdateWithoutUsuarioInput, tb_notificacionUncheckedUpdateWithoutUsuarioInput>
+    create: XOR<tb_notificacionCreateWithoutUsuarioInput, tb_notificacionUncheckedCreateWithoutUsuarioInput>
+  }
+
+  export type tb_notificacionUpdateWithWhereUniqueWithoutUsuarioInput = {
+    where: tb_notificacionWhereUniqueInput
+    data: XOR<tb_notificacionUpdateWithoutUsuarioInput, tb_notificacionUncheckedUpdateWithoutUsuarioInput>
+  }
+
+  export type tb_notificacionUpdateManyWithWhereWithoutUsuarioInput = {
+    where: tb_notificacionScalarWhereInput
+    data: XOR<tb_notificacionUpdateManyMutationInput, tb_notificacionUncheckedUpdateManyWithoutUsuarioInput>
+  }
+
+  export type tb_notificacionScalarWhereInput = {
+    AND?: tb_notificacionScalarWhereInput | tb_notificacionScalarWhereInput[]
+    OR?: tb_notificacionScalarWhereInput[]
+    NOT?: tb_notificacionScalarWhereInput | tb_notificacionScalarWhereInput[]
+    ID_Notificacion?: IntFilter<"tb_notificacion"> | number
+    ID_Usuario?: IntFilter<"tb_notificacion"> | number
+    Tipo?: StringFilter<"tb_notificacion"> | string
+    Mensaje?: StringFilter<"tb_notificacion"> | string
+    Estado_Leido?: BoolFilter<"tb_notificacion"> | boolean
+    Fecha?: DateTimeFilter<"tb_notificacion"> | Date | string
+  }
+
+  export type tb_estado_reparacionUpsertWithWhereUniqueWithoutUsuario_aprobadorInput = {
+    where: tb_estado_reparacionWhereUniqueInput
+    update: XOR<tb_estado_reparacionUpdateWithoutUsuario_aprobadorInput, tb_estado_reparacionUncheckedUpdateWithoutUsuario_aprobadorInput>
+    create: XOR<tb_estado_reparacionCreateWithoutUsuario_aprobadorInput, tb_estado_reparacionUncheckedCreateWithoutUsuario_aprobadorInput>
+  }
+
+  export type tb_estado_reparacionUpdateWithWhereUniqueWithoutUsuario_aprobadorInput = {
+    where: tb_estado_reparacionWhereUniqueInput
+    data: XOR<tb_estado_reparacionUpdateWithoutUsuario_aprobadorInput, tb_estado_reparacionUncheckedUpdateWithoutUsuario_aprobadorInput>
+  }
+
+  export type tb_estado_reparacionUpdateManyWithWhereWithoutUsuario_aprobadorInput = {
+    where: tb_estado_reparacionScalarWhereInput
+    data: XOR<tb_estado_reparacionUpdateManyMutationInput, tb_estado_reparacionUncheckedUpdateManyWithoutUsuario_aprobadorInput>
+  }
+
+  export type tb_estado_reparacionScalarWhereInput = {
+    AND?: tb_estado_reparacionScalarWhereInput | tb_estado_reparacionScalarWhereInput[]
+    OR?: tb_estado_reparacionScalarWhereInput[]
+    NOT?: tb_estado_reparacionScalarWhereInput | tb_estado_reparacionScalarWhereInput[]
+    ID_Estado?: IntFilter<"tb_estado_reparacion"> | number
+    ID_Reparacion?: IntFilter<"tb_estado_reparacion"> | number
+    FechaHora?: DateTimeFilter<"tb_estado_reparacion"> | Date | string
+    Estado?: StringFilter<"tb_estado_reparacion"> | string
+    Descripcion?: StringNullableFilter<"tb_estado_reparacion"> | string | null
+    Requiere_Aprobacion?: BoolNullableFilter<"tb_estado_reparacion"> | boolean | null
+    Aprobado?: BoolNullableFilter<"tb_estado_reparacion"> | boolean | null
+    ID_Usuario_Aprobado?: IntNullableFilter<"tb_estado_reparacion"> | number | null
+    Fecha_Aprobacion?: DateTimeNullableFilter<"tb_estado_reparacion"> | Date | string | null
+  }
+
   export type tb_clienteCreateWithoutEquiposInput = {
     Cedula: string
     Nombres: string
@@ -13070,6 +16227,7 @@ export namespace Prisma {
     tecnico: tb_tecnicoCreateNestedOneWithoutReparacionesInput
     estados?: tb_estado_reparacionCreateNestedManyWithoutReparacionInput
     detalles?: tb_detalle_reparacion_repuestoCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionUncheckedCreateWithoutEquipoInput = {
@@ -13083,6 +16241,7 @@ export namespace Prisma {
     Total: Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutReparacionInput
     detalles?: tb_detalle_reparacion_repuestoUncheckedCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaUncheckedCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionCreateOrConnectWithoutEquipoInput = {
@@ -13279,6 +16438,8 @@ export namespace Prisma {
     Descripcion?: string | null
     Requiere_Aprobacion?: boolean | null
     Aprobado?: boolean | null
+    Fecha_Aprobacion?: Date | string | null
+    usuario_aprobador?: tb_usuarioCreateNestedOneWithoutEstados_aprobadosInput
   }
 
   export type tb_estado_reparacionUncheckedCreateWithoutReparacionInput = {
@@ -13288,6 +16449,8 @@ export namespace Prisma {
     Descripcion?: string | null
     Requiere_Aprobacion?: boolean | null
     Aprobado?: boolean | null
+    ID_Usuario_Aprobado?: number | null
+    Fecha_Aprobacion?: Date | string | null
   }
 
   export type tb_estado_reparacionCreateOrConnectWithoutReparacionInput = {
@@ -13321,6 +16484,30 @@ export namespace Prisma {
   export type tb_detalle_reparacion_repuestoCreateManyReparacionInputEnvelope = {
     data: tb_detalle_reparacion_repuestoCreateManyReparacionInput | tb_detalle_reparacion_repuestoCreateManyReparacionInput[]
     skipDuplicates?: boolean
+  }
+
+  export type tb_facturaCreateWithoutReparacionInput = {
+    Fecha_Emision?: Date | string
+    Subtotal: Decimal | DecimalJsLike | number | string
+    IVA: Decimal | DecimalJsLike | number | string
+    Total: Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: string | null
+    Estado: string
+  }
+
+  export type tb_facturaUncheckedCreateWithoutReparacionInput = {
+    ID_Factura?: number
+    Fecha_Emision?: Date | string
+    Subtotal: Decimal | DecimalJsLike | number | string
+    IVA: Decimal | DecimalJsLike | number | string
+    Total: Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: string | null
+    Estado: string
+  }
+
+  export type tb_facturaCreateOrConnectWithoutReparacionInput = {
+    where: tb_facturaWhereUniqueInput
+    create: XOR<tb_facturaCreateWithoutReparacionInput, tb_facturaUncheckedCreateWithoutReparacionInput>
   }
 
   export type tb_clienteUpsertWithoutReparacionesInput = {
@@ -13435,19 +16622,6 @@ export namespace Prisma {
     data: XOR<tb_estado_reparacionUpdateManyMutationInput, tb_estado_reparacionUncheckedUpdateManyWithoutReparacionInput>
   }
 
-  export type tb_estado_reparacionScalarWhereInput = {
-    AND?: tb_estado_reparacionScalarWhereInput | tb_estado_reparacionScalarWhereInput[]
-    OR?: tb_estado_reparacionScalarWhereInput[]
-    NOT?: tb_estado_reparacionScalarWhereInput | tb_estado_reparacionScalarWhereInput[]
-    ID_Estado?: IntFilter<"tb_estado_reparacion"> | number
-    ID_Reparacion?: IntFilter<"tb_estado_reparacion"> | number
-    FechaHora?: DateTimeFilter<"tb_estado_reparacion"> | Date | string
-    Estado?: StringFilter<"tb_estado_reparacion"> | string
-    Descripcion?: StringNullableFilter<"tb_estado_reparacion"> | string | null
-    Requiere_Aprobacion?: BoolNullableFilter<"tb_estado_reparacion"> | boolean | null
-    Aprobado?: BoolNullableFilter<"tb_estado_reparacion"> | boolean | null
-  }
-
   export type tb_detalle_reparacion_repuestoUpsertWithWhereUniqueWithoutReparacionInput = {
     where: tb_detalle_reparacion_repuestoWhereUniqueInput
     update: XOR<tb_detalle_reparacion_repuestoUpdateWithoutReparacionInput, tb_detalle_reparacion_repuestoUncheckedUpdateWithoutReparacionInput>
@@ -13464,6 +16638,36 @@ export namespace Prisma {
     data: XOR<tb_detalle_reparacion_repuestoUpdateManyMutationInput, tb_detalle_reparacion_repuestoUncheckedUpdateManyWithoutReparacionInput>
   }
 
+  export type tb_facturaUpsertWithoutReparacionInput = {
+    update: XOR<tb_facturaUpdateWithoutReparacionInput, tb_facturaUncheckedUpdateWithoutReparacionInput>
+    create: XOR<tb_facturaCreateWithoutReparacionInput, tb_facturaUncheckedCreateWithoutReparacionInput>
+    where?: tb_facturaWhereInput
+  }
+
+  export type tb_facturaUpdateToOneWithWhereWithoutReparacionInput = {
+    where?: tb_facturaWhereInput
+    data: XOR<tb_facturaUpdateWithoutReparacionInput, tb_facturaUncheckedUpdateWithoutReparacionInput>
+  }
+
+  export type tb_facturaUpdateWithoutReparacionInput = {
+    Fecha_Emision?: DateTimeFieldUpdateOperationsInput | Date | string
+    Subtotal?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: NullableStringFieldUpdateOperationsInput | string | null
+    Estado?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type tb_facturaUncheckedUpdateWithoutReparacionInput = {
+    ID_Factura?: IntFieldUpdateOperationsInput | number
+    Fecha_Emision?: DateTimeFieldUpdateOperationsInput | Date | string
+    Subtotal?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Metodo_Pago?: NullableStringFieldUpdateOperationsInput | string | null
+    Estado?: StringFieldUpdateOperationsInput | string
+  }
+
   export type tb_reparacionCreateWithoutDetallesInput = {
     Fecha_Ingreso: Date | string
     Fecha_Entrega: Date | string
@@ -13474,6 +16678,7 @@ export namespace Prisma {
     tecnico: tb_tecnicoCreateNestedOneWithoutReparacionesInput
     equipo: tb_equipoCreateNestedOneWithoutReparacionesInput
     estados?: tb_estado_reparacionCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionUncheckedCreateWithoutDetallesInput = {
@@ -13487,6 +16692,7 @@ export namespace Prisma {
     IVA: Decimal | DecimalJsLike | number | string
     Total: Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaUncheckedCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionCreateOrConnectWithoutDetallesInput = {
@@ -13531,6 +16737,7 @@ export namespace Prisma {
     tecnico?: tb_tecnicoUpdateOneRequiredWithoutReparacionesNestedInput
     equipo?: tb_equipoUpdateOneRequiredWithoutReparacionesNestedInput
     estados?: tb_estado_reparacionUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateWithoutDetallesInput = {
@@ -13544,6 +16751,7 @@ export namespace Prisma {
     IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUncheckedUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_repuestoUpsertWithoutDetallesInput = {
@@ -13578,6 +16786,7 @@ export namespace Prisma {
     tecnico: tb_tecnicoCreateNestedOneWithoutReparacionesInput
     equipo: tb_equipoCreateNestedOneWithoutReparacionesInput
     detalles?: tb_detalle_reparacion_repuestoCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionUncheckedCreateWithoutEstadosInput = {
@@ -13591,11 +16800,38 @@ export namespace Prisma {
     IVA: Decimal | DecimalJsLike | number | string
     Total: Decimal | DecimalJsLike | number | string
     detalles?: tb_detalle_reparacion_repuestoUncheckedCreateNestedManyWithoutReparacionInput
+    factura?: tb_facturaUncheckedCreateNestedOneWithoutReparacionInput
   }
 
   export type tb_reparacionCreateOrConnectWithoutEstadosInput = {
     where: tb_reparacionWhereUniqueInput
     create: XOR<tb_reparacionCreateWithoutEstadosInput, tb_reparacionUncheckedCreateWithoutEstadosInput>
+  }
+
+  export type tb_usuarioCreateWithoutEstados_aprobadosInput = {
+    Usuario_Name: string
+    Usuario_Password: string
+    Usuario_nivel: $Enums.tb_usuario_Usuario_nivel
+    Usuario_activo?: boolean
+    cliente?: tb_clienteCreateNestedOneWithoutUsuariosInput
+    tecnico?: tb_tecnicoCreateNestedOneWithoutUsuariosInput
+    notificaciones?: tb_notificacionCreateNestedManyWithoutUsuarioInput
+  }
+
+  export type tb_usuarioUncheckedCreateWithoutEstados_aprobadosInput = {
+    ID_Usuario?: number
+    Usuario_Name: string
+    Usuario_Password: string
+    Usuario_nivel: $Enums.tb_usuario_Usuario_nivel
+    Usuario_activo?: boolean
+    ID_Cliente?: number | null
+    ID_Tecnico?: number | null
+    notificaciones?: tb_notificacionUncheckedCreateNestedManyWithoutUsuarioInput
+  }
+
+  export type tb_usuarioCreateOrConnectWithoutEstados_aprobadosInput = {
+    where: tb_usuarioWhereUniqueInput
+    create: XOR<tb_usuarioCreateWithoutEstados_aprobadosInput, tb_usuarioUncheckedCreateWithoutEstados_aprobadosInput>
   }
 
   export type tb_reparacionUpsertWithoutEstadosInput = {
@@ -13619,6 +16855,7 @@ export namespace Prisma {
     tecnico?: tb_tecnicoUpdateOneRequiredWithoutReparacionesNestedInput
     equipo?: tb_equipoUpdateOneRequiredWithoutReparacionesNestedInput
     detalles?: tb_detalle_reparacion_repuestoUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateWithoutEstadosInput = {
@@ -13632,6 +16869,167 @@ export namespace Prisma {
     IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     detalles?: tb_detalle_reparacion_repuestoUncheckedUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUncheckedUpdateOneWithoutReparacionNestedInput
+  }
+
+  export type tb_usuarioUpsertWithoutEstados_aprobadosInput = {
+    update: XOR<tb_usuarioUpdateWithoutEstados_aprobadosInput, tb_usuarioUncheckedUpdateWithoutEstados_aprobadosInput>
+    create: XOR<tb_usuarioCreateWithoutEstados_aprobadosInput, tb_usuarioUncheckedCreateWithoutEstados_aprobadosInput>
+    where?: tb_usuarioWhereInput
+  }
+
+  export type tb_usuarioUpdateToOneWithWhereWithoutEstados_aprobadosInput = {
+    where?: tb_usuarioWhereInput
+    data: XOR<tb_usuarioUpdateWithoutEstados_aprobadosInput, tb_usuarioUncheckedUpdateWithoutEstados_aprobadosInput>
+  }
+
+  export type tb_usuarioUpdateWithoutEstados_aprobadosInput = {
+    Usuario_Name?: StringFieldUpdateOperationsInput | string
+    Usuario_Password?: StringFieldUpdateOperationsInput | string
+    Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
+    Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
+    cliente?: tb_clienteUpdateOneWithoutUsuariosNestedInput
+    tecnico?: tb_tecnicoUpdateOneWithoutUsuariosNestedInput
+    notificaciones?: tb_notificacionUpdateManyWithoutUsuarioNestedInput
+  }
+
+  export type tb_usuarioUncheckedUpdateWithoutEstados_aprobadosInput = {
+    ID_Usuario?: IntFieldUpdateOperationsInput | number
+    Usuario_Name?: StringFieldUpdateOperationsInput | string
+    Usuario_Password?: StringFieldUpdateOperationsInput | string
+    Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
+    Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
+    ID_Cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    ID_Tecnico?: NullableIntFieldUpdateOperationsInput | number | null
+    notificaciones?: tb_notificacionUncheckedUpdateManyWithoutUsuarioNestedInput
+  }
+
+  export type tb_reparacionCreateWithoutFacturaInput = {
+    Fecha_Ingreso: Date | string
+    Fecha_Entrega: Date | string
+    CostoServicio: Decimal | DecimalJsLike | number | string
+    IVA: Decimal | DecimalJsLike | number | string
+    Total: Decimal | DecimalJsLike | number | string
+    cliente: tb_clienteCreateNestedOneWithoutReparacionesInput
+    tecnico: tb_tecnicoCreateNestedOneWithoutReparacionesInput
+    equipo: tb_equipoCreateNestedOneWithoutReparacionesInput
+    estados?: tb_estado_reparacionCreateNestedManyWithoutReparacionInput
+    detalles?: tb_detalle_reparacion_repuestoCreateNestedManyWithoutReparacionInput
+  }
+
+  export type tb_reparacionUncheckedCreateWithoutFacturaInput = {
+    ID_Reparacion?: number
+    ID_Cliente: number
+    ID_Tecnico: number
+    ID_Equipo: number
+    Fecha_Ingreso: Date | string
+    Fecha_Entrega: Date | string
+    CostoServicio: Decimal | DecimalJsLike | number | string
+    IVA: Decimal | DecimalJsLike | number | string
+    Total: Decimal | DecimalJsLike | number | string
+    estados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutReparacionInput
+    detalles?: tb_detalle_reparacion_repuestoUncheckedCreateNestedManyWithoutReparacionInput
+  }
+
+  export type tb_reparacionCreateOrConnectWithoutFacturaInput = {
+    where: tb_reparacionWhereUniqueInput
+    create: XOR<tb_reparacionCreateWithoutFacturaInput, tb_reparacionUncheckedCreateWithoutFacturaInput>
+  }
+
+  export type tb_reparacionUpsertWithoutFacturaInput = {
+    update: XOR<tb_reparacionUpdateWithoutFacturaInput, tb_reparacionUncheckedUpdateWithoutFacturaInput>
+    create: XOR<tb_reparacionCreateWithoutFacturaInput, tb_reparacionUncheckedCreateWithoutFacturaInput>
+    where?: tb_reparacionWhereInput
+  }
+
+  export type tb_reparacionUpdateToOneWithWhereWithoutFacturaInput = {
+    where?: tb_reparacionWhereInput
+    data: XOR<tb_reparacionUpdateWithoutFacturaInput, tb_reparacionUncheckedUpdateWithoutFacturaInput>
+  }
+
+  export type tb_reparacionUpdateWithoutFacturaInput = {
+    Fecha_Ingreso?: DateTimeFieldUpdateOperationsInput | Date | string
+    Fecha_Entrega?: DateTimeFieldUpdateOperationsInput | Date | string
+    CostoServicio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    cliente?: tb_clienteUpdateOneRequiredWithoutReparacionesNestedInput
+    tecnico?: tb_tecnicoUpdateOneRequiredWithoutReparacionesNestedInput
+    equipo?: tb_equipoUpdateOneRequiredWithoutReparacionesNestedInput
+    estados?: tb_estado_reparacionUpdateManyWithoutReparacionNestedInput
+    detalles?: tb_detalle_reparacion_repuestoUpdateManyWithoutReparacionNestedInput
+  }
+
+  export type tb_reparacionUncheckedUpdateWithoutFacturaInput = {
+    ID_Reparacion?: IntFieldUpdateOperationsInput | number
+    ID_Cliente?: IntFieldUpdateOperationsInput | number
+    ID_Tecnico?: IntFieldUpdateOperationsInput | number
+    ID_Equipo?: IntFieldUpdateOperationsInput | number
+    Fecha_Ingreso?: DateTimeFieldUpdateOperationsInput | Date | string
+    Fecha_Entrega?: DateTimeFieldUpdateOperationsInput | Date | string
+    CostoServicio?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    IVA?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    estados?: tb_estado_reparacionUncheckedUpdateManyWithoutReparacionNestedInput
+    detalles?: tb_detalle_reparacion_repuestoUncheckedUpdateManyWithoutReparacionNestedInput
+  }
+
+  export type tb_usuarioCreateWithoutNotificacionesInput = {
+    Usuario_Name: string
+    Usuario_Password: string
+    Usuario_nivel: $Enums.tb_usuario_Usuario_nivel
+    Usuario_activo?: boolean
+    cliente?: tb_clienteCreateNestedOneWithoutUsuariosInput
+    tecnico?: tb_tecnicoCreateNestedOneWithoutUsuariosInput
+    estados_aprobados?: tb_estado_reparacionCreateNestedManyWithoutUsuario_aprobadorInput
+  }
+
+  export type tb_usuarioUncheckedCreateWithoutNotificacionesInput = {
+    ID_Usuario?: number
+    Usuario_Name: string
+    Usuario_Password: string
+    Usuario_nivel: $Enums.tb_usuario_Usuario_nivel
+    Usuario_activo?: boolean
+    ID_Cliente?: number | null
+    ID_Tecnico?: number | null
+    estados_aprobados?: tb_estado_reparacionUncheckedCreateNestedManyWithoutUsuario_aprobadorInput
+  }
+
+  export type tb_usuarioCreateOrConnectWithoutNotificacionesInput = {
+    where: tb_usuarioWhereUniqueInput
+    create: XOR<tb_usuarioCreateWithoutNotificacionesInput, tb_usuarioUncheckedCreateWithoutNotificacionesInput>
+  }
+
+  export type tb_usuarioUpsertWithoutNotificacionesInput = {
+    update: XOR<tb_usuarioUpdateWithoutNotificacionesInput, tb_usuarioUncheckedUpdateWithoutNotificacionesInput>
+    create: XOR<tb_usuarioCreateWithoutNotificacionesInput, tb_usuarioUncheckedCreateWithoutNotificacionesInput>
+    where?: tb_usuarioWhereInput
+  }
+
+  export type tb_usuarioUpdateToOneWithWhereWithoutNotificacionesInput = {
+    where?: tb_usuarioWhereInput
+    data: XOR<tb_usuarioUpdateWithoutNotificacionesInput, tb_usuarioUncheckedUpdateWithoutNotificacionesInput>
+  }
+
+  export type tb_usuarioUpdateWithoutNotificacionesInput = {
+    Usuario_Name?: StringFieldUpdateOperationsInput | string
+    Usuario_Password?: StringFieldUpdateOperationsInput | string
+    Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
+    Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
+    cliente?: tb_clienteUpdateOneWithoutUsuariosNestedInput
+    tecnico?: tb_tecnicoUpdateOneWithoutUsuariosNestedInput
+    estados_aprobados?: tb_estado_reparacionUpdateManyWithoutUsuario_aprobadorNestedInput
+  }
+
+  export type tb_usuarioUncheckedUpdateWithoutNotificacionesInput = {
+    ID_Usuario?: IntFieldUpdateOperationsInput | number
+    Usuario_Name?: StringFieldUpdateOperationsInput | string
+    Usuario_Password?: StringFieldUpdateOperationsInput | string
+    Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
+    Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
+    ID_Cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    ID_Tecnico?: NullableIntFieldUpdateOperationsInput | number | null
+    estados_aprobados?: tb_estado_reparacionUncheckedUpdateManyWithoutUsuario_aprobadorNestedInput
   }
 
   export type tb_equipoCreateManyClienteInput = {
@@ -13701,6 +17099,7 @@ export namespace Prisma {
     equipo?: tb_equipoUpdateOneRequiredWithoutReparacionesNestedInput
     estados?: tb_estado_reparacionUpdateManyWithoutReparacionNestedInput
     detalles?: tb_detalle_reparacion_repuestoUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateWithoutClienteInput = {
@@ -13714,6 +17113,7 @@ export namespace Prisma {
     Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedUpdateManyWithoutReparacionNestedInput
     detalles?: tb_detalle_reparacion_repuestoUncheckedUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUncheckedUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateManyWithoutClienteInput = {
@@ -13733,6 +17133,8 @@ export namespace Prisma {
     Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
     tecnico?: tb_tecnicoUpdateOneWithoutUsuariosNestedInput
+    notificaciones?: tb_notificacionUpdateManyWithoutUsuarioNestedInput
+    estados_aprobados?: tb_estado_reparacionUpdateManyWithoutUsuario_aprobadorNestedInput
   }
 
   export type tb_usuarioUncheckedUpdateWithoutClienteInput = {
@@ -13742,6 +17144,8 @@ export namespace Prisma {
     Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
     ID_Tecnico?: NullableIntFieldUpdateOperationsInput | number | null
+    notificaciones?: tb_notificacionUncheckedUpdateManyWithoutUsuarioNestedInput
+    estados_aprobados?: tb_estado_reparacionUncheckedUpdateManyWithoutUsuario_aprobadorNestedInput
   }
 
   export type tb_usuarioUncheckedUpdateManyWithoutClienteInput = {
@@ -13783,6 +17187,7 @@ export namespace Prisma {
     equipo?: tb_equipoUpdateOneRequiredWithoutReparacionesNestedInput
     estados?: tb_estado_reparacionUpdateManyWithoutReparacionNestedInput
     detalles?: tb_detalle_reparacion_repuestoUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateWithoutTecnicoInput = {
@@ -13796,6 +17201,7 @@ export namespace Prisma {
     Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedUpdateManyWithoutReparacionNestedInput
     detalles?: tb_detalle_reparacion_repuestoUncheckedUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUncheckedUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateManyWithoutTecnicoInput = {
@@ -13815,6 +17221,8 @@ export namespace Prisma {
     Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
     cliente?: tb_clienteUpdateOneWithoutUsuariosNestedInput
+    notificaciones?: tb_notificacionUpdateManyWithoutUsuarioNestedInput
+    estados_aprobados?: tb_estado_reparacionUpdateManyWithoutUsuario_aprobadorNestedInput
   }
 
   export type tb_usuarioUncheckedUpdateWithoutTecnicoInput = {
@@ -13824,6 +17232,8 @@ export namespace Prisma {
     Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
     ID_Cliente?: NullableIntFieldUpdateOperationsInput | number | null
+    notificaciones?: tb_notificacionUncheckedUpdateManyWithoutUsuarioNestedInput
+    estados_aprobados?: tb_estado_reparacionUncheckedUpdateManyWithoutUsuario_aprobadorNestedInput
   }
 
   export type tb_usuarioUncheckedUpdateManyWithoutTecnicoInput = {
@@ -13833,6 +17243,80 @@ export namespace Prisma {
     Usuario_nivel?: Enumtb_usuario_Usuario_nivelFieldUpdateOperationsInput | $Enums.tb_usuario_Usuario_nivel
     Usuario_activo?: BoolFieldUpdateOperationsInput | boolean
     ID_Cliente?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type tb_notificacionCreateManyUsuarioInput = {
+    ID_Notificacion?: number
+    Tipo: string
+    Mensaje: string
+    Estado_Leido?: boolean
+    Fecha?: Date | string
+  }
+
+  export type tb_estado_reparacionCreateManyUsuario_aprobadorInput = {
+    ID_Estado?: number
+    ID_Reparacion: number
+    FechaHora?: Date | string
+    Estado: string
+    Descripcion?: string | null
+    Requiere_Aprobacion?: boolean | null
+    Aprobado?: boolean | null
+    Fecha_Aprobacion?: Date | string | null
+  }
+
+  export type tb_notificacionUpdateWithoutUsuarioInput = {
+    Tipo?: StringFieldUpdateOperationsInput | string
+    Mensaje?: StringFieldUpdateOperationsInput | string
+    Estado_Leido?: BoolFieldUpdateOperationsInput | boolean
+    Fecha?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tb_notificacionUncheckedUpdateWithoutUsuarioInput = {
+    ID_Notificacion?: IntFieldUpdateOperationsInput | number
+    Tipo?: StringFieldUpdateOperationsInput | string
+    Mensaje?: StringFieldUpdateOperationsInput | string
+    Estado_Leido?: BoolFieldUpdateOperationsInput | boolean
+    Fecha?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tb_notificacionUncheckedUpdateManyWithoutUsuarioInput = {
+    ID_Notificacion?: IntFieldUpdateOperationsInput | number
+    Tipo?: StringFieldUpdateOperationsInput | string
+    Mensaje?: StringFieldUpdateOperationsInput | string
+    Estado_Leido?: BoolFieldUpdateOperationsInput | boolean
+    Fecha?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type tb_estado_reparacionUpdateWithoutUsuario_aprobadorInput = {
+    FechaHora?: DateTimeFieldUpdateOperationsInput | Date | string
+    Estado?: StringFieldUpdateOperationsInput | string
+    Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    reparacion?: tb_reparacionUpdateOneRequiredWithoutEstadosNestedInput
+  }
+
+  export type tb_estado_reparacionUncheckedUpdateWithoutUsuario_aprobadorInput = {
+    ID_Estado?: IntFieldUpdateOperationsInput | number
+    ID_Reparacion?: IntFieldUpdateOperationsInput | number
+    FechaHora?: DateTimeFieldUpdateOperationsInput | Date | string
+    Estado?: StringFieldUpdateOperationsInput | string
+    Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type tb_estado_reparacionUncheckedUpdateManyWithoutUsuario_aprobadorInput = {
+    ID_Estado?: IntFieldUpdateOperationsInput | number
+    ID_Reparacion?: IntFieldUpdateOperationsInput | number
+    FechaHora?: DateTimeFieldUpdateOperationsInput | Date | string
+    Estado?: StringFieldUpdateOperationsInput | string
+    Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
+    Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type tb_reparacionCreateManyEquipoInput = {
@@ -13856,6 +17340,7 @@ export namespace Prisma {
     tecnico?: tb_tecnicoUpdateOneRequiredWithoutReparacionesNestedInput
     estados?: tb_estado_reparacionUpdateManyWithoutReparacionNestedInput
     detalles?: tb_detalle_reparacion_repuestoUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateWithoutEquipoInput = {
@@ -13869,6 +17354,7 @@ export namespace Prisma {
     Total?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     estados?: tb_estado_reparacionUncheckedUpdateManyWithoutReparacionNestedInput
     detalles?: tb_detalle_reparacion_repuestoUncheckedUpdateManyWithoutReparacionNestedInput
+    factura?: tb_facturaUncheckedUpdateOneWithoutReparacionNestedInput
   }
 
   export type tb_reparacionUncheckedUpdateManyWithoutEquipoInput = {
@@ -13916,6 +17402,8 @@ export namespace Prisma {
     Descripcion?: string | null
     Requiere_Aprobacion?: boolean | null
     Aprobado?: boolean | null
+    ID_Usuario_Aprobado?: number | null
+    Fecha_Aprobacion?: Date | string | null
   }
 
   export type tb_detalle_reparacion_repuestoCreateManyReparacionInput = {
@@ -13931,6 +17419,8 @@ export namespace Prisma {
     Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
     Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    usuario_aprobador?: tb_usuarioUpdateOneWithoutEstados_aprobadosNestedInput
   }
 
   export type tb_estado_reparacionUncheckedUpdateWithoutReparacionInput = {
@@ -13940,6 +17430,8 @@ export namespace Prisma {
     Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
     Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    ID_Usuario_Aprobado?: NullableIntFieldUpdateOperationsInput | number | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type tb_estado_reparacionUncheckedUpdateManyWithoutReparacionInput = {
@@ -13949,6 +17441,8 @@ export namespace Prisma {
     Descripcion?: NullableStringFieldUpdateOperationsInput | string | null
     Requiere_Aprobacion?: NullableBoolFieldUpdateOperationsInput | boolean | null
     Aprobado?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    ID_Usuario_Aprobado?: NullableIntFieldUpdateOperationsInput | number | null
+    Fecha_Aprobacion?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type tb_detalle_reparacion_repuestoUpdateWithoutReparacionInput = {
