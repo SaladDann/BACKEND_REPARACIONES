@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tb_cliente {
+  ID_Cliente Int           @id @default(autoincrement())
+  Cedula     String        @db.VarChar(20)
+  Nombres    String        @db.VarChar(100)
+  Apellidos  String        @db.VarChar(100)
+  Telefono   String        @db.VarChar(20)
+  Email      String        @db.VarChar(100)
+  Direccion  String        @db.VarChar(150)
+
+  equipos     tb_equipo[]
+  reparaciones tb_reparacion[]
+  usuarios     tb_usuario[]
+}
+
+model tb_tecnico {
+  ID_Tecnico   Int           @id @default(autoincrement())
+  Cedula       String        @db.VarChar(20)
+  Nombres      String        @db.VarChar(100)
+  Apellidos    String        @db.VarChar(100)
+  Telefono     String        @db.VarChar(20)
+  Email        String        @db.VarChar(100)
+  Especialidad String        @db.VarChar(100)
+
+  reparaciones tb_reparacion[]
+  usuarios     tb_usuario[]
+}
+
+model tb_usuario {
+  ID_Usuario       Int                      @id @default(autoincrement())
+  Usuario_Name     String                   @unique @db.VarChar(50)
+  Usuario_Password String                   @db.VarChar(255)
+  Usuario_nivel    tb_usuario_Usuario_nivel
+  Usuario_activo   Boolean                  @default(true)
+  ID_Cliente       Int?
+  ID_Tecnico       Int?
+
+  cliente tb_cliente? @relation(fields: [ID_Cliente], references: [ID_Cliente])
+  tecnico tb_tecnico? @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
+}
+
+model tb_equipo {
+  ID_Equipo            Int      @id @default(autoincrement())
+  ID_Cliente           Int
+  Nombre               String   @db.VarChar(100)
+  Marca                String?  @db.VarChar(100)
+  Modelo               String?  @db.VarChar(100)
+  Descripcion_problema String?  @db.Text
+  Estado               String?  @db.VarChar(50)
+
+  cliente     tb_cliente    @relation(fields: [ID_Cliente], references: [ID_Cliente])
+  reparaciones tb_reparacion[]
+}
+
+model tb_repuesto {
+  ID_Repuesto Int     @id @default(autoincrement())
+  Nombre      String  @db.VarChar(100)
+  Precio      Decimal @db.Decimal(10, 2)
+
+  detalles tb_detalle_reparacion_repuesto[]
+}
+
+model tb_reparacion {
+  ID_Reparacion Int      @id @default(autoincrement())
+  ID_Cliente    Int
+  ID_Tecnico    Int
+  ID_Equipo     Int
+  Fecha_Ingreso DateTime @db.DateTime(0)
+  Fecha_Entrega DateTime @db.DateTime(0)
+  CostoServicio Decimal  @db.Decimal(10, 2)
+  IVA           Decimal  @db.Decimal(10, 2)
+  Total         Decimal  @db.Decimal(10, 2)
+
+  cliente  tb_cliente  @relation(fields: [ID_Cliente], references: [ID_Cliente])
+  tecnico  tb_tecnico  @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
+  equipo   tb_equipo   @relation(fields: [ID_Equipo], references: [ID_Equipo])
+
+  estados  tb_estado_reparacion[]
+  detalles tb_detalle_reparacion_repuesto[]
+}
+
+model tb_detalle_reparacion_repuesto {
+  ID_Detalle    Int     @id @default(autoincrement())
+  ID_Reparacion Int
+  ID_Repuesto   Int
+  Cantidad      Int
+  Subtotal      Decimal @db.Decimal(10, 2)
+
+  reparacion tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+  repuesto   tb_repuesto   @relation(fields: [ID_Repuesto], references: [ID_Repuesto])
+}
+
+model tb_estado_reparacion {
+  ID_Estado           Int      @id @default(autoincrement())
+  ID_Reparacion       Int
+  FechaHora           DateTime @default(now()) @db.DateTime(0)
+  Estado              String   @db.VarChar(100)
+  Descripcion         String?  @db.Text
+  Requiere_Aprobacion Boolean? @default(false)
+  Aprobado            Boolean?
+
+  reparacion tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+}
+
+enum tb_usuario_Usuario_nivel {
+  Cliente
+  Tecnico
+  Admin
+}
