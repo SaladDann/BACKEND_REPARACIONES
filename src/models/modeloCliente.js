@@ -24,14 +24,13 @@ export const obtenerClientePorCedula = async (cedula) => {
 export const obtenerTodosLosClientes = async () => {
   return await prisma.tb_cliente.findMany({
     include: {
-      equipos: true, // opcional: puedes quitar si no quieres sobrecargar
+      equipos: true,
     },
   });
 };
 
 // Crear nuevo cliente
 export const crearCliente = async (data) => {
-  // Validar que no exista la cédula
   const clienteExistente = await prisma.tb_cliente.findFirst({
     where: { Cedula: data.Cedula },
   });
@@ -39,16 +38,12 @@ export const crearCliente = async (data) => {
   if (clienteExistente) {
     throw new Error("La cédula ya está registrada.");
   }
-
-  // Crear cliente
   return await prisma.tb_cliente.create({ data });
 };
 
 // Actualizar cliente
 export const actualizarCliente = async (id, data) => {
-  // Evitar que se actualice la cédula si no se permite
   const { Cedula, ID_Cliente, ...datosActualizados } = data;
-
   return await prisma.tb_cliente.update({
     where: { ID_Cliente: id },
     data: datosActualizados,

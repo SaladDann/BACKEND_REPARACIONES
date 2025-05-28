@@ -34,7 +34,7 @@ export const verificarToken = (req, res, next) => {
 export const verificarRol = (nivelesPermitidos = []) => {
   return (req, res, next) => {
     
-    console.log('Usuario decodificado:', req.user); // 👈 solo pruebas
+    console.log('Usuario decodificado:', req.user); // prueba quitar luego
 
     if (!req.user || !req.user.nivel) {
       return res.status(401).json(response_bad_request('Usuario no autenticado'));

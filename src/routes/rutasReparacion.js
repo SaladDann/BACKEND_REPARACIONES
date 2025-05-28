@@ -22,4 +22,7 @@ rutasReparaciones.put("/actualizar/:id", verificarRol(["Admin", "Tecnico"]), act
 rutasReparaciones.post("/costo-extra", verificarRol(["Admin", "Tecnico"]), proponerCostoExtra);
 rutasReparaciones.delete("/eliminar/:id", verificarRol(["Admin","Tecnico"]), eliminarReparacion);
 
+import { obtenerFacturaPorId } from '../controllers/facturaController.js';
+rutasReparaciones.get("/facturas/:idReparacion",verificarRol(["Tecnico", "Admin"]), obtenerFacturaPorId);
+
 export default rutasReparaciones;

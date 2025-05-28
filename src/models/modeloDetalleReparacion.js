@@ -3,7 +3,6 @@ const prisma = new PrismaClient();
 
 // Agregar repuesto a una reparación
 export const agregarRepuestoAReparacionModelo = async ({ ID_Reparacion, ID_Repuesto, Cantidad }) => {
-  // Buscar el repuesto
   const repuesto = await prisma.tb_repuesto.findUnique({
     where: { ID_Repuesto },
   });
@@ -24,7 +23,6 @@ export const agregarRepuestoAReparacionModelo = async ({ ID_Reparacion, ID_Repue
   });
 };
 
-// (Opcional) Obtener detalles por reparación
 export const obtenerDetallesPorReparacionModelo = async (idReparacion) => {
   return await prisma.tb_detalle_reparacion_repuesto.findMany({
     where: { ID_Reparacion: idReparacion },

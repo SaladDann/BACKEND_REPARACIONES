@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { PORT, config_cors } from "./src/config/config.js";
 import routes from "./src/routes/rutasAPI.js";
-import './testConnection.js'; // Importa testConnection.js
+import './testConnection.js';
 
 const app = express();
 
