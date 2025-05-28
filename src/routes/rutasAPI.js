@@ -14,7 +14,6 @@ import rutasFacturas from "./rutasFactura.js";
 
 const router = new Router();
 
-// Montamos rutas
 router.use('/login', rutasLogin);
 router.use('/usuarios', rutasUsuarios);
 router.use('/clientes', rutasClientes);

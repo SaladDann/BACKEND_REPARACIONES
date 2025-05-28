@@ -12,7 +12,6 @@ import {
 } from '../models/modeloCliente.js';
 
 
-/* GET /clientes – Admin y Técnico */
 export const listarClientes = async (_req, res) => {
   try {
     const clientes = await obtenerTodosLosClientes();
@@ -22,7 +21,7 @@ export const listarClientes = async (_req, res) => {
   }
 };
 
-/* GET /clientes/:id – Admin y Técnico */
+
 export const obtenerCliente = async (req, res) => {
   const id = Number(req.params.id);
   try {
@@ -36,7 +35,6 @@ export const obtenerCliente = async (req, res) => {
   }
 };
 
-/* POST /clientes – Admin y Técnico */
 export const registrarCliente = async (req, res) => {
   const { Cedula, Nombres, Apellidos, Telefono, Email, Direccion } = req.body;
 
@@ -52,7 +50,6 @@ export const registrarCliente = async (req, res) => {
   }
 };
 
-/* PUT /clientes/:id – Admin y Técnico */
 export const modificarCliente = async (req, res) => {
   const id = Number(req.params.id);
   const { Cedula, Nombres, Apellidos, Telefono, Email, Direccion } = req.body;
@@ -70,7 +67,6 @@ export const modificarCliente = async (req, res) => {
   }
 };
 
-/* DELETE /clientes/:id – Admin y Técnico */
 export const borrarCliente = async (req, res) => {
   const id = Number(req.params.id);
   try {
@@ -86,7 +82,6 @@ export const borrarCliente = async (req, res) => {
   }
 };
 
-/* GET /clientes/cedula/:cedula – Admin y Técnico */
 export const obtenerClientePorCedulaController = async (req, res) => {
   const { cedula } = req.params;
   try {
@@ -101,7 +96,6 @@ export const obtenerClientePorCedulaController = async (req, res) => {
 };
 
 
-/* GET /clientes/mi-perfil – Solo Cliente */
 export const obtenerMiPerfilCliente = async (req, res) => {
   const idUsuario = req.user.id;
 

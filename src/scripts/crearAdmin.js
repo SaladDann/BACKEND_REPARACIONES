@@ -1,5 +1,5 @@
 //ejecute en terminal
-// node node src\scripts\crearAdmin.js
+// node src\scripts\crearAdmin.js
 //si tu ruta usa espacio en blancos usar comillas
 
 
@@ -14,7 +14,7 @@ const prisma = new PrismaClient();
 const crearAdmin = async () => {
   try {
     const username = "admin";
-    const passwordPlano = "admin123"; // ⚠️ Cambia por una contraseña segura
+    const passwordPlano = "admin123";
     const hashedPassword = await bcrypt.hash(passwordPlano, 10);
 
     // Verificar si ya existe

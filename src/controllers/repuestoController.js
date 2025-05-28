@@ -9,10 +9,7 @@ import {
   eliminarRepuestoModelo,
 } from "../models/modeloRepuesto.js";
 
-/**
- * GET /api/repuestos
- * Obtener todos los repuestos
- */
+
 export const obtenerTodosRepuestos = async (req, res) => {
   try {
     const repuestos = await obtenerTodosRepuestosModelo();
@@ -22,10 +19,7 @@ export const obtenerTodosRepuestos = async (req, res) => {
   }
 };
 
-/**
- * GET /api/repuestos/:id
- * Obtener un repuesto por ID
- */
+
 export const obtenerRepuestoPorId = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
@@ -39,10 +33,6 @@ export const obtenerRepuestoPorId = async (req, res) => {
   }
 };
 
-/**
- * POST /api/repuestos
- * Crear un nuevo repuesto
- */
 export const crearRepuesto = async (req, res) => {
   try {
     const { Nombre, Precio } = req.body;
@@ -58,10 +48,6 @@ export const crearRepuesto = async (req, res) => {
   }
 };
 
-/**
- * PUT /api/repuestos/:id
- * Actualizar un repuesto por ID
- */
 export const actualizarRepuesto = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
@@ -79,10 +65,7 @@ export const actualizarRepuesto = async (req, res) => {
   }
 };
 
-/**
- * DELETE /api/repuestos/:id
- * Eliminar un repuesto por ID
- */
+
 export const eliminarRepuesto = async (req, res) => {
   try {
     const id = parseInt(req.params.id);

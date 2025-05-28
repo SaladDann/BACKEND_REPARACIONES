@@ -9,8 +9,8 @@ export const db_pool_connection = createPool(
         database: DATABASE,
         port: PORT_DB,
 
-        waitForConnections: true,    // Esperar conexiones si el pool está saturado
-        connectionLimit: 10,        // Limitar conexiones simultáneas (ajustable)
-        queueLimit: 0              // Sin límite en cola de peticiones
+        waitForConnections: true,  
+        connectionLimit: 10,        
+        queueLimit: 0              
     }
 );
