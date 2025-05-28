@@ -1,7 +1,7 @@
 //ejecute en terminal
-// node C:\Users\maxxi\Desktop\Proyecto_Dawa\BACKEND_REPARACIONES\src\scripts\crearAdmin.js
+// node node src\scripts\crearAdmin.js
 //si tu ruta usa espacio en blancos usar comillas
-// node "C:\Users\maxxi\Desktop\Proyecto_Dawa\BACKEND_REPARACIONES\src\scripts\crearAdmin.js"
+
 
 import { PrismaClient } from "../generated/prisma/client.js";
 import bcrypt from "bcryptjs";

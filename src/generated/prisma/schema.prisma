@@ -17,9 +17,10 @@ model tb_cliente {
   Email      String @db.VarChar(100)
   Direccion  String @db.VarChar(150)
 
-  equipos      tb_equipo[]
-  reparaciones tb_reparacion[]
-  usuarios     tb_usuario[]
+  equipos         tb_equipo[]
+  reparaciones    tb_reparacion[]
+  usuarios        tb_usuario[]
+  tb_notificacion tb_notificacion[]
 }
 
 model tb_tecnico {
@@ -44,8 +45,10 @@ model tb_usuario {
   ID_Cliente       Int?
   ID_Tecnico       Int?
 
-  cliente tb_cliente? @relation(fields: [ID_Cliente], references: [ID_Cliente])
-  tecnico tb_tecnico? @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
+  cliente           tb_cliente?            @relation(fields: [ID_Cliente], references: [ID_Cliente])
+  tecnico           tb_tecnico?            @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
+  notificaciones    tb_notificacion[] // <- relación directa
+  estados_aprobados tb_estado_reparacion[] @relation("UsuarioAprobador")
 }
 
 model tb_equipo {
@@ -80,12 +83,13 @@ model tb_reparacion {
   IVA           Decimal  @db.Decimal(10, 2)
   Total         Decimal  @db.Decimal(10, 2)
 
-  cliente tb_cliente @relation(fields: [ID_Cliente], references: [ID_Cliente])
-  tecnico tb_tecnico @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
-  equipo  tb_equipo  @relation(fields: [ID_Equipo], references: [ID_Equipo])
-
-  estados  tb_estado_reparacion[]
-  detalles tb_detalle_reparacion_repuesto[]
+  cliente         tb_cliente                       @relation(fields: [ID_Cliente], references: [ID_Cliente])
+  tecnico         tb_tecnico                       @relation(fields: [ID_Tecnico], references: [ID_Tecnico])
+  equipo          tb_equipo                        @relation(fields: [ID_Equipo], references: [ID_Equipo])
+  estados         tb_estado_reparacion[]
+  detalles        tb_detalle_reparacion_repuesto[]
+  factura         tb_factura? // RELACIÓN SIN ARGUMENTOS AQUÍ
+  tb_notificacion tb_notificacion[]
 }
 
 model tb_detalle_reparacion_repuesto {
@@ -100,15 +104,58 @@ model tb_detalle_reparacion_repuesto {
 }
 
 model tb_estado_reparacion {
-  ID_Estado           Int      @id @default(autoincrement())
+  ID_Estado           Int       @id @default(autoincrement())
   ID_Reparacion       Int
-  FechaHora           DateTime @default(now()) @db.DateTime(0)
-  Estado              String   @db.VarChar(100)
-  Descripcion         String?  @db.Text
-  Requiere_Aprobacion Boolean? @default(false)
+  FechaHora           DateTime  @default(now()) @db.DateTime(0)
+  Estado              String    @db.VarChar(100)
+  Descripcion         String?   @db.Text
+  Requiere_Aprobacion Boolean?  @default(false)
   Aprobado            Boolean?
+  ID_Usuario_Aprobado Int?
+  Fecha_Aprobacion    DateTime? @db.DateTime(0)
+
+  reparacion        tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+  usuario_aprobador tb_usuario?   @relation("UsuarioAprobador", fields: [ID_Usuario_Aprobado], references: [ID_Usuario])
+
+  @@index([ID_Reparacion])
+  @@index([ID_Usuario_Aprobado])
+}
+
+model tb_factura {
+  ID_Factura    Int      @id @default(autoincrement())
+  ID_Reparacion Int      @unique
+  Fecha_Emision DateTime @default(now()) @db.DateTime(0)
+  Subtotal      Decimal  @db.Decimal(10, 2)
+  IVA           Decimal  @db.Decimal(10, 2)
+  Total         Decimal  @db.Decimal(10, 2)
+  Metodo_Pago   String?  @db.VarChar(50)
+  Estado        String   @db.VarChar(50)
 
   reparacion tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+
+  @@index([ID_Reparacion])
+}
+
+model tb_notificacion {
+  ID_Notificacion Int      @id @default(autoincrement())
+  ID_Cliente      Int
+  ID_Reparacion   Int
+  ID_Usuario      Int? // <- nueva clave foránea
+  Mensaje         String   @db.Text
+  Fecha_Envio     DateTime @default(now()) @db.DateTime(0)
+  Enviado         Boolean  @default(false)
+  Tipo            String   @db.VarChar(50)
+  Tipo_Cambio     String?  @db.VarChar(50)
+  Aprobado        Boolean?
+  Datos_Cambio    Json?
+
+  cliente    tb_cliente    @relation(fields: [ID_Cliente], references: [ID_Cliente])
+  reparacion tb_reparacion @relation(fields: [ID_Reparacion], references: [ID_Reparacion])
+  usuario    tb_usuario?   @relation(fields: [ID_Usuario], references: [ID_Usuario]) // <- relación inversa
+
+  @@index([ID_Cliente])
+  @@index([ID_Reparacion])
+  @@index([ID_Usuario]) // <- opcional, mejora consultas
 }
 
 enum tb_usuario_Usuario_nivel {

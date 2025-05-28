@@ -173,8 +173,8 @@ export const actualizarUsuarioControlador = async (req, res) => {
     const datosActualizar = {
       Usuario_Name: username,
       Usuario_nivel: nivel,
-      ID_Cliente: ID_Cliente || null,
-      ID_Tecnico: ID_Tecnico || null,
+      ID_Cliente: ID_Cliente,
+      ID_Tecnico: ID_Tecnico,
     };
 
     if (password) {

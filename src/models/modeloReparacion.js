@@ -14,7 +14,7 @@ export const obtenerTodasReparacionesModelo = async () => {
   });
 };
 
-// Obtener reparación por ID
+// Obtener reparación por ID (mantener si otras rutas lo usan para buscar por ID de reparación)
 export const obtenerReparacionPorIdModelo = async (id) => {
   return await prisma.tb_reparacion.findUnique({
     where: { ID_Reparacion: id },
@@ -33,6 +33,7 @@ export const obtenerReparacionPorIdModelo = async (id) => {
 };
 
 // Obtener reparaciones por cliente (para que el cliente vea sus reparaciones)
+// ESTA ES LA FUNCIÓN CLAVE QUE SE LLAMA DESDE EL CONTROLADOR MODIFICADO
 export const obtenerReparacionesPorClienteModelo = async (idCliente) => {
   return await prisma.tb_reparacion.findMany({
     where: { ID_Cliente: idCliente },

@@ -130,24 +130,12 @@ exports.Prisma.Tb_clienteScalarFieldEnum = {
   Direccion: 'Direccion'
 };
 
-exports.Prisma.Tb_tecnicoScalarFieldEnum = {
-  ID_Tecnico: 'ID_Tecnico',
-  Cedula: 'Cedula',
-  Nombres: 'Nombres',
-  Apellidos: 'Apellidos',
-  Telefono: 'Telefono',
-  Email: 'Email',
-  Especialidad: 'Especialidad'
-};
-
-exports.Prisma.Tb_usuarioScalarFieldEnum = {
-  ID_Usuario: 'ID_Usuario',
-  Usuario_Name: 'Usuario_Name',
-  Usuario_Password: 'Usuario_Password',
-  Usuario_nivel: 'Usuario_nivel',
-  Usuario_activo: 'Usuario_activo',
-  ID_Cliente: 'ID_Cliente',
-  ID_Tecnico: 'ID_Tecnico'
+exports.Prisma.Tb_detalle_reparacion_repuestoScalarFieldEnum = {
+  ID_Detalle: 'ID_Detalle',
+  ID_Reparacion: 'ID_Reparacion',
+  ID_Repuesto: 'ID_Repuesto',
+  Cantidad: 'Cantidad',
+  Subtotal: 'Subtotal'
 };
 
 exports.Prisma.Tb_equipoScalarFieldEnum = {
@@ -158,32 +146,6 @@ exports.Prisma.Tb_equipoScalarFieldEnum = {
   Modelo: 'Modelo',
   Descripcion_problema: 'Descripcion_problema',
   Estado: 'Estado'
-};
-
-exports.Prisma.Tb_repuestoScalarFieldEnum = {
-  ID_Repuesto: 'ID_Repuesto',
-  Nombre: 'Nombre',
-  Precio: 'Precio'
-};
-
-exports.Prisma.Tb_reparacionScalarFieldEnum = {
-  ID_Reparacion: 'ID_Reparacion',
-  ID_Cliente: 'ID_Cliente',
-  ID_Tecnico: 'ID_Tecnico',
-  ID_Equipo: 'ID_Equipo',
-  Fecha_Ingreso: 'Fecha_Ingreso',
-  Fecha_Entrega: 'Fecha_Entrega',
-  CostoServicio: 'CostoServicio',
-  IVA: 'IVA',
-  Total: 'Total'
-};
-
-exports.Prisma.Tb_detalle_reparacion_repuestoScalarFieldEnum = {
-  ID_Detalle: 'ID_Detalle',
-  ID_Reparacion: 'ID_Reparacion',
-  ID_Repuesto: 'ID_Repuesto',
-  Cantidad: 'Cantidad',
-  Subtotal: 'Subtotal'
 };
 
 exports.Prisma.Tb_estado_reparacionScalarFieldEnum = {
@@ -211,16 +173,69 @@ exports.Prisma.Tb_facturaScalarFieldEnum = {
 
 exports.Prisma.Tb_notificacionScalarFieldEnum = {
   ID_Notificacion: 'ID_Notificacion',
+  ID_Cliente: 'ID_Cliente',
+  ID_Reparacion: 'ID_Reparacion',
   ID_Usuario: 'ID_Usuario',
-  Tipo: 'Tipo',
   Mensaje: 'Mensaje',
-  Estado_Leido: 'Estado_Leido',
-  Fecha: 'Fecha'
+  Fecha_Envio: 'Fecha_Envio',
+  Enviado: 'Enviado',
+  Tipo: 'Tipo',
+  Tipo_Cambio: 'Tipo_Cambio',
+  Aprobado: 'Aprobado',
+  Datos_Cambio: 'Datos_Cambio'
+};
+
+exports.Prisma.Tb_reparacionScalarFieldEnum = {
+  ID_Reparacion: 'ID_Reparacion',
+  ID_Cliente: 'ID_Cliente',
+  ID_Tecnico: 'ID_Tecnico',
+  ID_Equipo: 'ID_Equipo',
+  Fecha_Ingreso: 'Fecha_Ingreso',
+  Fecha_Entrega: 'Fecha_Entrega',
+  CostoServicio: 'CostoServicio',
+  IVA: 'IVA',
+  Total: 'Total'
+};
+
+exports.Prisma.Tb_repuestoScalarFieldEnum = {
+  ID_Repuesto: 'ID_Repuesto',
+  Nombre: 'Nombre',
+  Precio: 'Precio'
+};
+
+exports.Prisma.Tb_tecnicoScalarFieldEnum = {
+  ID_Tecnico: 'ID_Tecnico',
+  Cedula: 'Cedula',
+  Nombres: 'Nombres',
+  Apellidos: 'Apellidos',
+  Telefono: 'Telefono',
+  Email: 'Email',
+  Especialidad: 'Especialidad'
+};
+
+exports.Prisma.Tb_usuarioScalarFieldEnum = {
+  ID_Usuario: 'ID_Usuario',
+  Usuario_Name: 'Usuario_Name',
+  Usuario_Password: 'Usuario_Password',
+  Usuario_nivel: 'Usuario_nivel',
+  Usuario_activo: 'Usuario_activo',
+  ID_Cliente: 'ID_Cliente',
+  ID_Tecnico: 'ID_Tecnico'
 };
 
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
+};
+
+exports.Prisma.NullableJsonNullValueInput = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 exports.Prisma.tb_clienteOrderByRelevanceFieldEnum = {
@@ -232,35 +247,12 @@ exports.Prisma.tb_clienteOrderByRelevanceFieldEnum = {
   Direccion: 'Direccion'
 };
 
-exports.Prisma.tb_tecnicoOrderByRelevanceFieldEnum = {
-  Cedula: 'Cedula',
-  Nombres: 'Nombres',
-  Apellidos: 'Apellidos',
-  Telefono: 'Telefono',
-  Email: 'Email',
-  Especialidad: 'Especialidad'
-};
-
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
-};
-
-exports.Prisma.tb_usuarioOrderByRelevanceFieldEnum = {
-  Usuario_Name: 'Usuario_Name',
-  Usuario_Password: 'Usuario_Password'
-};
-
 exports.Prisma.tb_equipoOrderByRelevanceFieldEnum = {
   Nombre: 'Nombre',
   Marca: 'Marca',
   Modelo: 'Modelo',
   Descripcion_problema: 'Descripcion_problema',
   Estado: 'Estado'
-};
-
-exports.Prisma.tb_repuestoOrderByRelevanceFieldEnum = {
-  Nombre: 'Nombre'
 };
 
 exports.Prisma.tb_estado_reparacionOrderByRelevanceFieldEnum = {
@@ -273,9 +265,39 @@ exports.Prisma.tb_facturaOrderByRelevanceFieldEnum = {
   Estado: 'Estado'
 };
 
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+
 exports.Prisma.tb_notificacionOrderByRelevanceFieldEnum = {
+  Mensaje: 'Mensaje',
   Tipo: 'Tipo',
-  Mensaje: 'Mensaje'
+  Tipo_Cambio: 'Tipo_Cambio'
+};
+
+exports.Prisma.tb_repuestoOrderByRelevanceFieldEnum = {
+  Nombre: 'Nombre'
+};
+
+exports.Prisma.tb_tecnicoOrderByRelevanceFieldEnum = {
+  Cedula: 'Cedula',
+  Nombres: 'Nombres',
+  Apellidos: 'Apellidos',
+  Telefono: 'Telefono',
+  Email: 'Email',
+  Especialidad: 'Especialidad'
+};
+
+exports.Prisma.tb_usuarioOrderByRelevanceFieldEnum = {
+  Usuario_Name: 'Usuario_Name',
+  Usuario_Password: 'Usuario_Password'
 };
 exports.tb_usuario_Usuario_nivel = exports.$Enums.tb_usuario_Usuario_nivel = {
   Cliente: 'Cliente',
@@ -285,15 +307,15 @@ exports.tb_usuario_Usuario_nivel = exports.$Enums.tb_usuario_Usuario_nivel = {
 
 exports.Prisma.ModelName = {
   tb_cliente: 'tb_cliente',
-  tb_tecnico: 'tb_tecnico',
-  tb_usuario: 'tb_usuario',
-  tb_equipo: 'tb_equipo',
-  tb_repuesto: 'tb_repuesto',
-  tb_reparacion: 'tb_reparacion',
   tb_detalle_reparacion_repuesto: 'tb_detalle_reparacion_repuesto',
+  tb_equipo: 'tb_equipo',
   tb_estado_reparacion: 'tb_estado_reparacion',
   tb_factura: 'tb_factura',
-  tb_notificacion: 'tb_notificacion'
+  tb_notificacion: 'tb_notificacion',
+  tb_reparacion: 'tb_reparacion',
+  tb_repuesto: 'tb_repuesto',
+  tb_tecnico: 'tb_tecnico',
+  tb_usuario: 'tb_usuario'
 };
 
 /**
