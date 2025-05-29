@@ -17,7 +17,6 @@ const crearAdmin = async () => {
     const passwordPlano = "admin123";
     const hashedPassword = await bcrypt.hash(passwordPlano, 10);
 
-    // Verificar si ya existe
     const existe = await prisma.tb_usuario.findUnique({
       where: { Usuario_Name: username }
     });

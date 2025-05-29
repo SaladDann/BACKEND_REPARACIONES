@@ -1,17 +1,12 @@
+// routes/rutasReparaciones.js
 import express from "express";
-import {
-  obtenerReparaciones,
-  obtenerReparacionPorId,
-  crearReparacion,
-  actualizarReparacion,
-  eliminarReparacion,
-  proponerCostoExtra,
-  probarReparaciones,
-} from "../controllers/reparacionController.js";
+import { obtenerReparaciones, obtenerReparacionPorId, crearReparacion, actualizarReparacion,
+   eliminarReparacion, proponerCostoExtra, probarReparaciones} from "../controllers/reparacionController.js";
 import { verificarToken, verificarRol } from "../middlewares/auth.js";
 
-const rutasReparaciones = express.Router();
+import { obtenerFacturaPorId, crearFactura } from '../controllers/facturaController.js';
 
+const rutasReparaciones = express.Router();
 rutasReparaciones.use(verificarToken);
 
 rutasReparaciones.get("/test", probarReparaciones);
@@ -22,7 +17,8 @@ rutasReparaciones.put("/actualizar/:id", verificarRol(["Admin", "Tecnico"]), act
 rutasReparaciones.post("/costo-extra", verificarRol(["Admin", "Tecnico"]), proponerCostoExtra);
 rutasReparaciones.delete("/eliminar/:id", verificarRol(["Admin","Tecnico"]), eliminarReparacion);
 
-import { obtenerFacturaPorId } from '../controllers/facturaController.js';
-rutasReparaciones.get("/facturas/:idReparacion",verificarRol(["Tecnico", "Admin"]), obtenerFacturaPorId);
+// Rutas para facturas
+rutasReparaciones.get("/facturas/:idReparacion",verificarRol(["Admin","Tecnico"]), obtenerFacturaPorId);
+rutasReparaciones.post("/facturas", verificarRol(["Admin", "Tecnico"]), crearFactura);
 
 export default rutasReparaciones;
