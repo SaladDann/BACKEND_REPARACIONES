@@ -1,17 +1,16 @@
 import { PrismaClient } from "../generated/prisma/client.js";
 const prisma = new PrismaClient();
 
-import { response_success, response_created, response_not_found, response_error,  response_bad_request } from '../responses/responses.js';
+import { response_success, response_created, response_not_found,
+response_error, response_bad_request } from '../responses/responses.js';
+
 import bcrypt from "bcryptjs";
 import jwt from 'jsonwebtoken';
-import { 
-  buscarUsuarioPorNombre, crearUsuario, 
-  buscarUsuarioPorId, actualizarUsuario, 
-  eliminarUsuario, obtenerTodosUsuarios, 
-  cambiarEstadoActivoUsuario 
-} from '../models/modeloUsuario.js';
 
-const SALT_ROUNDS = 10;
+import { buscarUsuarioPorNombre, crearUsuario, buscarUsuarioPorId, actualizarUsuario,
+eliminarUsuario, obtenerTodosUsuarios, cambiarEstadoActivoUsuario } from '../models/modeloUsuario.js';
+
+const SALT_ROUNDS = 10;// dicta la cantidad de trabajo para hacer que el hash de la contraseña sea más difícil de crackear a mayor numero mayor tiempo pero mas seguridad.
 const ROLES_PERMITIDOS = ['Cliente', 'Tecnico', 'Admin'];
 
 // Login
@@ -19,14 +18,14 @@ export const iniciarSesion = async (req, res) => {
   const { username, password } = req.body;
   try {
     const usuario = await buscarUsuarioPorNombre(username);
-    if (!usuario) 
+    if (!usuario)
       return res.status(404).json(response_not_found('Usuario no encontrado'));
 
-    if (!usuario.Usuario_activo) 
+    if (!usuario.Usuario_activo)
       return res.status(403).json(response_bad_request('Usuario inactivo'));
 
     const coincide = await bcrypt.compare(password, usuario.Usuario_Password);
-    if (!coincide) 
+    if (!coincide)
       return res.status(401).json(response_bad_request('Contraseña incorrecta'));
 
     const token = jwt.sign(
@@ -48,9 +47,7 @@ export const iniciarSesion = async (req, res) => {
   }
 };
 
-
-
-//crear usuario
+// Crear usuario
 export const registrarUsuario = async (req, res) => {
   const { username, password, nivel, ID_Cliente, ID_Tecnico } = req.body;
 
@@ -60,7 +57,7 @@ export const registrarUsuario = async (req, res) => {
       return res.status(400).json(response_bad_request('Faltan campos obligatorios: username, password, nivel'));
     }
 
-    // Validar que nivel sea válido
+    // Validar nivel
     if (!ROLES_PERMITIDOS.includes(nivel)) {
       return res.status(400).json(response_bad_request(`El nivel debe ser uno de: ${ROLES_PERMITIDOS.join(', ')}`));
     }
@@ -150,12 +147,12 @@ export const actualizarUsuarioControlador = async (req, res) => {
       return res.status(400).json(response_bad_request('Faltan campos obligatorios: username, nivel'));
     }
 
-    // Validar que nivel sea válido
+    // Nivel sea válido
     if (!ROLES_PERMITIDOS.includes(nivel)) {
       return res.status(400).json(response_bad_request(`El nivel debe ser uno de: ${ROLES_PERMITIDOS.join(', ')}`));
     }
 
-    // Validar que ID_Cliente y ID_Tecnico existan (si se proporcionan)
+    // Validar que ID_Cliente y ID_Tecnico existan
     if (ID_Cliente) {
       const cliente = await prisma.tb_cliente.findUnique({ where: { ID_Cliente } });
       if (!cliente) {
@@ -193,7 +190,7 @@ export const actualizarUsuarioControlador = async (req, res) => {
   }
 };
 
-// Eliminar usuario (solo admin)
+// Eliminar usuario
 export const eliminarUsuarioControlador = async (req, res) => {
   const { id } = req.params;
 
@@ -205,7 +202,7 @@ export const eliminarUsuarioControlador = async (req, res) => {
   }
 };
 
-// Cambiar estado activo/inactivo usuario (solo admin)
+// Cambiar estado activo/inactivo
 export const cambiarEstadoUsuarioControlador = async (req, res) => {
   const { id } = req.params;
   const { activo } = req.body;
@@ -218,8 +215,8 @@ export const cambiarEstadoUsuarioControlador = async (req, res) => {
   }
 };
 
-/* Función para probar la conexión o funcionalidad usuario */
-export const probarUsuarios = async (req, res) => {
+// Endpoint de prueba para usuarios
+export const probarUsuarios = async (_req, res) => {
   try {
     res.status(200).json(response_success(null, 'Funciona el controlador Usuario'));
     console.log("Funciona el controlador Usuario");

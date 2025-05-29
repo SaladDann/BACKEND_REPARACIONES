@@ -1,3 +1,5 @@
+// Nota: un middleware es una función que intercepta y procesa peticiones web antes de que lleguen a la ruta,
+// permite realizar tareas de seguridad, validación o modificación de datos.
 import jwt from 'jsonwebtoken';
 import { response_error, response_bad_request } from '../responses/responses.js';
 
@@ -33,8 +35,8 @@ export const verificarToken = (req, res, next) => {
 // Middleware para verificar roles permitidos
 export const verificarRol = (nivelesPermitidos = []) => {
   return (req, res, next) => {
-    
-    console.log('Usuario decodificado:', req.user); // prueba quitar luego
+    // Remover este console.log luego
+    console.log('Usuario decodificado:', req.user);
 
     if (!req.user || !req.user.nivel) {
       return res.status(401).json(response_bad_request('Usuario no autenticado'));
@@ -47,4 +49,3 @@ export const verificarRol = (nivelesPermitidos = []) => {
     next();
   };
 };
-

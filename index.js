@@ -8,14 +8,14 @@ const app = express();
 
 app.use(cors(config_cors.application.cors.server));
 app.use(express.json());
-
 app.use('/api', routes);
 
-app.use((req, res, next) => {
+// Middleware para rutas no encontradas
+app.use((req, res) => {
   res.status(404).json({ message: "Ruta no encontrada" });
 });
 
-//manejo global de errores
+// Manejo global de errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ message: "Error interno del servidor" });

@@ -1,11 +1,9 @@
 import { PrismaClient } from "../generated/prisma/client.js";
 const prisma = new PrismaClient();
 
-
 export const obtenerTodosRepuestosModelo = async () => {
   return await prisma.tb_repuesto.findMany();
 };
-
 
 export const obtenerRepuestoPorIdModelo = async (id) => {
   return await prisma.tb_repuesto.findUnique({
@@ -18,7 +16,6 @@ export const crearRepuestoModelo = async (data) => {
     data,
   });
 };
-
 
 export const actualizarRepuestoModelo = async (id, data) => {
   return await prisma.tb_repuesto.update({

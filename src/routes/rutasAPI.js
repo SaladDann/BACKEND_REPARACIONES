@@ -4,12 +4,12 @@ import { probarLogin, login } from "../controllers/loginController.js";
 import rutasLogin from "./rutasLogin.js";
 import rutasUsuarios from "./rutasUsuario.js";
 import rutasClientes from "./rutasCliente.js";
-import rutasTecnicos from "./rutasTecnico.js"
+import rutasTecnicos from "./rutasTecnico.js";
 import rutasEquipos from "./rutasEquipo.js";
 import rutasReparaciones from "./rutasReparacion.js";
 import rutasEstadoReparaciones from "./rutasEstadoReparacion.js";
 import rutasRepuestos from "./rutasRepuesto.js";
-import rutasDetalleReparacion from "./rutasdetalleReparacion.js"
+import rutasDetalleReparacion from "./rutasdetalleReparacion.js";
 import rutasFacturas from "./rutasFactura.js";
 
 const router = new Router();
@@ -22,8 +22,8 @@ router.use('/equipos', rutasEquipos);
 router.use('/reparaciones', rutasReparaciones);
 router.use('/estadoReparaciones', rutasEstadoReparaciones);
 router.use('/repuestos', rutasRepuestos);
-router.use('/detalles-reparacion',rutasDetalleReparacion)
-router.use('/factura', rutasFacturas)
+router.use('/detalles-reparacion', rutasDetalleReparacion);
+router.use('/factura', rutasFacturas);
 
 // Rutas de prueba genérica
 router.get('/probarRutas', probarLogin);

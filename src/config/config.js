@@ -11,7 +11,6 @@ export const PASSWORD = process.env.PASSWORD;
 export const DATABASE = process.env.DATABASE;
 export const PORT_DB = process.env.PORT_DB;
 
-// Configuración CORS (compatible con express)
 export const config_cors = {
     application: {
         cors: {

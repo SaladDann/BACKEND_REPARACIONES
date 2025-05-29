@@ -1,8 +1,8 @@
-// routes/rutasReparaciones.js
 import express from "express";
-import { obtenerReparaciones, obtenerReparacionPorId, crearReparacion, actualizarReparacion,
-   eliminarReparacion, proponerCostoExtra, probarReparaciones} from "../controllers/reparacionController.js";
 import { verificarToken, verificarRol } from "../middlewares/auth.js";
+
+import { obtenerReparaciones, obtenerReparacionPorId, crearReparacion, actualizarReparacion,
+eliminarReparacion, proponerCostoExtra, probarReparaciones} from "../controllers/reparacionController.js";
 
 import { obtenerFacturaPorId, crearFactura } from '../controllers/facturaController.js';
 

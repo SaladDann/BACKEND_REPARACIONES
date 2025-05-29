@@ -1,16 +1,11 @@
 import { PrismaClient } from "../generated/prisma/client.js";
 const prisma = new PrismaClient();
 
-import {
-  obtenerTodosEstadosReparacionModelo,
-  obtenerEstadosPorReparacionModelo,
-  crearEstadoReparacionModelo,
-  actualizarEstadoReparacionModelo,
-  eliminarEstadoReparacionModelo,
-} from "../models/modeloEstadoReparacion.js";
+import { obtenerTodosEstadosReparacionModelo, obtenerEstadosPorReparacionModelo, crearEstadoReparacionModelo,
+actualizarEstadoReparacionModelo, eliminarEstadoReparacionModelo } from "../models/modeloEstadoReparacion.js";
 
-// Obtener todos los estados (Admin/Técnico)
-export const obtenerTodosEstados = async (req, res) => {
+// Obtener todos los estados
+export const obtenerTodosEstados = async (_req, res) => {
   try {
     const estados = await obtenerTodosEstadosReparacionModelo();
     res.json(estados);
@@ -30,7 +25,7 @@ export const obtenerEstadosPorReparacion = async (req, res) => {
   }
 };
 
-// Crear nuevo estado (Técnico)
+// Crear nuevo estado
 export const crearEstadoReparacion = async (req, res) => {
   try {
     const estado = await crearEstadoReparacionModelo(req.body);
@@ -40,7 +35,7 @@ export const crearEstadoReparacion = async (req, res) => {
   }
 };
 
-// Actualizar estado (ej. Aprobación por Cliente o corrección por Técnico)
+// Actualizar estado
 export const actualizarEstadoReparacion = async (req, res) => {
   const { id } = req.params;
   try {
@@ -51,7 +46,7 @@ export const actualizarEstadoReparacion = async (req, res) => {
   }
 };
 
-// Eliminar un estado de reparación (Admin si aplica)
+// Eliminar un estado de reparación
 export const eliminarEstadoReparacion = async (req, res) => {
   const { id } = req.params;
   try {
@@ -62,11 +57,12 @@ export const eliminarEstadoReparacion = async (req, res) => {
   }
 };
 
-export const probarEstadoReparaciones = async (req, res) => {
+// Endpoint de prueba
+export const probarEstadoReparaciones = async (_req, res) => {
   try {
     res.status(200).json({ message: 'Funciona la funcion probarEstadoReparaciones'});
     console.log("Funciona la funcion probarEstadoReparaciones");
   } catch (error) {
-    return res.status(500).json(response_error(`Error: ${error.message}`));
+    res.status(500).json({ mensaje: `Error: ${error.message}` });
   }
-}
+};

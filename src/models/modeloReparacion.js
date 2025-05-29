@@ -13,7 +13,6 @@ export const obtenerTodasReparacionesModelo = async () => {
   });
 };
 
-
 export const obtenerReparacionPorIdModelo = async (id) => {
   return await prisma.tb_reparacion.findUnique({
     where: { ID_Reparacion: id },
@@ -30,7 +29,6 @@ export const obtenerReparacionPorIdModelo = async (id) => {
     },
   });
 };
-
 
 export const obtenerReparacionesPorClienteModelo = async (idCliente) => {
   return await prisma.tb_reparacion.findMany({
@@ -70,13 +68,11 @@ export const obtenerReparacionesPorTecnicoModelo = async (idTecnico) => {
   });
 };
 
-
 export const crearReparacionModelo = async (data) => {
   return await prisma.tb_reparacion.create({
     data,
   });
 };
-
 
 export const actualizarReparacionModelo = async (id, data) => {
   return await prisma.tb_reparacion.update({
@@ -84,7 +80,6 @@ export const actualizarReparacionModelo = async (id, data) => {
     data,
   });
 };
-
 
 export const eliminarReparacionModelo = async (id) => {
   return await prisma.tb_reparacion.delete({

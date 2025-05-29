@@ -1,14 +1,8 @@
 import express from "express";
-import {
-  obtenerTodosRepuestos,
-  obtenerRepuestoPorId,
-  crearRepuesto,
-  actualizarRepuesto,
-  eliminarRepuesto,
-  probarRepuesto,
-} from "../controllers/repuestoController.js";
-
 import { verificarToken, verificarRol } from '../middlewares/auth.js';
+
+import { obtenerTodosRepuestos, obtenerRepuestoPorId, crearRepuesto,
+actualizarRepuesto, eliminarRepuesto, probarRepuesto} from "../controllers/repuestoController.js";
 
 const rutasRepuestos = express.Router();
 
@@ -16,6 +10,7 @@ const rutasRepuestos = express.Router();
 rutasRepuestos.get("/test", probarRepuesto);
 rutasRepuestos.get("/listar", verificarToken, obtenerTodosRepuestos);
 rutasRepuestos.get("/obternerporid/:id", verificarToken, obtenerRepuestoPorId);
+
 // Rutas protegidas para Admin y Técnico
 rutasRepuestos.post("/crear", verificarToken, verificarRol(["Admin", "Tecnico"]), crearRepuesto);
 rutasRepuestos.put("/actualizar/:id", verificarToken, verificarRol(["Admin", "Tecnico"]), actualizarRepuesto);

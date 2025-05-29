@@ -1,17 +1,13 @@
 import { PrismaClient } from "../generated/prisma/client.js";
+import { response_success, response_created,response_not_found, response_error,  
+response_bad_request } from '../responses/responses.js';
+
+import { obtenerTodosLosClientes, obtenerClientePorId,  obtenerClientePorCedula,
+crearCliente, actualizarCliente, eliminarCliente } from '../models/modeloCliente.js';
+
 const prisma = new PrismaClient();
-import { response_success, response_created, response_not_found, response_error,  response_bad_request } from '../responses/responses.js';
 
-import {
-  obtenerTodosLosClientes,
-  obtenerClientePorId,
-  obtenerClientePorCedula,
-  crearCliente,
-  actualizarCliente,
-  eliminarCliente,
-} from '../models/modeloCliente.js';
-
-
+// Listar todos los clientes
 export const listarClientes = async (_req, res) => {
   try {
     const clientes = await obtenerTodosLosClientes();
@@ -21,7 +17,7 @@ export const listarClientes = async (_req, res) => {
   }
 };
 
-
+// Obtener cliente por ID
 export const obtenerCliente = async (req, res) => {
   const id = Number(req.params.id);
   try {
@@ -35,6 +31,7 @@ export const obtenerCliente = async (req, res) => {
   }
 };
 
+// Registrar nuevo cliente
 export const registrarCliente = async (req, res) => {
   const { Cedula, Nombres, Apellidos, Telefono, Email, Direccion } = req.body;
 
@@ -50,6 +47,7 @@ export const registrarCliente = async (req, res) => {
   }
 };
 
+// Modificar cliente existente
 export const modificarCliente = async (req, res) => {
   const id = Number(req.params.id);
   const { Cedula, Nombres, Apellidos, Telefono, Email, Direccion } = req.body;
@@ -67,6 +65,7 @@ export const modificarCliente = async (req, res) => {
   }
 };
 
+// Eliminar cliente
 export const borrarCliente = async (req, res) => {
   const id = Number(req.params.id);
   try {
@@ -82,6 +81,7 @@ export const borrarCliente = async (req, res) => {
   }
 };
 
+// Obtener cliente por cédula
 export const obtenerClientePorCedulaController = async (req, res) => {
   const { cedula } = req.params;
   try {
@@ -95,10 +95,9 @@ export const obtenerClientePorCedulaController = async (req, res) => {
   }
 };
 
-
+// Obtener perfil del cliente asociado al usuario autenticado
 export const obtenerMiPerfilCliente = async (req, res) => {
   const idUsuario = req.user.id;
-
   try {
     const cliente = await prisma.tb_usuario.findUnique({
       where: { ID_Usuario: idUsuario },
@@ -108,19 +107,18 @@ export const obtenerMiPerfilCliente = async (req, res) => {
     if (!cliente || !cliente.cliente) {
       return res.status(404).json(response_not_found('Cliente no encontrado o no asociado'));
     }
-
     return res.status(200).json(response_success(cliente.cliente, 'Perfil del cliente'));
   } catch (err) {
     return res.status(500).json(response_error(`Error al obtener perfil – ${err.message}`));
   }
 };
 
-
-export const probarCliente = async (req, res) => {
+// Endpoint de prueba
+export const probarCliente = async (_req, res) => {
   try {
     res.status(200).json({ message: 'Funciona la funcion probarCliente' });
     console.log("Funciona la funcion probarCliente");
   } catch (error) {
     return res.status(500).json(response_error(`Error al iniciar sesión: ${error.message}`));
   }
-}
+};

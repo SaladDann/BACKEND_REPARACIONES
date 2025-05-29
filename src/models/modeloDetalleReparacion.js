@@ -23,11 +23,12 @@ export const agregarRepuestoAReparacionModelo = async ({ ID_Reparacion, ID_Repue
   });
 };
 
+// Obtener los detalles de repuestos de una reparación
 export const obtenerDetallesPorReparacionModelo = async (idReparacion) => {
   return await prisma.tb_detalle_reparacion_repuesto.findMany({
     where: { ID_Reparacion: idReparacion },
     include: {
-      repuesto: true,
+      repuesto: true, // Para información del repuesto
     },
   });
 };

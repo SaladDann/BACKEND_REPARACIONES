@@ -1,4 +1,3 @@
-// src/routes/rutasFactura.js
 import { Router } from 'express';
 import { obtenerFacturaPorId } from '../controllers/facturaController.js';
 

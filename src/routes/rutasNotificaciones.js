@@ -1,11 +1,7 @@
 import express from "express";
-import {
-  enviarNotificacion,
-  obtenerNotificacionesPorCliente,
-  obtenerNotificacionesPorReparacion,
-  confirmarNotificacion,
-  probarNotificaciones,
-} from "../controllers/notificacionesController.js";
+import { enviarNotificacion, obtenerNotificacionesPorCliente, obtenerNotificacionesPorReparacion,
+confirmarNotificacion, probarNotificaciones } from "../controllers/notificacionesController.js";
+
 import { verificarToken, verificarRol } from "../middlewares/auth.js";
 
 const rutasNotificaciones = express.Router();

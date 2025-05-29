@@ -41,10 +41,8 @@ export const actualizarUsuario = async (id, data) => {
   });
 };
 
-
 export const eliminarUsuario = async (id) => {
   return await prisma.tb_usuario.delete({
     where: { ID_Usuario: id },
   });
 };
-

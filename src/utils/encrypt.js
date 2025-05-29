@@ -1,9 +1,10 @@
 import bcrypt from 'bcryptjs';
 
+// Funciones para encriptar y comparar contraseñas usando bcrypt
 export const hashPassword = async (password) => {
-  const saltRounds = 10;   try {
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-    return hashedPassword;
+  const saltRounds = 10;
+  try {
+    return await bcrypt.hash(password, saltRounds);
   } catch (error) {
     throw new Error('Error al encriptar la contraseña');
   }

@@ -3,6 +3,7 @@ const prisma = new PrismaClient();
 
 import { obtenerFacturaPorReparacion, guardarFactura } from '../models/modeloFactura.js';
 
+// Obtener factura por ID de reparación
 export const obtenerFacturaPorId = async (req, res) => {
   const { idReparacion } = req.params;
 
@@ -20,6 +21,7 @@ export const obtenerFacturaPorId = async (req, res) => {
   }
 };
 
+// Crear nueva factura
 export const crearFactura = async (req, res) => {
   try {
     const nuevaFactura = await guardarFactura(req.body);

@@ -6,7 +6,9 @@ const rutasDetalleReparacion = express.Router();
 
 rutasDetalleReparacion.post("/agregar", verificarToken,verificarRol(["Admin", "Tecnico"]), agregarRepuestoAReparacion);
 
-// (opcional) Obtener todos los repuestos de una reparación
-rutasDetalleReparacion.get("/repuestosReparacion/:idReparacion", verificarToken,verificarRol(["Admin", "Tecnico", "Cliente"]), obtenerDetallesPorReparacion);
+rutasDetalleReparacion.get("/repuestosReparacion/:idReparacion",
+    verificarToken,verificarRol(["Admin", "Tecnico", "Cliente"]), 
+    obtenerDetallesPorReparacion
+);
 
 export default rutasDetalleReparacion;

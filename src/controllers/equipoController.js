@@ -2,15 +2,10 @@ import { PrismaClient } from "../generated/prisma/client.js";
 const prisma = new PrismaClient();
 
 import {
-  obtenerTodosEquiposModelo,
-  obtenerEquipoPorIdModelo,
-  obtenerEquiposPorClienteModelo,
-  crearEquipoModelo,
-  actualizarEquipoModelo,
-  eliminarEquipoModelo,
-} from "../models/modeloEquipo.js";
+  obtenerTodosEquiposModelo, obtenerEquipoPorIdModelo, obtenerEquiposPorClienteModelo,
+  crearEquipoModelo, actualizarEquipoModelo, eliminarEquipoModelo } from "../models/modeloEquipo.js";
 
-// Obtener todos los equipos (Admin o Técnico)
+// Obtener todos los equipos
 export const obtenerTodosEquipos = async (req, res) => {
   try {
     const equipos = await obtenerTodosEquiposModelo();
@@ -32,7 +27,7 @@ export const obtenerEquipoPorId = async (req, res) => {
   }
 };
 
-// Obtener equipos de un cliente específico (Cliente puede ver solo sus equipos)
+// Obtener equipos de cliente
 export const obtenerEquiposPorCliente = async (req, res) => {
   const idCliente = req.params.idCliente;
   const user = req.user;
@@ -49,7 +44,7 @@ export const obtenerEquiposPorCliente = async (req, res) => {
   }
 };
 
-// Crear equipo (Técnico o Admin)
+// Crear equipo
 export const crearEquipo = async (req, res) => {
   const { ID_Cliente, Nombre, Marca, Modelo, Descripcion_problema, Estado } = req.body;
 
@@ -94,12 +89,12 @@ export const eliminarEquipo = async (req, res) => {
   }
 };
 
-
-export const probarEquipo = async (req, res) => {
+// Endpoint de prueba
+export const probarEquipo = async (_req, res) => {
   try {
-    res.status(200).json({ message: 'Funciona la funcion probarEquipo ' });
-    console.log("Funciona la funcion probarEquipo ");
+    res.status(200).json({ message: 'Funciona la funcion probarEquipo' });
+    console.log("Funciona la funcion probarEquipo");
   } catch (error) {
-    return res.status(500).json(response_error(`Error al iniciar sesión: ${error.message}`));
+    res.status(500).json({ mensaje: `Error al iniciar sesión: ${error.message}` });
   }
-}
+};

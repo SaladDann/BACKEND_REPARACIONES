@@ -1,4 +1,4 @@
-// testConnection.js par db
+//solo prueba eliminar luego
 import { db_pool_connection } from "./src/database/db.js";
 
 (async () => {
